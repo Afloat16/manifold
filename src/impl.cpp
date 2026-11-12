@@ -793,15 +793,16 @@ static std::pair<MeshGL64, std::optional<double>> ReadOBJWithEpsilon(
   std::array<char, BUFFER_SIZE> buffer;
   std::cmatch m;
 
-  while (!stream.eof()) {
+  while (stream) {
     // extract line, and skip the line if it is longer than BUFFER_SIZE
     // because the lines we care about should not be that long
     // not using std::basic_istream<...>::getline because getline throws when
     // the size exceeds the limit, but we don't want exception related code
     size_t i = 0;
     char c;
-    while (!stream.eof() && (c = stream.get()) != '\n' && c != '\r')
+    while (stream.get(c) && c != '\n' && c != '\r')
       if (i < BUFFER_SIZE) buffer[i++] = c;
+    if (stream.bad()) break;
     if (i == BUFFER_SIZE) continue;
     buffer[i] = '\0';
     // check pattern...

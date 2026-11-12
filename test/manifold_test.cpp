@@ -684,6 +684,49 @@ TEST(Manifold, ObjRoundTrip) {
   EXPECT_EQ(m2.Status(), Manifold::Error::NoError);
   EXPECT_EQ(m2.Volume(), 1);
 }
+
+TEST(Manifold, ObjFinalVertexWithoutNewline) {
+  for (const std::string ending : {"", "\n", "\r", "\r\n"}) {
+    std::stringstream input("v 1.25 -2.5 3.75" + ending);
+    const MeshGL64 mesh = ReadOBJ(input);
+    EXPECT_EQ(mesh.vertProperties, (std::vector<double>{1.25, -2.5, 3.75}));
+  }
+}
+
+TEST(Manifold, ObjFinalFaceWithoutNewline) {
+  const Manifold cube = Manifold::Cube();
+  std::stringstream output;
+  ASSERT_TRUE(cube.WriteOBJ(output));
+  std::string contents = output.str();
+  contents.erase(contents.rfind("# ======== end mesh"));
+  contents.erase(contents.find_last_not_of("\r\n") + 1);
+  std::stringstream input(contents);
+
+  const Manifold restored = Manifold::ReadOBJ(input);
+  EXPECT_EQ(restored.Status(), Manifold::Error::NoError);
+  EXPECT_EQ(restored.NumTri(), cube.NumTri());
+  EXPECT_DOUBLE_EQ(restored.Volume(), cube.Volume());
+}
+
+TEST(Manifold, ObjFinalToleranceWithoutNewline) {
+  std::stringstream input("# tolerance = 0.125");
+  EXPECT_DOUBLE_EQ(ReadOBJ(input).tolerance, 0.125);
+}
+
+TEST(Manifold, ObjReadFailureStops) {
+  class FailingBuffer : public std::stringbuf {
+   public:
+    using std::stringbuf::stringbuf;
+    int_type underflow() override {
+      throw std::ios_base::failure("simulated read failure");
+    }
+  } buffer("v 1 2 3\n");
+  std::istream input(&buffer);
+
+  const MeshGL64 mesh = ReadOBJ(input);
+  EXPECT_TRUE(input.bad());
+  EXPECT_EQ(mesh.vertProperties, (std::vector<double>{1, 2, 3}));
+}
 #endif
 
 TEST(Manifold, OppositeFace) {
