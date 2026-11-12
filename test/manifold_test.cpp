@@ -607,6 +607,55 @@ TEST(Manifold, ErrorPropagationRefine) {
             Manifold::Error::NonFiniteVertex);
   EXPECT_EQ(errored.RefineToTolerance(0.1).Status(),
             Manifold::Error::NonFiniteVertex);
+  for (double target : {0.0, std::numeric_limits<double>::quiet_NaN()}) {
+    EXPECT_EQ(errored.RefineToLength(target).Status(),
+              Manifold::Error::NonFiniteVertex);
+    EXPECT_EQ(errored.RefineToTolerance(target).Status(),
+              Manifold::Error::NonFiniteVertex);
+  }
+}
+
+class InvalidRefinementTarget : public testing::TestWithParam<double> {};
+
+TEST_P(InvalidRefinementTarget, LengthReturnsErrorStatus) {
+  const Manifold source =
+      Manifold::Tetrahedron().CalculateNormals(0, 180).SmoothByNormals();
+  ASSERT_EQ(source.Status(), Manifold::Error::NoError);
+  EXPECT_EQ(source.RefineToLength(GetParam()).Status(),
+            Manifold::Error::InvalidConstruction);
+}
+
+TEST_P(InvalidRefinementTarget, ToleranceReturnsErrorStatus) {
+  const Manifold source =
+      Manifold::Tetrahedron().CalculateNormals(0, 180).SmoothByNormals();
+  ASSERT_EQ(source.Status(), Manifold::Error::NoError);
+  EXPECT_EQ(source.RefineToTolerance(GetParam()).Status(),
+            Manifold::Error::InvalidConstruction);
+}
+
+INSTANTIATE_TEST_SUITE_P(
+    ZeroAndNaN, InvalidRefinementTarget,
+    testing::Values(0.0, std::numeric_limits<double>::quiet_NaN()));
+
+TEST(Manifold, RefinementRetainsTargetSignAndInfinityBehavior) {
+  const Manifold source =
+      Manifold::Tetrahedron().CalculateNormals(0, 180).SmoothByNormals();
+  const Manifold length = source.RefineToLength(0.5);
+  const Manifold tolerance = source.RefineToTolerance(0.5);
+  ASSERT_GT(length.NumTri(), source.NumTri());
+  ASSERT_GT(tolerance.NumTri(), source.NumTri());
+  EXPECT_EQ(length.GetMeshGL64().vertProperties,
+            source.RefineToLength(-0.5).GetMeshGL64().vertProperties);
+  EXPECT_EQ(tolerance.GetMeshGL64().vertProperties,
+            source.RefineToTolerance(-0.5).GetMeshGL64().vertProperties);
+
+  const double inf = std::numeric_limits<double>::infinity();
+  for (const Manifold& refined :
+       {source.RefineToLength(inf), source.RefineToTolerance(inf)}) {
+    EXPECT_EQ(refined.Status(), Manifold::Error::NoError);
+    EXPECT_EQ(refined.NumTri(), source.NumTri());
+    EXPECT_DOUBLE_EQ(refined.Volume(), source.Volume());
+  }
 }
 
 TEST(Manifold, ErrorPropagationAsOriginal) {

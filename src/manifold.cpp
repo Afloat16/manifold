@@ -825,7 +825,8 @@ Manifold Manifold::Refine(int n) const {
  * `CalculateNormals()` is preserved; the new verts get linearly-interpolated
  * normals, which are less precise than recomputed ones but still meaningful.
  *
- * @param length The length that edges will be broken down to.
+ * @param length The length that edges will be broken down to. Negative values
+ * use their absolute value. Zero or NaN returns InvalidConstruction.
  */
 Manifold Manifold::RefineToLength(double length) const {
   length = std::abs(length);
@@ -833,6 +834,7 @@ Manifold Manifold::RefineToLength(double length) const {
   auto leafImpl = GetCsgLeafNode(ctx.get()).GetImpl();
   if (leafImpl->status_ != Error::NoError)
     return PropagateStatus(leafImpl->status_);
+  if (!(length > 0.0)) return Invalid();
   auto pImpl = std::make_shared<Impl>(*leafImpl);
   pImpl->Refine(
       [length](vec3 edge, vec4, vec4) {
@@ -854,7 +856,8 @@ Manifold Manifold::RefineToLength(double length) const {
  *
  * @param tolerance The desired maximum distance between the faceted mesh
  * produced and the exact smoothly curving surface. All vertices are exactly on
- * the surface, within rounding error.
+ * the surface, within rounding error. Negative values use their absolute value.
+ * Zero or NaN returns InvalidConstruction.
  */
 Manifold Manifold::RefineToTolerance(double tolerance) const {
   tolerance = std::abs(tolerance);
@@ -862,6 +865,7 @@ Manifold Manifold::RefineToTolerance(double tolerance) const {
   auto leafImpl = GetCsgLeafNode(ctx.get()).GetImpl();
   if (leafImpl->status_ != Error::NoError)
     return PropagateStatus(leafImpl->status_);
+  if (!(tolerance > 0.0)) return Invalid();
   auto pImpl = std::make_shared<Impl>(*leafImpl);
   if (!pImpl->halfedgeTangent_.empty()) {
     pImpl->Refine(
