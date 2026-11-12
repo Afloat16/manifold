@@ -2655,6 +2655,18 @@ TEST(CrossSection, Rect) {
   EXPECT_TRUE(Rect().IsEmpty());
 }
 
+TEST(CrossSection, ReflectedRectKeepsGeometry) {
+  const Rect rect({1, 2}, {4, 7});
+  const CrossSection fromScaledRect(rect * vec2(-2, 3));
+  const CrossSection fromTransformedRect(
+      rect.Transform(mat2x3({0, 1}, {-1, 0}, {10, 20})));
+
+  EXPECT_FALSE(fromScaledRect.IsEmpty());
+  EXPECT_DOUBLE_EQ(fromScaledRect.Area(), 90.0);
+  EXPECT_FALSE(fromTransformedRect.IsEmpty());
+  EXPECT_DOUBLE_EQ(fromTransformedRect.Area(), 15.0);
+}
+
 TEST(CrossSection, Transform) {
   auto sq = CrossSection::Square({10., 10.});
   auto a = sq.Rotate(45).Scale({2, 3}).Translate({4, 5});

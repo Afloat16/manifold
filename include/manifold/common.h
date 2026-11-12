@@ -406,18 +406,15 @@ struct Box {
    * Scale this box by the given vector.
    */
   constexpr Box operator*(vec3 scale) const {
-    Box out;
-    out.min = min * scale;
-    out.max = max * scale;
-    return out;
+    if (la::any(la::greater(min, max))) return *this;
+    return Box(min * scale, max * scale);
   }
 
   /**
    * Scale this box in-place by the given vector.
    */
   Box& operator*=(vec3 scale) {
-    min *= scale;
-    max *= scale;
+    *this = *this * scale;
     return *this;
   }
 
@@ -579,18 +576,15 @@ struct Rect {
    * Scale this rectangle by the given vector.
    */
   constexpr Rect operator*(const vec2 scale) const {
-    Rect out;
-    out.min = min * scale;
-    out.max = max * scale;
-    return out;
+    if (la::any(la::greater(min, max))) return *this;
+    return Rect(min * scale, max * scale);
   }
 
   /**
    * Scale this rectangle in-place by the given vector.
    */
   Rect& operator*=(const vec2 scale) {
-    min *= scale;
-    max *= scale;
+    *this = *this * scale;
     return *this;
   }
 
@@ -602,10 +596,8 @@ struct Rect {
    * bound properly.
    */
   constexpr Rect Transform(const mat2x3& m) const {
-    Rect rect;
-    rect.min = m * vec3(min, 1);
-    rect.max = m * vec3(max, 1);
-    return rect;
+    if (la::any(la::greater(min, max))) return *this;
+    return Rect(m * vec3(min, 1), m * vec3(max, 1));
   }
   ///@}
 };

@@ -22,6 +22,94 @@
 
 using namespace manifold;
 
+TEST(Utils, BoxScalingPreservesBounds) {
+  const Box original({1, 2, 3}, {4, 7, 9});
+  for (const vec3 scale : {vec3(2, 3, 4), vec3(-2, 3, 4), vec3(2, -3, -4),
+                           vec3(0, -1, 2), vec3(-2, -3, -4)}) {
+    Box expected;
+    for (int i = 0; i < 8; ++i) {
+      const vec3 corner(i & 1 ? original.min.x : original.max.x,
+                        i & 2 ? original.min.y : original.max.y,
+                        i & 4 ? original.min.z : original.max.z);
+      expected.Union(corner * scale);
+    }
+    const Box scaled = original * scale;
+    Box inPlace = original;
+    inPlace *= scale;
+    EXPECT_EQ(scaled, expected);
+    EXPECT_EQ(inPlace, expected);
+    EXPECT_TRUE(scaled.Contains(expected.Center()));
+  }
+}
+
+TEST(Utils, RectScalingPreservesBounds) {
+  const Rect original({1, 2}, {4, 7});
+  for (const vec2 scale :
+       {vec2(2, 3), vec2(-2, 3), vec2(2, -3), vec2(-2, -3), vec2(0, -1)}) {
+    Rect expected;
+    for (int i = 0; i < 4; ++i) {
+      const vec2 corner(i & 1 ? original.min.x : original.max.x,
+                        i & 2 ? original.min.y : original.max.y);
+      expected.Union(corner * scale);
+    }
+    const Rect scaled = original * scale;
+    Rect inPlace = original;
+    inPlace *= scale;
+    EXPECT_TRUE(la::all(la::equal(scaled.min, expected.min)));
+    EXPECT_TRUE(la::all(la::equal(scaled.max, expected.max)));
+    EXPECT_TRUE(la::all(la::equal(inPlace.min, expected.min)));
+    EXPECT_TRUE(la::all(la::equal(inPlace.max, expected.max)));
+    EXPECT_TRUE(scaled.Contains(expected.Center()));
+    EXPECT_DOUBLE_EQ(scaled.Area(),
+                     original.Area() * std::abs(scale.x * scale.y));
+  }
+}
+
+TEST(Utils, RectAxisAlignedTransformPreservesBounds) {
+  const Rect original({1, 2}, {4, 7});
+  for (const mat2x3 transform : {
+           mat2x3({0, 1}, {-1, 0}, {10, 20}),
+           mat2x3({-1, 0}, {0, -1}, {10, 20}),
+           mat2x3({0, -1}, {1, 0}, {10, 20}),
+           mat2x3({-2, 0}, {0, 3}, {10, 20}),
+       }) {
+    Rect expected;
+    for (int i = 0; i < 4; ++i) {
+      const vec2 corner(i & 1 ? original.min.x : original.max.x,
+                        i & 2 ? original.min.y : original.max.y);
+      expected.Union(transform * vec3(corner, 1));
+    }
+    const Rect transformed = original.Transform(transform);
+    EXPECT_TRUE(la::all(la::equal(transformed.min, expected.min)));
+    EXPECT_TRUE(la::all(la::equal(transformed.max, expected.max)));
+    EXPECT_FALSE(transformed.IsEmpty());
+    EXPECT_TRUE(transformed.Contains(expected.Center()));
+  }
+}
+
+TEST(Utils, EmptyBoundsStayEmptyWhenScaled) {
+  const Box emptyBox;
+  const Rect emptyRect;
+  for (const double sign : {-1.0, 0.0, 1.0}) {
+    const Box scaledBox = emptyBox * vec3(sign);
+    Box inPlaceBox = emptyBox;
+    inPlaceBox *= vec3(sign);
+    EXPECT_EQ(scaledBox, emptyBox);
+    EXPECT_EQ(inPlaceBox, emptyBox);
+    const Rect scaledRect = emptyRect * vec2(sign);
+    Rect inPlaceRect = emptyRect;
+    inPlaceRect *= vec2(sign);
+    EXPECT_TRUE(la::all(la::equal(scaledRect.min, emptyRect.min)));
+    EXPECT_TRUE(la::all(la::equal(scaledRect.max, emptyRect.max)));
+    EXPECT_TRUE(la::all(la::equal(inPlaceRect.min, emptyRect.min)));
+    EXPECT_TRUE(la::all(la::equal(inPlaceRect.max, emptyRect.max)));
+    const Rect transformed =
+        emptyRect.Transform(mat2x3({0, sign}, {-sign, 0}, {10, 20}));
+    EXPECT_TRUE(la::all(la::equal(transformed.min, emptyRect.min)));
+    EXPECT_TRUE(la::all(la::equal(transformed.max, emptyRect.max)));
+  }
+}
+
 TEST(Utils, BarycentricAllWeightsSnappedToZero) {
   // Both points are within tolerance of every edge, but not any vertex.
   // Scaling both the triangle and tolerance must preserve the equal fallback.
