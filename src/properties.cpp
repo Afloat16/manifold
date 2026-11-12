@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <cmath>
 #include <limits>
 
 #if MANIFOLD_PAR == 1
@@ -310,22 +311,35 @@ double Manifold::Impl::GetProperty(Property prop) const {
 
   auto Area = [this](size_t tri) {
     const vec3 v = vertPos_[halfedge_.Start(3 * tri)];
-    return la::length(la::cross(vertPos_[halfedge_.Start(3 * tri + 1)] - v,
-                                vertPos_[halfedge_.Start(3 * tri + 2)] - v)) /
-           2.0;
+    const vec3 crossP = la::cross(vertPos_[halfedge_.Start(3 * tri + 1)] - v,
+                                  vertPos_[halfedge_.Start(3 * tri + 2)] - v);
+    const double squaredLength = la::dot(crossP, crossP);
+    // The squared length can overflow or underflow while the area is finite.
+    // Keep the usual square-root path for normal-range values.
+    if (squaredLength >= std::numeric_limits<double>::min() &&
+        squaredLength <= std::numeric_limits<double>::max()) {
+      return std::sqrt(squaredLength) / 2.0;
+    }
+
+    const double scale = la::maxelem(la::abs(crossP));
+    if (scale == 0.0 || !std::isfinite(scale)) return scale;
+    const vec3 scaled = crossP / scale;
+    return scale * (std::sqrt(la::dot(scaled, scaled)) / 2.0);
   };
 
-  // Kahan summation
-  double value = 0;
-  double valueCompensation = 0;
-  for (size_t i = 0; i < NumTri(); ++i) {
-    const double value1 = prop == Property::SurfaceArea ? Area(i) : Volume(i);
-    const double t = value + value1;
-    valueCompensation += (value - t) + value1;
-    value = t;
-  }
-  value += valueCompensation;
-  return value;
+  auto Sum = [this](auto property) {
+    // Kahan summation
+    double value = 0;
+    double valueCompensation = 0;
+    for (size_t i = 0; i < NumTri(); ++i) {
+      const double value1 = property(i);
+      const double t = value + value1;
+      valueCompensation += (value - t) + value1;
+      value = t;
+    }
+    return value + valueCompensation;
+  };
+  return prop == Property::SurfaceArea ? Sum(Area) : Sum(Volume);
 }
 
 void Manifold::Impl::CalculateCurvature(int gaussianIdx, int meanIdx) {

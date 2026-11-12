@@ -35,6 +35,18 @@ TEST(Properties, Measurements) {
   EXPECT_FLOAT_EQ(cube.SurfaceArea(), 6.0);
 }
 
+TEST(Properties, SurfaceAreaAcrossScales) {
+  for (const double scale : {1.0, 1e-80, 1e80, 1e-100, 1e100}) {
+    SCOPED_TRACE(testing::Message() << "scale = " << scale);
+    const Manifold cube = Manifold::Cube(vec3(scale));
+    ASSERT_EQ(cube.Status(), Manifold::Error::NoError);
+    const double expected = 6 * scale * scale;
+    EXPECT_NEAR(cube.SurfaceArea(), expected, expected * 1e-12);
+    EXPECT_NEAR(cube.Rotate(13, 29, 41).SurfaceArea(), expected,
+                expected * 1e-12);
+  }
+}
+
 TEST(Properties, BooleanBarycentricWeightsRemainFinite) {
   const double height = std::sqrt(3.0);
   const Manifold prism =
