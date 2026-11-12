@@ -1431,6 +1431,40 @@ TEST(Manifold, MirrorUnion2) {
   EXPECT_TRUE(result.MatchesTriNormals());
 }
 
+TEST(Manifold, MirrorNormalMagnitude) {
+  const Manifold shape = Manifold::Cube({2, 4, 6}).Translate({3, 5, 7});
+  const vec3 direction(1, 2, 3);
+  const Box expected = shape.Mirror(direction).BoundingBox();
+  for (const double scale :
+       {1.0, 1e-200, 1e200, std::numeric_limits<double>::denorm_min()}) {
+    const Manifold reflected = shape.Mirror(direction * scale);
+    EXPECT_EQ(reflected.Status(), Manifold::Error::NoError);
+    ASSERT_FALSE(reflected.IsEmpty()) << scale;
+    EXPECT_NEAR(reflected.Volume(), shape.Volume(), 1e-10);
+    const Box actual = reflected.BoundingBox();
+    for (int axis = 0; axis < 3; ++axis) {
+      EXPECT_NEAR(actual.min[axis], expected.min[axis], 1e-12);
+      EXPECT_NEAR(actual.max[axis], expected.max[axis], 1e-12);
+    }
+  }
+}
+
+TEST(Manifold, CuttingPlaneNormalMagnitude) {
+  const Manifold shape = Manifold::Cube({2, 4, 6}, true);
+  for (const double scale :
+       {1.0, 1e200, 1e-200, std::numeric_limits<double>::denorm_min()}) {
+    const vec3 normal(0, scale, 0);
+    const auto split = shape.SplitByPlane(normal, 1.0);
+    EXPECT_EQ(split.first.Status(), Manifold::Error::NoError);
+    EXPECT_EQ(split.second.Status(), Manifold::Error::NoError);
+    EXPECT_NEAR(split.first.Volume(), 12.0, 1e-10) << scale;
+    EXPECT_NEAR(split.second.Volume(), 36.0, 1e-10) << scale;
+    const Manifold trimmed = shape.TrimByPlane(normal, 1.0);
+    EXPECT_EQ(trimmed.Status(), Manifold::Error::NoError);
+    EXPECT_NEAR(trimmed.Volume(), 12.0, 1e-10) << scale;
+  }
+}
+
 TEST(Manifold, MirroredNormals) {
   // Issue #1781: Ensure that when a Manifold is mirrored the normals are
   // mirrored along with it, so the resulting mesh vertices do not get

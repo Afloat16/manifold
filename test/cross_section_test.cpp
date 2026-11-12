@@ -435,6 +435,23 @@ TEST(CrossSection, MirrorCheckAxis) {
   EXPECT_NEAR(b.max.y, b_expected.max.y, 0.001);
 }
 
+TEST(CrossSection, MirrorNormalMagnitude) {
+  const CrossSection shape = CrossSection::Square({2, 4}).Translate({3, 5});
+  const vec2 direction(1, 2);
+  const Rect expected = shape.Mirror(direction).Bounds();
+  for (const double scale :
+       {1.0, 1e-200, 1e200, std::numeric_limits<double>::denorm_min()}) {
+    const CrossSection reflected = shape.Mirror(direction * scale);
+    ASSERT_FALSE(reflected.IsEmpty()) << scale;
+    EXPECT_NEAR(reflected.Area(), shape.Area(), 1e-12);
+    const Rect actual = reflected.Bounds();
+    for (int axis = 0; axis < 2; ++axis) {
+      EXPECT_NEAR(actual.min[axis], expected.min[axis], 1e-12);
+      EXPECT_NEAR(actual.max[axis], expected.max[axis], 1e-12);
+    }
+  }
+}
+
 TEST(CrossSection, RoundOffset) {
   auto a = CrossSection::Square({20., 20.}, true);
   int segments = 20;

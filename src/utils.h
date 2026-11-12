@@ -39,6 +39,15 @@ namespace manifold {
 
 constexpr double kPrecision = 1e-12;
 
+template <typename V>
+V NormalizeDirection(V direction) {
+  // Normalize the scale first so squaring finite components cannot overflow
+  // or underflow while computing the length of an input direction.
+  const double scale = la::maxelem(la::abs(direction));
+  if (scale > 0.0) direction /= scale;
+  return la::normalize(direction);
+}
+
 inline int Next3(int i) {
   constexpr ivec3 next3(1, 2, 0);
   return next3[i];

@@ -30,7 +30,7 @@ using namespace manifold;
 ExecutionParams manifoldParams;
 
 Manifold Halfspace(Box bBox, vec3 normal, double originOffset) {
-  normal = la::normalize(normal);
+  normal = NormalizeDirection(normal);
   Manifold cutter = Manifold::Cube(vec3(2.0), true).Translate({1.0, 0.0, 0.0});
   double size = la::length(bBox.Center() - normal * originOffset) +
                 0.5 * la::length(bBox.Size());
@@ -594,10 +594,10 @@ Manifold Manifold::Mirror(vec3 normal) const {
   auto leafImpl = GetCsgLeafNode().GetImpl();
   if (leafImpl->status_ != Error::NoError)
     return PropagateStatus(leafImpl->status_);
-  if (la::length(normal) == 0.) {
+  if (la::all(la::equal(normal, vec3(0.0)))) {
     return Manifold();
   }
-  auto n = la::normalize(normal);
+  auto n = NormalizeDirection(normal);
   auto m = mat3x4(mat3(la::identity) - 2.0 * la::outerprod(n, n), vec3());
   return Manifold(LoadPNode()->Transform(m));
 }

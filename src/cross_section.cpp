@@ -542,8 +542,8 @@ CrossSection CrossSection::Scale(const vec2 scale) const {
  * @param ax the axis to be mirrored over
  */
 CrossSection CrossSection::Mirror(const vec2 ax) const {
-  if (la::length(ax) == 0.0) return CrossSection();
-  const vec2 n = la::normalize(ax);
+  if (la::all(la::equal(ax, vec2(0.0)))) return CrossSection();
+  const vec2 n = NormalizeDirection(ax);
   return Transform(
       mat2x3(mat2(la::identity) - 2.0 * la::outerprod(n, n), vec2(0.0)));
 }
