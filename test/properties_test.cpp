@@ -175,6 +175,39 @@ TEST(Properties, CalculateCurvature) {
   }
 }
 
+TEST(Properties, CurvatureAcrossObtuseDihedrals) {
+  // All adjacent outward normals of a regular tetrahedron have dot product
+  // -1/3. The signed dihedral is acos(-1/3), not its acute supplementary angle.
+  const double expected = std::sqrt(6.0) * std::acos(-1.0 / 3.0) / 4.0;
+  for (const double scale : {1.0, 2.0}) {
+    const MeshGL64 mesh = Manifold::Tetrahedron()
+                              .Scale(vec3(scale))
+                              .CalculateCurvature(-1, 0)
+                              .GetMeshGL64();
+    ASSERT_EQ(mesh.NumVert(), 4);
+    for (size_t i = 0; i < mesh.NumVert(); ++i) {
+      EXPECT_NEAR(mesh.vertProperties[mesh.numProp * i + 3], expected / scale,
+                  1e-12);
+    }
+  }
+}
+
+TEST(Properties, CurvatureAcrossConcaveObtuseDihedrals) {
+  const double expected = -std::sqrt(6.0) * std::acos(-1.0 / 3.0) / 4.0;
+  const MeshGL64 mesh =
+      (Manifold::Cube(vec3(6), true) - Manifold::Tetrahedron())
+          .CalculateCurvature(-1, 0)
+          .GetMeshGL64();
+  size_t cavityVertices = 0;
+  for (size_t i = 0; i < mesh.NumVert(); ++i) {
+    if (la::maxelem(la::abs(mesh.GetVertPos(i))) < 2.0) {
+      ++cavityVertices;
+      EXPECT_NEAR(mesh.vertProperties[mesh.numProp * i + 3], expected, 1e-12);
+    }
+  }
+  EXPECT_EQ(cavityVertices, 4);
+}
+
 TEST(Properties, CalculateNormals) {
   Manifold sphere = Manifold::Sphere(10);
   vec3 center(10);

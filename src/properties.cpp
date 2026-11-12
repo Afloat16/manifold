@@ -47,8 +47,9 @@ struct CurvatureAngles {
       const int neighborTri = halfedge.Pair(edgeIdx) / 3;
       const double dihedral =
           0.25 * edgeLength[i] *
-          math::asin(la::dot(la::cross(triNormal[tri], triNormal[neighborTri]),
-                             edge[i]));
+          math::atan2(la::dot(la::cross(triNormal[tri], triNormal[neighborTri]),
+                              edge[i]),
+                      la::dot(triNormal[tri], triNormal[neighborTri]));
       AtomicAdd(meanCurvature[startVert], dihedral);
       AtomicAdd(meanCurvature[endVert], dihedral);
       AtomicAdd(degree[startVert], 1.0);
