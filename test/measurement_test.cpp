@@ -327,6 +327,52 @@ TEST(Measurement, TriangleDistanceOverlapping) {
   EXPECT_FLOAT_EQ(distance, 0);
 }
 
+TEST(Measurement, TriangleFaceDistanceAcrossScales) {
+  for (double scale : {1.0, 1e-3, 1e-6, 1e-8}) {
+    SCOPED_TRACE(scale);
+    const std::array<vec3, 3> p = {
+        vec3(-1, -1, 0) * scale, vec3(1, -1, 0) * scale, vec3(0, 1, 0) * scale};
+    const std::array<vec3, 3> q = {
+        vec3(0, 0, 1) * scale, vec3(10, 0, 2) * scale, vec3(0, 10, 2) * scale};
+    // q[0] projects into p's interior; the exact distance is scale.
+    EXPECT_NEAR(DistanceTriangleTriangleSquared(p, q) / (scale * scale), 1.0,
+                1e-12);
+    EXPECT_NEAR(DistanceTriangleTriangleSquared(q, p) / (scale * scale), 1.0,
+                1e-12);
+  }
+}
+
+TEST(Measurement, MinGapToSmallTriangleFace) {
+  for (double scale : {1.0, 1e-3, 1e-6, 1e-8}) {
+    SCOPED_TRACE(scale);
+    MeshGL64 p, q;
+    p.vertProperties = {-1, -1, 0, 1, -1, 0, 0, 1, 0, 0, 0, -1};
+    q.vertProperties = {0, 0, 1, 10, 0, 2, 0, 10, 2, 10, 10, 2};
+    p.triVerts = q.triVerts = {0, 1, 2, 0, 3, 1, 0, 2, 3, 1, 3, 2};
+    const Manifold a = Manifold(p).Scale(vec3(scale));
+    const Manifold b = Manifold(q).Scale(vec3(scale));
+    ASSERT_EQ(a.Status(), Manifold::Error::NoError);
+    ASSERT_EQ(b.Status(), Manifold::Error::NoError);
+    EXPECT_NEAR(a.MinGap(b, 2 * scale) / scale, 1.0, 1e-12);
+    EXPECT_NEAR(b.MinGap(a, 2 * scale) / scale, 1.0, 1e-12);
+  }
+}
+
+TEST(Measurement, TriangleDistanceDegeneratePointsAndEdges) {
+  for (double scale : {1.0, 1e-6}) {
+    SCOPED_TRACE(scale);
+    const std::array<vec3, 3> p = {vec3(0.0), vec3(0.0), vec3(0.0)};
+    const std::array<vec3, 3> q = {vec3(0, 0, scale), vec3(0, 0, scale),
+                                   vec3(0, 0, scale)};
+    EXPECT_NEAR(DistanceTriangleTriangleSquared(p, q) / (scale * scale), 1.0,
+                1e-12);
+    const std::array<vec3, 3> edge = {vec3(0, 0, scale), vec3(0, scale, scale),
+                                      vec3(0, 2 * scale, scale)};
+    EXPECT_NEAR(DistanceTriangleTriangleSquared(p, edge) / (scale * scale), 1.0,
+                1e-12);
+  }
+}
+
 // A tall box where the query point is far below the top face. The +Z ray from
 // the point must reach the top face even though it's well outside the point's
 // 3D bounding-box in Z. This exercises the XY-projected collider query.

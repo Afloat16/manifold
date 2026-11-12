@@ -146,7 +146,10 @@ inline auto DistanceTriangleTriangleSquared(const std::array<vec3, 3>& p,
   vec3 Sn = la::cross(Sv[0], Sv[1]);
   auto Snl = la::dot(Sn, Sn);
 
-  if (Snl > 1e-15) {
+  // A nonzero face normal is enough for the projection test. Its squared
+  // length scales with the fourth power of the coordinates, so an absolute
+  // cutoff incorrectly discards valid faces when the model is small.
+  if (Snl > 0.0) {
     const vec3 Tp(la::dot(p[0] - q[0], Sn), la::dot(p[0] - q[1], Sn),
                   la::dot(p[0] - q[2], Sn));
 
@@ -185,7 +188,7 @@ inline auto DistanceTriangleTriangleSquared(const std::array<vec3, 3>& p,
   vec3 Tn = la::cross(Tv[0], Tv[1]);
   auto Tnl = la::dot(Tn, Tn);
 
-  if (Tnl > 1e-15) {
+  if (Tnl > 0.0) {
     const vec3 Sp(la::dot(q[0] - p[0], Tn), la::dot(q[0] - p[1], Tn),
                   la::dot(q[0] - p[2], Tn));
 
