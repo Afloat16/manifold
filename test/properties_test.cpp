@@ -35,6 +35,17 @@ TEST(Properties, Measurements) {
   EXPECT_FLOAT_EQ(cube.SurfaceArea(), 6.0);
 }
 
+TEST(Properties, VolumeIsTranslationInvariant) {
+  for (const double offset : {0.0, 1e9, -1e9, 1e12, -1e12}) {
+    SCOPED_TRACE(testing::Message() << "offset = " << offset);
+    const vec3 translation(offset);
+    EXPECT_NEAR(Manifold::Cube(vec3(1, 2, 3)).Translate(translation).Volume(),
+                6.0, 1e-10);
+    EXPECT_NEAR(Manifold::Tetrahedron().Translate(translation).Volume(),
+                8.0 / 3.0, 1e-10);
+  }
+}
+
 TEST(Properties, BooleanBarycentricWeightsRemainFinite) {
   const double height = std::sqrt(3.0);
   const Manifold prism =

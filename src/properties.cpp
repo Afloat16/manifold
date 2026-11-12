@@ -301,11 +301,14 @@ double Manifold::Impl::GetProperty(Property prop) const {
   ZoneScoped;
   if (IsEmpty()) return 0;
 
-  auto Volume = [this](size_t tri) {
+  // Translate the tetrahedra to a mesh vertex before calculating their
+  // contributions, avoiding cancellation when the mesh is far from the origin.
+  const vec3 origin = vertPos_[0];
+  auto Volume = [this, origin](size_t tri) {
     const vec3 v = vertPos_[halfedge_.Start(3 * tri)];
     vec3 crossP = la::cross(vertPos_[halfedge_.Start(3 * tri + 1)] - v,
                             vertPos_[halfedge_.Start(3 * tri + 2)] - v);
-    return la::dot(crossP, v) / 6.0;
+    return la::dot(crossP, v - origin) / 6.0;
   };
 
   auto Area = [this](size_t tri) {
