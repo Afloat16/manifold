@@ -1,0 +1,29 @@
+{
+  "source_blobs": 1416,
+  "export_functions": 93,
+  "function_classes": {
+    "other": 27,
+    "vector_of_bins": 45,
+    "map": 19,
+    "set": 2
+  },
+  "no_equivalent_flat_bin_implementation": true,
+  "historical_pr_484": "Introduced vector of bins after map; all historical GetMeshGL bins checked, no flat output-index adjacency storage",
+  "paths": [
+    "manifold/src/impl.cpp",
+    "manifold/src/impl.cu",
+    "manifold/src/impl.cuh",
+    "manifold/src/impl.h",
+    "manifold/src/manifold.cpp",
+    "manifold/src/manifold.cu",
+    "manifold/src/manifold.cuh",
+    "manifold/src/manifold_impl.cuh",
+    "mesh/src/mesh.cuh",
+    "src/impl.cpp",
+    "src/impl.h",
+    "src/manifold.cpp",
+    "src/manifold/src/impl.cpp",
+    "src/manifold/src/impl.h",
+    "src/manifold/src/manifold.cpp"
+  ]
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "file": "boolean_seams_32.bin",
+    "size": 67909,
+    "sha256": "1e304cf119ebf31ad1d78f8dada1d041c2ca8067e8ff9a9b44ce863100987c2c",
+    "byte_equal": true
+  },
+  {
+    "file": "boolean_seams_32_normals.bin",
+    "size": 67909,
+    "sha256": "1e304cf119ebf31ad1d78f8dada1d041c2ca8067e8ff9a9b44ce863100987c2c",
+    "byte_equal": true
+  },
+  {
+    "file": "boolean_seams_64.bin",
+    "size": 135725,
+    "sha256": "0ab490a204493d8331b569dfca40e71d2694481d6e89db127fc6f46980238d5c",
+    "byte_equal": true
+  },
+  {
+    "file": "boolean_seams_64_normals.bin",
+    "size": 135725,
+    "sha256": "0ab490a204493d8331b569dfca40e71d2694481d6e89db127fc6f46980238d5c",
+    "byte_equal": true
+  },
+  {
+    "file": "constant_properties_32.bin",
+    "size": 49301,
+    "sha256": "4525e5c11baf77423cca6e0c002614d344db4b13f88055e913a475ce4174d56a",
+    "byte_equal": true
+  },
+  {
+    "file": "constant_properties_32_normals.bin",
+    "size": 49301,
+    "sha256": "4525e5c11baf77423cca6e0c002614d344db4b13f88055e913a475ce4174d56a",
+    "byte_equal": true
+  },
+  {
+    "file": "constant_properties_64.bin",
+    "size": 98509,
+    "sha256": "c080c54dfc1d18ed4493964e8f7c6b9f7299e8a40a07eb1bc4c0d69d77857905",
+    "byte_equal": true
+  },
+  {
+    "file": "constant_properties_64_normals.bin",
+    "size": 98509,
+    "sha256": "c080c54dfc1d18ed4493964e8f7c6b9f7299e8a40a07eb1bc4c0d69d77857905",
+    "byte_equal": true
+  },
+  {
+    "file": "cube_seams_32.bin",
+    "size": 949,
+    "sha256": "be110e69caebf8e98c004bac9064144f0136901d58ba4777134185d1a0b78465",
+    "byte_equal": true
+  },
+  {
+    "file": "cube_seams_32_normals.bin",
+    "size": 949,
+    "sha256": "be110e69caebf8e98c004bac9064144f0136901d58ba4777134185d1a0b78465",
+    "byte_equal": true
+  },
+  {
+    "file": "cube_seams_64.bin",
+    "size": 1805,
+    "sha256": "f6134e1bc6c4e9008a87cf832921071ebd520f2922a64864ef98f00821503a87",
+    "byte_equal": true
+  },
+  {
+    "file": "cube_seams_64_normals.bin",
+    "size": 1805,
+    "sha256": "f6134e1bc6c4e9008a87cf832921071ebd520f2922a64864ef98f00821503a87",
+    "byte_equal": true
+  },
+  {
+    "file": "empty_32.bin",
+    "size": 92,
+    "sha256": "20c0bfe693e777116c94bb0dcf4fb619ce5582dab4039a95fe1a13b634352c9a",
+    "byte_equal": true
+  },
+  {
+    "file": "empty_64.bin",
+    "size": 96,
+    "sha256": "1d41b0a814a19a975d5007ad2efa94a929b89c718257dbeef49475e97647b062",
+    "byte_equal": true
+  },
+  {
+    "file": "faceted_normals_32.bin",
+    "size": 3407957,
+    "sha256": "4ab780d27eef22e44078c94a8befc79ec09345c5111fa3735ba3cf760a0aca2f",
+    "byte_equal": true
+  },
+  {
+    "file": "faceted_normals_32_normals.bin",
+    "size": 3407957,
+    "sha256": "4ab780d27eef22e44078c94a8befc79ec09345c5111fa3735ba3cf760a0aca2f",
+    "byte_equal": true
+  },
+  {
+    "file": "faceted_normals_64.bin",
+    "size": 6815821,
+    "sha256": "1d074917ee9dd9d81d834c079ce5b430bb0e4c248ef39708a4a929b48564de2f",
+    "byte_equal": true
+  },
+  {
+    "file": "faceted_normals_64_normals.bin",
+    "size": 6815821,
+    "sha256": "1d074917ee9dd9d81d834c079ce5b430bb0e4c248ef39708a4a929b48564de2f",
+    "byte_equal": true
+  },
+  {
+    "file": "many_properties_32.bin",
+    "size": 82133,
+    "sha256": "40d7726795d0ef3e41aa4a9e2ce4d32840a3149292f6bb7825c74e75847f7068",
+    "byte_equal": true
+  },
+  {
+    "file": "many_properties_32_normals.bin",
+    "size": 82133,
+    "sha256": "40d7726795d0ef3e41aa4a9e2ce4d32840a3149292f6bb7825c74e75847f7068",
+    "byte_equal": true
+  },
+  {
+    "file": "many_properties_64.bin",
+    "size": 164173,
+    "sha256": "347f6f0d843d401faeb02ff89dd862542ba257466be9d9361f193b28177c9fd9",
+    "byte_equal": true
+  },
+  {
+    "file": "many_properties_64_normals.bin",
+    "size": 164173,
+    "sha256": "347f6f0d843d401faeb02ff89dd862542ba257466be9d9361f193b28177c9fd9",
+    "byte_equal": true
+  },
+  {
+    "file": "mixed_runs_32.bin",
+    "size": 148622,
+    "sha256": "f1ddd0a9eb81da9e7e61d78d3ec27711e684eab87b983fc844cbeff24975cef8",
+    "byte_equal": true
+  },
+  {
+    "file": "mixed_runs_32_normals.bin",
+    "size": 148622,
+    "sha256": "f1ddd0a9eb81da9e7e61d78d3ec27711e684eab87b983fc844cbeff24975cef8",
+    "byte_equal": true
+  },
+  {
+    "file": "mixed_runs_64.bin",
+    "size": 297146,
+    "sha256": "6f471a789c64d81517acff59b87d66eddec6b49835ba9725b563b66701c78bcc",
+    "byte_equal": true
+  },
+  {
+    "file": "mixed_runs_64_normals.bin",
+    "size": 297146,
+    "sha256": "df440cc7e88f112c7d4eabde9b4a439c7e4d15678ce7c3672f2eb7ea37953b89",
+    "byte_equal": true
+  },
+  {
+    "file": "no_properties_32.bin",
+    "size": 9437309,
+    "sha256": "3d18701d47d04e6c76fe044f5c2e312b0f4c68320a38493d31121fd96a61b2cf",
+    "byte_equal": true
+  },
+  {
+    "file": "no_properties_64.bin",
+    "size": 18874525,
+    "sha256": "bb88e6f5f0b044ad22a0f19a53560d2ceaeffc621d5925a7fc9e4dec8c0efe7b",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_normals_32.bin",
+    "size": 12583061,
+    "sha256": "0bdd1e50577cdf37862d44470766714e5ccddf53ac666d16cf024d0c032a078b",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_normals_32_normals.bin",
+    "size": 12583061,
+    "sha256": "0bdd1e50577cdf37862d44470766714e5ccddf53ac666d16cf024d0c032a078b",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_normals_64.bin",
+    "size": 25166029,
+    "sha256": "8fbd735ff6e3f6c1417bba9eb9aeaadcde3ec5e556ca40d6ccb9cf9c35c077af",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_normals_64_normals.bin",
+    "size": 25166029,
+    "sha256": "8fbd735ff6e3f6c1417bba9eb9aeaadcde3ec5e556ca40d6ccb9cf9c35c077af",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_tangents_32.bin",
+    "size": 147605,
+    "sha256": "b2ad73bed2c380d20999735104b23e14652d6478907e496a2c75e841b542d356",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_tangents_32_normals.bin",
+    "size": 147605,
+    "sha256": "b2ad73bed2c380d20999735104b23e14652d6478907e496a2c75e841b542d356",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_tangents_64.bin",
+    "size": 295117,
+    "sha256": "67f31136b05ae81fe479c2972062ad1ff118af9fd128e144e40ad7e797832807",
+    "byte_equal": true
+  },
+  {
+    "file": "smooth_tangents_64_normals.bin",
+    "size": 295117,
+    "sha256": "67f31136b05ae81fe479c2972062ad1ff118af9fd128e144e40ad7e797832807",
+    "byte_equal": true
+  },
+  {
+    "file": "transformed_runs_32.bin",
+    "size": 2181,
+    "sha256": "dd5eae723c21ee0f7acc1bd1fb69adb05979c9b39af62f6008f23f744fa397ff",
+    "byte_equal": true
+  },
+  {
+    "file": "transformed_runs_32_normals.bin",
+    "size": 2181,
+    "sha256": "dd5eae723c21ee0f7acc1bd1fb69adb05979c9b39af62f6008f23f744fa397ff",
+    "byte_equal": true
+  },
+  {
+    "file": "transformed_runs_64.bin",
+    "size": 4269,
+    "sha256": "2ee2bfca07602cafbf5bdbee8832fa241d91fa823f05b606ea25c8daf2931eff",
+    "byte_equal": true
+  },
+  {
+    "file": "transformed_runs_64_normals.bin",
+    "size": 4269,
+    "sha256": "2ee2bfca07602cafbf5bdbee8832fa241d91fa823f05b606ea25c8daf2931eff",
+    "byte_equal": true
+  }
+]
