@@ -109,6 +109,10 @@ TEST(Manifold, MeshGLMergeRelations) {
       EXPECT_DOUBLE_EQ(cube.Volume(), 1);
       EXPECT_DOUBLE_EQ(cube.SurfaceArea(), 6);
       EXPECT_EQ(records(cube.GetMeshGL64()), expected);
+      auto merged = mesh;
+      EXPECT_FALSE(merged.Merge());
+      EXPECT_EQ(merged.mergeFromVert, mesh.mergeFromVert);
+      EXPECT_EQ(merged.mergeToVert, mesh.mergeToVert);
     };
     checkMesh(original);
 

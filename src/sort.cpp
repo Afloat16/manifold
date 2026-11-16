@@ -94,9 +94,14 @@ bool MergeMeshGLP(MeshGLP<Precision, I>& mesh) {
   }
 
   std::vector<int> merge(numVert);
-  std::iota(merge.begin(), merge.end(), 0);
-  for (size_t i = 0; i < mesh.mergeFromVert.size(); ++i) {
-    merge[mesh.mergeFromVert[i]] = mesh.mergeToVert[i];
+  if (mesh.mergeFromVert.empty()) {
+    std::iota(merge.begin(), merge.end(), 0);
+  } else {
+    DisjointSets merged(numVert);
+    for (size_t i = 0; i < mesh.mergeFromVert.size(); ++i) {
+      merged.unite(mesh.mergeFromVert[i], mesh.mergeToVert[i]);
+    }
+    for (size_t i = 0; i < numVert; ++i) merge[i] = merged.find(i);
   }
 
   Vec<uint64_t> edges(3 * numTri);
