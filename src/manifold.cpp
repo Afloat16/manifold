@@ -722,6 +722,8 @@ Manifold Manifold::SetProperties(
  * other minimum. Gaussian curvature is their product, while mean
  * curvature is their sum. This approximates them for every vertex and assigns
  * them as vertex properties on the given channels.
+ * Automatic normal handling is disabled if either output channel overwrites
+ * one of the recorded normal channels (0, 1, or 2).
  *
  * @param gaussianIdx The property channel index in which to store the Gaussian
  * curvature. An index < 0 will be ignored (stores nothing). The property set
@@ -740,6 +742,11 @@ Manifold Manifold::CalculateCurvature(int gaussianIdx, int meanIdx) const {
     return PropagateStatus(Error::ResultTooLarge);
   auto pImpl = std::make_shared<Impl>(*leafImpl);
   pImpl->CalculateCurvature(gaussianIdx, meanIdx);
+  if ((gaussianIdx >= 0 && gaussianIdx < 3) || (meanIdx >= 0 && meanIdx < 3)) {
+    for (auto& m : pImpl->meshRelation_.meshIDtransform) {
+      m.second.hasNormals = false;
+    }
+  }
   return Manifold(std::make_shared<CsgLeafNode>(pImpl));
 }
 

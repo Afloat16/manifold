@@ -334,6 +334,58 @@ TEST(Properties, SetPropertiesAfterRemovingChannels) {
   }
 }
 
+TEST(Properties, CurvatureInvalidatesOverwrittenNormals) {
+  const Manifold source = Manifold::Cube().CalculateNormals();
+  const auto before = source.GetMeshGL64();
+  const auto reference = source.CalculateCurvature(3, 4).GetMeshGL64();
+  for (const ivec2 channels :
+       {ivec2(0, -1), ivec2(1, -1), ivec2(2, -1), ivec2(-1, 0), ivec2(-1, 1),
+        ivec2(-1, 2), ivec2(0, 1)}) {
+    const Manifold curved = source.CalculateCurvature(channels.x, channels.y);
+    for (const Manifold& output : {curved, curved.Rotate(0, 0, 90)}) {
+      ASSERT_EQ(output.Status(), Manifold::Error::NoError);
+      const auto check = [&](const auto& mesh) {
+        ASSERT_EQ(mesh.NumVert(), reference.NumVert());
+        for (size_t run = 0; run < mesh.NumRun(); ++run)
+          EXPECT_FALSE(mesh.HasNormals(run));
+        for (size_t v = 0; v < mesh.NumVert(); ++v) {
+          for (int which : {0, 1}) {
+            const int channel = channels[which];
+            if (channel < 0) continue;
+            EXPECT_NEAR(
+                mesh.vertProperties[v * mesh.numProp + 3 + channel],
+                reference.vertProperties[v * reference.numProp + 6 + which],
+                1e-6);
+          }
+        }
+      };
+      check(output.GetMeshGL());
+      check(output.GetMeshGL64());
+    }
+  }
+
+  // Non-overlapping curvature channels and no-op calls preserve recorded
+  // normals, including their automatic transformation on export.
+  const auto rotated = source.Rotate(0, 0, 90).GetMeshGL64();
+  for (const ivec2 channels :
+       {ivec2(3, 4), ivec2(3, -1), ivec2(-1, 3), ivec2(-1, -1)}) {
+    const Manifold curved = source.CalculateCurvature(channels.x, channels.y);
+    const auto mesh = curved.Rotate(0, 0, 90).GetMeshGL64();
+    ASSERT_EQ(mesh.NumVert(), rotated.NumVert());
+    for (size_t run = 0; run < mesh.NumRun(); ++run)
+      EXPECT_TRUE(mesh.HasNormals(run));
+    for (size_t v = 0; v < mesh.NumVert(); ++v) {
+      for (int i : {3, 4, 5})
+        EXPECT_DOUBLE_EQ(mesh.vertProperties[v * mesh.numProp + i],
+                         rotated.vertProperties[v * rotated.numProp + i]);
+    }
+  }
+  const auto unchanged = source.GetMeshGL64();
+  EXPECT_EQ(unchanged.vertProperties, before.vertProperties);
+  EXPECT_EQ(unchanged.triVerts, before.triVerts);
+  EXPECT_EQ(unchanged.runFlags, before.runFlags);
+}
+
 TEST(Properties, Coplanar) {
   Manifold peg = Manifold::Cube({1, 1, 2}).Translate({1, 1, 0}).AsOriginal();
   const size_t pegID = peg.OriginalID();
