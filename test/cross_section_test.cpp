@@ -3020,6 +3020,29 @@ TEST(CrossSection, BatchBoolean) {
   EXPECT_FLOAT_EQ(subtract.NumVert(), 42);
 }
 
+TEST(CrossSection, EmptyIntersections) {
+  const CrossSection empty;
+  const CrossSection square = CrossSection::Square({4, 4});
+  const CrossSection shifted = square.Translate({2, 0});
+  EXPECT_TRUE((empty ^ square).IsEmpty());
+  EXPECT_TRUE((square ^ empty).IsEmpty());
+  EXPECT_TRUE((empty ^ empty).IsEmpty());
+  for (const auto& sections :
+       {std::vector<CrossSection>{empty, square, shifted},
+        std::vector<CrossSection>{square, empty, shifted},
+        std::vector<CrossSection>{square, shifted, empty},
+        std::vector<CrossSection>{square, square.Translate({10, 0}),
+                                  shifted}}) {
+    EXPECT_TRUE(
+        CrossSection::BatchBoolean(sections, OpType::Intersect).IsEmpty());
+  }
+  EXPECT_DOUBLE_EQ(
+      CrossSection::BatchBoolean({square, shifted, square.Translate({0, 2})},
+                                 OpType::Intersect)
+          .Area(),
+      4);
+}
+
 // A is a 37-vertex near-degenerate star (many zero-radius vertices); B is a
 // 5-vertex star translated ~5e-5 in x so its vertices land just inside A's eps
 // band. The intersection of A and B used to return area=0, leaking ~51290 of

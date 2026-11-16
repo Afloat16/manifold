@@ -399,6 +399,8 @@ CrossSection CrossSection::Boolean(const CrossSection& second,
   // alive for this call, so bind by reference instead of deep-copying.
   const Polygons& a = GetPaths()->paths_;
   const Polygons& b = second.GetPaths()->paths_;
+  if (op == OpType::Intersect && (a.empty() || b.empty()))
+    return CrossSection();
   const double eps = InferEps(a, b);
   return CrossSection(shared_paths(Boolean2D(a, b, op, eps)));
 }
@@ -414,8 +416,9 @@ CrossSection CrossSection::BatchBoolean(
 
   if (op == OpType::Intersect) {
     Polygons result = crossSections[0].GetPaths()->paths_;
-    for (size_t i = 1; i < crossSections.size(); ++i) {
+    for (size_t i = 1; i < crossSections.size() && !result.empty(); ++i) {
       const auto& clip = crossSections[i].GetPaths()->paths_;
+      if (clip.empty()) return CrossSection();
       const double eps = InferEps(result, clip);
       result = Boolean2D(result, clip, OpType::Intersect, eps);
     }
