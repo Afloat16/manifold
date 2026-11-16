@@ -89,6 +89,58 @@ TEST(Manifold, GetMeshGL) {
   Identical(mesh_out, mesh_out2);
 }
 
+TEST(Manifold, MeshGLMergeRelations) {
+  const auto check = [](const auto& original) {
+    const auto records = [](const auto& mesh) {
+      std::vector<std::vector<double>> result;
+      for (size_t i = 0; i < mesh.NumVert(); ++i) {
+        const auto begin = mesh.vertProperties.begin() + i * mesh.numProp;
+        result.emplace_back(begin, begin + mesh.numProp);
+      }
+      std::sort(result.begin(), result.end());
+      return result;
+    };
+    const auto expected = records(original);
+    const auto checkMesh = [&](const auto& mesh) {
+      const Manifold cube(mesh);
+      ASSERT_EQ(cube.Status(), Manifold::Error::NoError);
+      EXPECT_EQ(cube.NumVert(), 8);
+      EXPECT_EQ(cube.NumTri(), 12);
+      EXPECT_DOUBLE_EQ(cube.Volume(), 1);
+      EXPECT_DOUBLE_EQ(cube.SurfaceArea(), 6);
+      EXPECT_EQ(records(cube.GetMeshGL64()), expected);
+    };
+    checkMesh(original);
+
+    auto reversed = original;
+    std::swap(reversed.mergeFromVert, reversed.mergeToVert);
+    checkMesh(reversed);
+
+    auto chained = original;
+    std::vector<size_t> last(original.NumVert());
+    for (size_t i = 0; i < last.size(); ++i) last[i] = i;
+    for (size_t i = 0; i < chained.mergeFromVert.size(); ++i) {
+      const auto target = original.mergeToVert[i];
+      chained.mergeToVert[i] = last[target];
+      last[target] = original.mergeFromVert[i];
+    }
+    checkMesh(chained);
+    std::reverse(chained.mergeFromVert.begin(), chained.mergeFromVert.end());
+    std::reverse(chained.mergeToVert.begin(), chained.mergeToVert.end());
+    checkMesh(chained);
+
+    for (size_t i = 0; i < last.size(); ++i) {
+      if (last[i] == i) continue;
+      chained.mergeFromVert.push_back(i);
+      chained.mergeToVert.push_back(last[i]);
+    }
+    checkMesh(chained);
+  };
+  const Manifold cube = Manifold::Cube().CalculateNormals(0);
+  check(cube.GetMeshGL());
+  check(cube.GetMeshGL64());
+}
+
 TEST(Manifold, MeshDeterminism) {
   Manifold cube1 = Manifold::Cube(vec3(2.0, 2.0, 2.0), true);
   Manifold cube2 = Manifold::Cube(vec3(2.0, 2.0, 2.0), true)

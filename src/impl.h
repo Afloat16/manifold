@@ -17,6 +17,7 @@
 #include <map>
 
 #include "collider.h"
+#include "disjoint_sets.h"
 #include "execution_impl.h"
 #include "manifold/common.h"
 #include "manifold/manifold.h"
@@ -379,17 +380,18 @@ Manifold::Impl::Impl(const MeshGLP<Precision, I>& meshGL,
 
   std::vector<int> prop2vert;
   if (!meshGL.mergeFromVert.empty()) {
-    prop2vert.resize(numVert);
-    std::iota(prop2vert.begin(), prop2vert.end(), 0);
+    DisjointSets merged(numVert);
     for (size_t i = 0; i < meshGL.mergeFromVert.size(); ++i) {
-      const uint32_t from = meshGL.mergeFromVert[i];
-      const uint32_t to = meshGL.mergeToVert[i];
+      const auto from = meshGL.mergeFromVert[i];
+      const auto to = meshGL.mergeToVert[i];
       if (from >= numVert || to >= numVert) {
         MakeEmpty(Error::MergeIndexOutOfBounds);
         return;
       }
-      prop2vert[from] = to;
+      merged.unite(from, to);
     }
+    prop2vert.resize(numVert);
+    for (size_t i = 0; i < numVert; ++i) prop2vert[i] = merged.find(i);
   }
 
   const auto numProp = meshGL.numProp - 3;
