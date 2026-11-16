@@ -1,0 +1,169 @@
+{
+  "before_base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "after_local_commit": "ca5f9e7552052e464c26d5475c29b0e75a8ddab4",
+  "serialized_fields": [
+    "numProp",
+    "vertProperties",
+    "triVerts",
+    "mergeFromVert",
+    "mergeToVert",
+    "runIndex",
+    "runOriginalID",
+    "runTransform",
+    "runFlags",
+    "faceID",
+    "halfedgeTangent"
+  ],
+  "files": [
+    {
+      "case": "accurate",
+      "bytes": 187069,
+      "sha256": "e67786a8977eecf47f05290af044af0d8849f61f5beaeb8591da330fbc182a4a",
+      "byte_equal": true
+    },
+    {
+      "case": "coarse",
+      "bytes": 45373,
+      "sha256": "aa9a23fb2677e3e26b4185dc56bb394c6c99edab423df249e9d8b54ae42d7460",
+      "byte_equal": true
+    },
+    {
+      "case": "empty",
+      "bytes": 109,
+      "sha256": "c8947302e4bfe9819f93b99a1bb656ede9dfcea568b6215e941ce2684902f7c6",
+      "byte_equal": true
+    },
+    {
+      "case": "fine",
+      "bytes": 834061,
+      "sha256": "62b65d1eaa9884285cc81264e28581952c048600247f178dff0486184a22504f",
+      "byte_equal": true
+    },
+    {
+      "case": "medium",
+      "bytes": 185341,
+      "sha256": "191708879b3ab4b34cd118c37e211ad3a5bf876d20eb84f25179066a12c3dbaf",
+      "byte_equal": true
+    },
+    {
+      "case": "plane",
+      "bytes": 311485,
+      "sha256": "ac42fddece9a77ff0b5e199bc390bddb20025b0cf5f12dfa08dae8820bded0f9",
+      "byte_equal": true
+    }
+  ],
+  "total_bytes": 1563438,
+  "before": [
+    {
+      "case": "coarse",
+      "vertices": "630",
+      "triangles": "1256",
+      "callback_copies": "8452",
+      "evaluations": "3925",
+      "requested_malloc_bytes": "3031484",
+      "allocation_calls": "8522"
+    },
+    {
+      "case": "medium",
+      "vertices": "2574",
+      "triangles": "5144",
+      "callback_copies": "58244",
+      "evaluations": "29449",
+      "requested_malloc_bytes": "15942516",
+      "allocation_calls": "58314"
+    },
+    {
+      "case": "fine",
+      "vertices": "11584",
+      "triangles": "23164",
+      "callback_copies": "429017",
+      "evaluations": "228241",
+      "requested_malloc_bytes": "92878552",
+      "allocation_calls": "429087"
+    },
+    {
+      "case": "accurate",
+      "vertices": "2598",
+      "triangles": "5192",
+      "callback_copies": "58276",
+      "evaluations": "47887",
+      "requested_malloc_bytes": "15974708",
+      "allocation_calls": "58346"
+    },
+    {
+      "case": "plane",
+      "vertices": "4326",
+      "triangles": "8648",
+      "callback_copies": "64350",
+      "evaluations": "44511",
+      "requested_malloc_bytes": "27338740",
+      "allocation_calls": "64434"
+    },
+    {
+      "case": "empty",
+      "vertices": "0",
+      "triangles": "0",
+      "callback_copies": "54978",
+      "evaluations": "29449",
+      "requested_malloc_bytes": "9471604",
+      "allocation_calls": "54992"
+    }
+  ],
+  "after": [
+    {
+      "case": "coarse",
+      "vertices": "630",
+      "triangles": "1256",
+      "callback_copies": "17",
+      "evaluations": "3925",
+      "requested_malloc_bytes": "1816844",
+      "allocation_calls": "87"
+    },
+    {
+      "case": "medium",
+      "vertices": "2574",
+      "triangles": "5144",
+      "callback_copies": "17",
+      "evaluations": "29449",
+      "requested_malloc_bytes": "7557828",
+      "allocation_calls": "87"
+    },
+    {
+      "case": "fine",
+      "vertices": "11584",
+      "triangles": "23164",
+      "callback_copies": "17",
+      "evaluations": "228241",
+      "requested_malloc_bytes": "31102552",
+      "allocation_calls": "87"
+    },
+    {
+      "case": "accurate",
+      "vertices": "2598",
+      "triangles": "5192",
+      "callback_copies": "17",
+      "evaluations": "47887",
+      "requested_malloc_bytes": "7585412",
+      "allocation_calls": "87"
+    },
+    {
+      "case": "plane",
+      "vertices": "4326",
+      "triangles": "8648",
+      "callback_copies": "25",
+      "evaluations": "44511",
+      "requested_malloc_bytes": "18075940",
+      "allocation_calls": "109"
+    },
+    {
+      "case": "empty",
+      "vertices": "0",
+      "triangles": "0",
+      "callback_copies": "13",
+      "evaluations": "29449",
+      "requested_malloc_bytes": "1556644",
+      "allocation_calls": "27"
+    }
+  ],
+  "latency_claim": false
+}

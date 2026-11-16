@@ -1,0 +1,19 @@
+{
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "local_candidate": "ca5f9e7552052e464c26d5475c29b0e75a8ddab4",
+  "source_blobs": 168,
+  "paths": [
+    "sdf/include/sdf.cuh",
+    "sdf/include/sdf.h",
+    "src/manifold/include/sdf.h",
+    "src/manifold/src/sdf.cpp",
+    "src/sdf.cpp",
+    "src/sdf/include/sdf.h",
+    "src/sdf/src/sdf.cpp"
+  ],
+  "helper_variants": 6,
+  "equivalent_const_reference_fix_found": false,
+  "all_upstream_pr_states_and_fork_intermediate_refs_included": true,
+  "related_pr1150": "Removed allocation-heavy std::function usage in eight other files, none of which was the SDF implementation",
+  "exact_base_sdf_blob": "42dc50145c7380ffa26c15ae379fddf0665054a8"
+}

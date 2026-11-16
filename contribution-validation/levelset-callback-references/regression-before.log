@@ -1,0 +1,25 @@
+Running main() from /workspace/scratch/4bed741d4966/builds/manifold-base/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SDF
+[ RUN      ] SDF.CallbackCopies
+audit/manifold_sdf_callback_unit.cpp:29: Failure
+Expected: (copies) < (calls / 10), actual: 8566 vs 392
+Google Test trace:
+audit/manifold_sdf_callback_unit.cpp:20: -1
+
+audit/manifold_sdf_callback_unit.cpp:29: Failure
+Expected: (copies) < (calls / 10), actual: 8566 vs 801
+Google Test trace:
+audit/manifold_sdf_callback_unit.cpp:20: 0.0001
+
+[  FAILED  ] SDF.CallbackCopies (12 ms)
+[----------] 1 test from SDF (12 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (12 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] SDF.CallbackCopies
+
+ 1 FAILED TEST

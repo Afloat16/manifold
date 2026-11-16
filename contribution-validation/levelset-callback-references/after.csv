@@ -1,0 +1,7 @@
+case,vertices,triangles,callback_copies,evaluations,requested_malloc_bytes,allocation_calls
+coarse,630,1256,17,3925,1816844,87
+medium,2574,5144,17,29449,7557828,87
+fine,11584,23164,17,228241,31102552,87
+accurate,2598,5192,17,47887,7585412,87
+plane,4326,8648,25,44511,18075940,109
+empty,0,0,13,29449,1556644,27

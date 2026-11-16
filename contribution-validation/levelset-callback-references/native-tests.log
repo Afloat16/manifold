@@ -1,0 +1,42 @@
+Note: Google Test filter = SDF.*:Context.LevelSet*
+[==========] Running 15 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from Context
+[ RUN      ] Context.LevelSetHappyPath
+[       OK ] Context.LevelSetHappyPath (18 ms)
+[ RUN      ] Context.LevelSetMatchesFactory
+[       OK ] Context.LevelSetMatchesFactory (43 ms)
+[ RUN      ] Context.LevelSetCancelBeforeSampling
+[       OK ] Context.LevelSetCancelBeforeSampling (0 ms)
+[----------] 3 tests from Context (62 ms total)
+
+[----------] 12 tests from SDF
+[ RUN      ] SDF.CallbackCopies
+[       OK ] SDF.CallbackCopies (8 ms)
+[ RUN      ] SDF.InvalidGrid
+[       OK ] SDF.InvalidGrid (0 ms)
+[ RUN      ] SDF.SphereShell
+[       OK ] SDF.SphereShell (17287 ms)
+[ RUN      ] SDF.CubeVoid
+[       OK ] SDF.CubeVoid (0 ms)
+[ RUN      ] SDF.Bounds
+[       OK ] SDF.Bounds (0 ms)
+[ RUN      ] SDF.Bounds2
+[       OK ] SDF.Bounds2 (0 ms)
+[ RUN      ] SDF.Bounds3
+[       OK ] SDF.Bounds3 (23 ms)
+[ RUN      ] SDF.Void
+[       OK ] SDF.Void (9 ms)
+[ RUN      ] SDF.Resize
+[       OK ] SDF.Resize (46 ms)
+[ RUN      ] SDF.SineSurface
+[       OK ] SDF.SineSurface (5 ms)
+[ RUN      ] SDF.Determinism
+[       OK ] SDF.Determinism (633 ms)
+[ RUN      ] SDF.Blobs
+[       OK ] SDF.Blobs (11903 ms)
+[----------] 12 tests from SDF (29920 ms total)
+
+[----------] Global test environment tear-down
+[==========] 15 tests from 2 test suites ran. (29982 ms total)
+[  PASSED  ] 15 tests.
