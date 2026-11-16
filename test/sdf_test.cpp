@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include <atomic>
+
 #include "gtest/gtest.h"
 #include "manifold/manifold.h"
 #include "test.h"
@@ -34,6 +36,53 @@ struct Layers {
     return a == 0 ? 1 : (a == 2 ? -1 : 0);
   }
 };
+
+TEST(SDF, MutableCallbackState) {
+  struct StatefulSphere {
+    std::atomic<int>& maxCalls;
+    int calls = 0;
+    bool perturbAfterFirst;
+    double operator()(vec3 p) {
+      ++calls;
+      int previous = maxCalls.load(std::memory_order_relaxed);
+      while (previous < calls &&
+             !maxCalls.compare_exchange_weak(previous, calls,
+                                             std::memory_order_relaxed)) {
+      }
+      return 1 - la::length(p) + (perturbAfterFirst && calls > 1 ? 0.02 : 0);
+    }
+  };
+
+  for (const double tolerance : {-1.0, 1e-4}) {
+    for (const bool perturb : {false, true}) {
+      SCOPED_TRACE(tolerance);
+      SCOPED_TRACE(perturb);
+      MeshGL64 sequential;
+      for (const bool canParallel : {false, true}) {
+        std::atomic<int> maxCalls{0};
+        const Manifold sphere = Manifold::LevelSet(
+            StatefulSphere{maxCalls, 0, perturb}, Box(vec3(-1.2), vec3(1.2)),
+            0.1, 0, tolerance, canParallel);
+        ASSERT_EQ(sphere.Status(), Manifold::Error::NoError);
+        if (tolerance < 0) {
+          // Each sample gets fresh state; no callback is needed on edges.
+          EXPECT_EQ(maxCalls.load(), 1);
+          EXPECT_NEAR(sphere.Volume(), 4 * kPi / 3, 0.08);
+        } else {
+          // A single root search retains state between its evaluations.
+          EXPECT_GT(maxCalls.load(), 1);
+        }
+        const MeshGL64 mesh = sphere.GetMeshGL64();
+        if (!canParallel) {
+          sequential = mesh;
+        } else {
+          EXPECT_EQ(mesh.vertProperties, sequential.vertProperties);
+          EXPECT_EQ(mesh.triVerts, sequential.triVerts);
+        }
+      }
+    }
+  }
+}
 
 TEST(SDF, InvalidGrid) {
   auto sphere = [](vec3 p) { return 1 - la::length(p); };
