@@ -136,7 +136,7 @@ vec3 Bound(vec3 pos, vec3 origin, vec3 spacing, ivec3 gridSize) {
 }
 
 double BoundedSDF(ivec4 gridIndex, vec3 origin, vec3 spacing, ivec3 gridSize,
-                  double level, std::function<double(vec3)> sdf) {
+                  double level, const std::function<double(vec3)>& sdf) {
   const ivec3 xyz(gridIndex);
   const int lowerBoundDist = minelem(xyz);
   const int upperBoundDist = minelem(gridSize - xyz);
@@ -152,7 +152,7 @@ double BoundedSDF(ivec4 gridIndex, vec3 origin, vec3 spacing, ivec3 gridSize,
 // Simplified ITP root finding algorithm - same worst-case performance as
 // bisection, better average performance.
 inline vec3 FindSurface(vec3 pos0, double d0, vec3 pos1, double d1, double tol,
-                        double level, std::function<double(vec3)> sdf) {
+                        double level, const std::function<double(vec3)>& sdf) {
   if (d0 == 0) {
     return pos0;
   } else if (d1 == 0) {
