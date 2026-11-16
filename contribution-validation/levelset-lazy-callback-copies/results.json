@@ -1,0 +1,154 @@
+{
+  "repository": "elalish/manifold",
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "head": "784c68b3889659e746d5ecad4514ea2771c8e4d9",
+  "tree": "b88036444c4d265d4e02413e3cddd466b55bd2dd",
+  "local_commit": "1ec3ed934b52fa4c7e7498311889a231b3c715a3",
+  "scope": "Safe lazy-copy version: keep a private target for every bounded callback evaluation and every independent root search; skip copies only for calls that return without evaluating the callback.",
+  "native": {
+    "passed": 16,
+    "failed": 0,
+    "build": "GCC14.2; Release; PAR=OFF; DEBUG=ON; ASSERT=ON; STRICT=ON",
+    "log": "audit/manifold-sdf-v2-native.log"
+  },
+  "red_green": {
+    "copy_count_baseline": "Two copy-count assertions fail against unchanged baseline; safe version passes.",
+    "mutable_baseline_passed": true,
+    "naive_reference_version_rejected": true
+  },
+  "full_payload_comparison": {
+    "cases": 8,
+    "total_bytes": 1944200,
+    "byte_equal": true,
+    "evaluation_counts_unchanged": true,
+    "hashes": [
+      {
+        "name": "accurate.bin",
+        "bytes": 187069,
+        "sha256": "e67786a8977eecf47f05290af044af0d8849f61f5beaeb8591da330fbc182a4a"
+      },
+      {
+        "name": "coarse.bin",
+        "bytes": 45373,
+        "sha256": "aa9a23fb2677e3e26b4185dc56bb394c6c99edab423df249e9d8b54ae42d7460"
+      },
+      {
+        "name": "empty.bin",
+        "bytes": 109,
+        "sha256": "c8947302e4bfe9819f93b99a1bb656ede9dfcea568b6215e941ce2684902f7c6"
+      },
+      {
+        "name": "fine.bin",
+        "bytes": 834061,
+        "sha256": "62b65d1eaa9884285cc81264e28581952c048600247f178dff0486184a22504f"
+      },
+      {
+        "name": "medium.bin",
+        "bytes": 185341,
+        "sha256": "191708879b3ab4b34cd118c37e211ad3a5bf876d20eb84f25179066a12c3dbaf"
+      },
+      {
+        "name": "plane.bin",
+        "bytes": 311485,
+        "sha256": "ac42fddece9a77ff0b5e199bc390bddb20025b0cf5f12dfa08dae8820bded0f9"
+      },
+      {
+        "name": "stateful_interpolated.bin",
+        "bytes": 185341,
+        "sha256": "191708879b3ab4b34cd118c37e211ad3a5bf876d20eb84f25179066a12c3dbaf"
+      },
+      {
+        "name": "stateful_refined.bin",
+        "bytes": 195421,
+        "sha256": "352d13eb3a75ed335b6b3de3f8baec79cbe7c3c49d17b85a3ad80b671fd5d38d"
+      }
+    ]
+  },
+  "remeasured_safe_cases": [
+    {
+      "case": "fine",
+      "evaluations": 228241,
+      "copies_before": 429017,
+      "copies_after": 228258,
+      "allocation_calls_before": 429087,
+      "allocation_calls_after": 228328,
+      "requested_bytes_before": 92878552,
+      "requested_bytes_after": 63969256
+    },
+    {
+      "case": "accurate",
+      "evaluations": 47887,
+      "copies_before": 58276,
+      "copies_after": 32760,
+      "allocation_calls_before": 58346,
+      "allocation_calls_after": 32830,
+      "requested_bytes_before": 15974708,
+      "requested_bytes_after": 12300404
+    },
+    {
+      "case": "empty",
+      "evaluations": 29449,
+      "copies_before": 54978,
+      "copies_after": 29462,
+      "allocation_calls_before": 54992,
+      "allocation_calls_after": 29476,
+      "requested_bytes_before": 9471604,
+      "requested_bytes_after": 5797300
+    },
+    {
+      "case": "stateful_interpolated",
+      "evaluations": 29449,
+      "copies_before": 58244,
+      "copies_after": 29466,
+      "requested_bytes_before": 16408468,
+      "requested_bytes_after": 12034212
+    },
+    {
+      "case": "stateful_refined",
+      "evaluations": 59624,
+      "copies_before": 58432,
+      "copies_after": 32916,
+      "requested_bytes_before": 16598252,
+      "requested_bytes_after": 12719820
+    }
+  ],
+  "benchmark_scope": "Public Manifold::LevelSet calls using heap-backed captures, allocation requests counted during the actual call. No peak-memory or timing improvement claim. Safe-v2 benchmark was rerun before executor loss; these data do not reuse the rejected naive-reference measurements.",
+  "history": {
+    "source_blobs": 168,
+    "old_paths": 7,
+    "helper_variants": 6,
+    "all_upstream_PR_states_and_old_fork_intermediate_refs": true,
+    "equivalent_lazy_copy_found": false,
+    "related_pr1150": "Changes eight other files, not the SDF implementation"
+  },
+  "parallel_tsan": {
+    "baseline": {
+      "run_id": 43949632683,
+      "job_id": 133588372242,
+      "head": "c655c94b76df7127e25ddf30bc41420947834150",
+      "url": "https://github.com/Afloat16/manifold/actions/runs/43949632683",
+      "conclusion": "success",
+      "passed": 656,
+      "failed": 0
+    },
+    "candidate": {
+      "run_id": 43949770241,
+      "job_id": 133588851837,
+      "head": "784c68b3889659e746d5ecad4514ea2771c8e4d9",
+      "url": "https://github.com/Afloat16/manifold/actions/runs/43949770241",
+      "conclusion": "success",
+      "passed": 657,
+      "failed": 0
+    },
+    "flags": "MANIFOLD_PAR=ON; TBB_SANITIZE=thread; TSAN_OPTIONS=halt_on_error=1 report_thread_leaks=0",
+    "mutable_state_test": "SDF.MutableCallbackState passes in both runs, including non-atomic per-target state and state-dependent callback return values.",
+    "copy_count_test": "SDF.CallbackCopies passes in candidate run.",
+    "thread_sanitizer_warning_found": false,
+    "full_logs_included": true
+  },
+  "not_claimed": [
+    "Official upstream PR CI: no upstream PR has been created for this candidate.",
+    "General leak detection: existing workflow sets report_thread_leaks=0.",
+    "Runtime speedup or peak-memory reduction."
+  ]
+}

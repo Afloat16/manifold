@@ -1,0 +1,25 @@
+{
+  "number": 1971,
+  "url": "https://github.com/elalish/manifold/pull/1971",
+  "head": "2da50113cf9ce19976748ff02ec71a51501282ab",
+  "base": "master",
+  "state": "open",
+  "draft": false,
+  "maintainer_can_modify": false,
+  "body": "Fixes #1970.\r\n\r\nEroding a convex first operand by a non-convex second operand currently runs the operation in the opposite direction. `Impl::Minkowski` uses a convex-first swap for both sums and differences, even though a difference is not commutative. For a `10 × 10 × 10` box and the centered symmetric cross in the issue, the result is empty instead of the expected `6 × 6 × 9` box (volume **324**).\r\n\r\nThis change limits the swap to sums and routes erosion of a convex first operand through the existing per-face/all-cutter-vertices hull path. For convex A, `A ⊖ B = A ⊖ conv(B)`, so this path also handles a non-convex cutter without the face-pair sweep's enclosing-cutter gap. The original first operand remains the erosion base. No public parameter is introduced.\r\n\r\n## Validation\r\n\r\n- A native regression uses a non-convex symmetric cross, both 0° and 90° rotations, and centered/translated first operands. The reference is an analytic axis-aligned box; both `expected - result` and `result - expected` must be empty. The reversed operation is also checked and remains empty.\r\n- The regression fails against unchanged upstream and passes with this change. Following review, it also covers the larger cross completely eroding a small convex box, including rotation and negative translation. Those four empty-result assertions fail against the initial version of this PR and pass after the routing correction.\r\n- A rotated, translated tetrahedron is eroded by the cross and by its convex hull; both directional set differences between the results are empty.\r\n- All **10** focused native tests pass with GCC 14.2, `MANIFOLD_PAR=OFF`, and `MANIFOLD_STRICT=ON`, `MANIFOLD_DEBUG=ON`, `MANIFOLD_ASSERT=ON`. This includes all existing Minkowski sum/difference cases, cancellation, error propagation, and original-ID checks.\r\n- The original Python-binding reproducer returns volume **324**, with zero missing or excess volume; reversing its operands remains empty.\r\n- Clang-format 20 and `git diff --check` pass.\r\n\r\nThis patch is independently based on `74493803` and does not include or depend on the sum-seeding change in #1969. The separate non-convex-base and empty-base cases reported in #1980 are outside this convex-base fix.\r\n",
+  "body_verified_by_UI_and_REST": true,
+  "body_updated_at": "2026-11-16T21:04:52Z",
+  "previous_head": "9018830e3a6cdfdfa3d8d8e9f0eca74ac23b86fb",
+  "tree": "ff62ed49910864067bbdde99e21dc7289ac4e8a5",
+  "local_commit": "0aabef5ffc0681d6609f576b7d1e287b59568f4b",
+  "native_tests": {
+    "minkowski": 9,
+    "original_id": 1,
+    "failed": 0
+  },
+  "baseline_failures": 4,
+  "followup_not_a_new_contribution": true,
+  "reply_status": "not_posted_connector_403_Resource_not_accessible_by_integration",
+  "reply_draft": "Thank you for checking this and for the hull-equivalence observation. The follow-up commit `2da50113` keeps the original operand order for erosion and routes convex-base erosion through the existing per-A-face/all-B-vertices hull path: for convex A, `A ⊖ B = A ⊖ conv(B)`. The final branch is now a plain `else`.\n\nI reproduced the enclosing-cross failure against the initial PR head: all four large-cutter assertions fail there. They now pass with centered/negatively translated bases and 0°/90° cutter rotations. I also added a rotated, translated tetrahedron check against erosion by `cutter.Hull()`, with both directional set differences empty. The 9 Minkowski tests and the original-ID control test all pass with assertions and strict/debug checks enabled (`MANIFOLD_PAR=OFF`).\n\nThe PR description now reflects this routing. This addresses the convex-base case here; the non-convex-base and empty-base cases in #1980 remain separate.",
+  "reply_attempts": 1
+}
