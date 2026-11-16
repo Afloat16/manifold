@@ -809,6 +809,43 @@ TEST(Manifold, Sphere) {
   EXPECT_EQ(sphere.NumTri(), n * n * 8);
 }
 
+TEST(Manifold, CircularSegmentsTinyAngle) {
+  Quality::ResetToDefaults();
+  for (const double angle : {1e-8, 1e-12, std::numeric_limits<double>::min(),
+                             std::numeric_limits<double>::denorm_min()}) {
+    SCOPED_TRACE(testing::Message() << "angle = " << angle);
+    Quality::SetMinCircularAngle(angle);
+    // The edge-length constraint still limits a unit circle to eight sides.
+    EXPECT_EQ(Quality::GetCircularSegments(1.0), 8);
+    const CrossSection circle = CrossSection::Circle(1.0);
+    EXPECT_EQ(circle.NumVert(), 8);
+    EXPECT_NEAR(circle.Area(), 2 * std::sqrt(2.0), 1e-12);
+    const Manifold cylinder = Manifold::Cylinder(2.0, 1.0);
+    EXPECT_EQ(cylinder.Status(), Manifold::Error::NoError);
+    EXPECT_EQ(cylinder.NumVert(), 16);
+    EXPECT_NEAR(cylinder.Volume(), 4 * std::sqrt(2.0), 1e-12);
+  }
+  Quality::ResetToDefaults();
+}
+
+TEST(Manifold, CircularSegmentsRepresentableLimit) {
+  Quality::ResetToDefaults();
+  Quality::SetMinCircularAngle(std::numeric_limits<double>::denorm_min());
+  Quality::SetMinCircularEdgeLength(std::numeric_limits<double>::denorm_min());
+  const int maxSegments = std::numeric_limits<int>::max() / 4 * 4;
+  EXPECT_EQ(Quality::GetCircularSegments(1.0), maxSegments);
+  EXPECT_EQ(Quality::GetCircularSegments(std::numeric_limits<double>::max()),
+            maxSegments);
+  Quality::SetCircularSegments(7);
+  EXPECT_EQ(Quality::GetCircularSegments(1.0), 7);
+  Quality::ResetToDefaults();
+  EXPECT_EQ(Quality::GetCircularSegments(1.0), 8);
+  EXPECT_EQ(Quality::GetCircularSegments(10.0), 36);
+  Quality::SetMinCircularAngle(360.0 / 8.5);
+  EXPECT_EQ(Quality::GetCircularSegments(10.0), 8);
+  Quality::ResetToDefaults();
+}
+
 // Native-only: the WASM build is single-threaded (no pthread), so std::thread
 // construction throws, which aborts under -fno-exceptions.
 #ifndef __EMSCRIPTEN__

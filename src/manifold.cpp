@@ -125,11 +125,11 @@ void Quality::SetCircularSegments(int number) {
 int Quality::GetCircularSegments(double radius) {
   const int segments = circularSegments_;
   if (segments > 0) return segments;
-  int nSegA = 360.0 / circularAngle_;
-  // Keep nSegL a double so the truncating cast happens after fmin bounds it by
-  // nSegA; a raw int cast is undefined for non-finite or huge radius.
+  double nSegA = 360.0 / circularAngle_;
   double nSegL = 2.0 * std::abs(radius) * kPi / circularEdgeLength_;
-  int nSeg = fmin(nSegA, nSegL) + 3;
+  // Bound both constraints before the int cast, leaving room for rounding.
+  const double maxSegments = std::numeric_limits<int>::max() - 3;
+  int nSeg = fmin(fmin(nSegA, nSegL), maxSegments) + 3;
   nSeg -= nSeg % 4;
   return std::max(nSeg, 4);
 }
