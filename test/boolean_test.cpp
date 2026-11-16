@@ -737,6 +737,32 @@ TEST(Boolean, SplitByPlaneEmpty) {
   EXPECT_TRUE(split.second.IsEmpty());
 }
 
+TEST(Boolean, TrimByPlaneEmpty) {
+  const Manifold cube = Manifold::Cube();
+  for (const Manifold& empty :
+       {Manifold(), cube - cube, cube ^ cube.Translate({3, 0, 0})}) {
+    ASSERT_TRUE(empty.IsEmpty());
+    ASSERT_EQ(empty.Status(), Manifold::Error::NoError);
+    for (const vec3 normal : {vec3(0, 0, 1), vec3(1, 2, 3)}) {
+      for (const double offset : {-2.0, 0.0, 2.0}) {
+        const Manifold trimmed = empty.TrimByPlane(normal, offset);
+        EXPECT_EQ(trimmed.Status(), Manifold::Error::NoError);
+        EXPECT_TRUE(trimmed.IsEmpty());
+        const Manifold combined = trimmed + cube;
+        EXPECT_EQ(combined.Status(), Manifold::Error::NoError);
+        EXPECT_DOUBLE_EQ(combined.Volume(), 1);
+      }
+    }
+  }
+}
+
+TEST(Boolean, TrimByPlanePreservesInputError) {
+  const Manifold invalid = Manifold::Cube({-1, 1, 1});
+  ASSERT_EQ(invalid.Status(), Manifold::Error::InvalidConstruction);
+  EXPECT_EQ(invalid.TrimByPlane({0, 0, 1}, 0).Status(),
+            Manifold::Error::InvalidConstruction);
+}
+
 TEST(Boolean, SplitByPlane) {
   Manifold cube = Manifold::Cube(vec3(2.0), true);
   cube = cube.Translate({0.0, 1.0, 0.0});

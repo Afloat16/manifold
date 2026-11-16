@@ -1015,7 +1015,11 @@ std::pair<Manifold, Manifold> Manifold::SplitByPlane(
  * direction of the normal vector.
  */
 Manifold Manifold::TrimByPlane(vec3 normal, double originOffset) const {
-  return *this ^ Halfspace(BoundingBox(), normal, originOffset);
+  auto leafImpl = GetCsgLeafNode().GetImpl();
+  if (leafImpl->status_ != Error::NoError)
+    return PropagateStatus(leafImpl->status_);
+  if (leafImpl->IsEmpty()) return Manifold();
+  return *this ^ Halfspace(leafImpl->bBox_, normal, originOffset);
 }
 
 /**
