@@ -1,0 +1,58 @@
+{
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "candidate_head": "b6ab77889b996ed19348e58ea6c26684f58bf740",
+  "scope": "All SharedVec consumers in current source, plus renamed historical vector headers",
+  "history": {
+    "source_blobs": 94,
+    "copy_constructor_variants": 2,
+    "shared_to_unshared_move_variants": 2,
+    "equivalent_copy_sharing_fix_found": false,
+    "equivalent_move_detach_fix_found": false
+  },
+  "explicit_detach_contract": "SharedVec element access (including mutable pointer, reference, iterator, front/back and VecView) requires MakeUnique by the caller. Structural operations assert uniqueness. This change does not add implicit detachment on each element access.",
+  "consumers": {
+    "Halfedges arrays": [
+      "start_",
+      "paired_",
+      "propVert_"
+    ],
+    "topology_mutators_with_detach": [
+      "DedupePropVerts",
+      "MakeEmpty",
+      "negative-determinant Transform",
+      "SetNormals",
+      "Refine",
+      "Subdivide",
+      "SortGeometry (before SortVerts/CompactProps)",
+      "CleanupTopology",
+      "RemoveDegenerates",
+      "Decimate"
+    ],
+    "mutators_requiring_fresh_storage": [
+      "CreateHalfedges (constructors, SDF, after detached Subdivide)",
+      "GatherFaces (fresh Decompose target, or old halfedges moved to new storage)",
+      "Face2Tri/ReorderHalfedges/CreateProperties (fresh Boolean result)",
+      "CSG Compose (fresh combined mesh)",
+      "QuickHull MeshBuilder and HalfEdgeMesh build fresh buffers; buildMesh returns moved results"
+    ],
+    "raw_mutable_member_aliases": "No external direct start_/paired_/propVert_ buffer aliases found outside Halfedges; its setters are reached under the detach/fresh-storage paths above.",
+    "exceptions": "Public WarpBatch and SetProperties callbacks tested after a write followed by throw, leaving all original mesh fields intact. MakeEmpty detaches before clearing. Sequential detachment of the three arrays never mutates the still-shared source if a later allocation throws."
+  },
+  "corrections_required_by_audit": [
+    "SharedVec copy construction shares existing storage like assignment, preserving an empty result for copying a moved-from vector.",
+    "Both moving constructors and moving assignment from SharedVec into unshared Vec first detach a shared buffer. Stealing the pointer without detaching would alias and double-free the original.",
+    "Native thread tests are excluded for single-threaded Emscripten in line with existing tests; exceptions tests use the compiler exceptions macro."
+  ],
+  "validation": {
+    "header_asan_ubsan": "2 tests fail on base; 2 pass after patch, ASAN_OPTIONS=detect_leaks=0 because LeakSanitizer cannot run under the current traced environment. No leak-check claim.",
+    "public_base_controls": "3 passed",
+    "public_after_native": "3 passed",
+    "all_new_native": "5 passed",
+    "full_native": "649 passed",
+    "fork_validation_pr": "https://github.com/Afloat16/manifold/pull/1",
+    "fork_format": "success",
+    "fork_tsan_run": 43936963443,
+    "fork_ci_run": 43936963310,
+    "fork_tsan": "success"
+  }
+}

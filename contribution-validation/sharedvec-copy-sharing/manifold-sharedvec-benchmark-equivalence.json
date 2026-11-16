@@ -1,0 +1,55 @@
+{
+  "exports": [
+    {
+      "name": "copy_control.bin",
+      "bytes": 6291661,
+      "same": true,
+      "sha256_before": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6",
+      "sha256_after": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6"
+    },
+    {
+      "name": "curvature.bin",
+      "bytes": 7340269,
+      "same": true,
+      "sha256_before": "5a68ad1952df2f890f765086ee98dbbbff3385699365c18d82f199fe3bd19a61",
+      "sha256_after": "5a68ad1952df2f890f765086ee98dbbbff3385699365c18d82f199fe3bd19a61"
+    },
+    {
+      "name": "normals_detach_control.bin",
+      "bytes": 6291661,
+      "same": true,
+      "sha256_before": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6",
+      "sha256_after": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6"
+    },
+    {
+      "name": "properties.bin",
+      "bytes": 5243053,
+      "same": true,
+      "sha256_before": "67f269dd5bf746352ad36e7e9e6b82711c0d5c12b5f4bdcc1bf5f4aae628a13d",
+      "sha256_after": "67f269dd5bf746352ad36e7e9e6b82711c0d5c12b5f4bdcc1bf5f4aae628a13d"
+    },
+    {
+      "name": "smoothing.bin",
+      "bytes": 18874573,
+      "same": true,
+      "sha256_before": "0b17d2522d16dd29ae5ee4efe9ec25ab5e33eb8aee9f06606755390689d11fe0",
+      "sha256_after": "0b17d2522d16dd29ae5ee4efe9ec25ab5e33eb8aee9f06606755390689d11fe0"
+    },
+    {
+      "name": "source-after.bin",
+      "bytes": 6291661,
+      "same": true,
+      "sha256_before": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6",
+      "sha256_after": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6"
+    },
+    {
+      "name": "source-before.bin",
+      "bytes": 6291661,
+      "same": true,
+      "sha256_before": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6",
+      "sha256_after": "1b504d21538390841c20b16e46d3006e8d2c9ebb9fd89d09de02eca6409e21c6"
+    }
+  ],
+  "source_unchanged_before": true,
+  "source_unchanged_after": true
+}

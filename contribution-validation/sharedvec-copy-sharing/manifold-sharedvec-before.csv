@@ -1,0 +1,6 @@
+operation,vertices,triangles,requested_malloc_bytes,allocation_calls
+properties,65538,131072,31458360,20
+curvature,65538,131072,35718330,25
+smoothing,65538,131072,196636050,196640
+normals_detach_control,65538,131072,33162288,22
+copy_control,65538,131072,56,1

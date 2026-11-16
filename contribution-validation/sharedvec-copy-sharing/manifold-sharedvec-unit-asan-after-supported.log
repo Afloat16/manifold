@@ -1,0 +1,13 @@
+Running main() from /workspace/scratch/4bed741d4966/builds/manifold-base/_deps/googletest-src/googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from Utils
+[ RUN      ] Utils.SharedVecCopyConstructionAndDetach
+[       OK ] Utils.SharedVecCopyConstructionAndDetach (1 ms)
+[ RUN      ] Utils.SharedVecConcurrentCopyAndDetach
+[       OK ] Utils.SharedVecConcurrentCopyAndDetach (11 ms)
+[----------] 2 tests from Utils (13 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (13 ms total)
+[  PASSED  ] 2 tests.

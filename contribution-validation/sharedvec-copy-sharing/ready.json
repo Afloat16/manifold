@@ -1,0 +1,37 @@
+{
+  "repo": "elalish/manifold",
+  "fork": "Afloat16/manifold",
+  "branch": "afloat16/sharedvec-copy-sharing-20261116",
+  "head": "b6ab77889b996ed19348e58ea6c26684f58bf740",
+  "tree": "c0bce0fb6fdd25ffce5bef298eef2d5e3574186a",
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "local_commit": "9c398a26a11af874bd16cf6fafea84a0074ee2b6",
+  "published": false,
+  "status": "Native 649 passed; independent fork TSAN success",
+  "validation_pr": "https://github.com/Afloat16/manifold/pull/1",
+  "validation_pr_number": 1,
+  "validation_tsan_run": 43936963443,
+  "validation_ci_run": 43936963310,
+  "base_branch": "master",
+  "title": "Share topology buffers when copy-constructing SharedVec",
+  "maintainer_can_modify": false,
+  "validation_ref": "validation/sharedvec-copy-sharing-20261116",
+  "compare_url": "https://github.com/elalish/manifold/compare/master...Afloat16:manifold:afloat16/sharedvec-copy-sharing-20261116?expand=1",
+  "body": "## Problem\n\n`SharedVec` documents that copy construction shares its storage, but its copy constructor currently constructs a new vector from the source view. Topology-preserving operations that copy `Impl` therefore allocate and copy all three halfedge arrays even though they never modify them.\n\n## Change\n\nUse the existing shared copy-assignment behavior when copy-constructing a `SharedVec`. Keep the explicit `MakeUnique()` mutation contract and deep-copy behavior when copying to an ordinary unshared `Vec`.\n\nBoth shared-to-unshared move paths also detach before transferring storage. Without that step, making copy construction share would allow an unshared vector to own a buffer that another shared vector still uses. Copying a moved-from empty vector remains supported.\n\n## Validation\n\n- **649 native tests pass** in Release with strict mode, debug checks and assertions enabled.\n- **660 tests pass in the repository's configured ThreadSanitizer suite** with GCC 14 and instrumented TBB, including the new concurrent copy/detach and public topology-copy cases: [independent fork run](https://github.com/Afloat16/manifold/actions/runs/43936963443).\n- Added regressions cover shared storage, explicit detach, both shared-to-unshared move paths, empty/moved-from sources, public topology mutations, throwing callbacks, and concurrent copies. All public mesh fields of the source remain unchanged after mutations of a copy.\n- Header-level ownership regressions fail on the base and pass under ASan/UBSan after the change. LeakSanitizer was disabled because it cannot run under the local traced environment; no leak-check result is claimed.\n- **Seven complete MeshGL64 payloads are byte-for-byte identical** before and after (56,624,539 bytes), including original geometry before and after the operations.\n\nFor a native sphere with 65,538 vertices and 131,072 triangles, allocation counters during each public operation measured:\n\n| Operation | Allocations before \u2192 after | Requested allocation bytes before \u2192 after |\n| --- | ---: | ---: |\n| SetProperties | 20 \u2192 14 | 31,458,360 \u2192 26,739,756 |\n| CalculateCurvature | 25 \u2192 19 | 35,718,330 \u2192 30,999,726 |\n| SmoothByNormals | 196,640 \u2192 196,634 | 196,636,050 \u2192 191,917,446 |\n\nEach avoids six allocations and 4,718,604 requested bytes. A normal-changing operation that must detach and an ordinary lazy copy retain their original allocation counts and bytes. These are requested allocations, not process RSS or a latency claim.\n\n[Native benchmark, complete results and consumer audit](https://github.com/Afloat16/manifold/tree/validation/sharedvec-copy-sharing-20261116/contribution-validation/sharedvec-copy-sharing).\n\nclang-format 20.1.8 and `git diff --check` pass.\n",
+  "validation": {
+    "native_tests": 649,
+    "tsan_tests": 660,
+    "tsan_run": 43936963443,
+    "byte_identical_exports": 7,
+    "exported_bytes": 56624539,
+    "saved_allocations_per_operation": 6,
+    "saved_requested_bytes_per_operation": 4718604
+  },
+  "history": {
+    "source_blobs": 94,
+    "copy_variants": 2,
+    "cross_move_variants": 2,
+    "equivalent_prior_implementation": false,
+    "old_names_and_all_fork_intermediate_commits_included": true
+  }
+}
