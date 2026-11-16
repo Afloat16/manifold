@@ -409,8 +409,10 @@ void Manifold::Impl::CompactProps(ExecutionContext::Impl* ctx) {
   Vec<int> propOld2New(numVerts + 1, 0);
   inclusive_scan(keep.begin(), keep.end(), propOld2New.begin() + 1);
 
-  Vec<double> oldProp = properties_;
   const int numVertsNew = propOld2New[numVerts];
+  if (numVertsNew == numVerts) return;
+
+  Vec<double> oldProp = std::move(properties_);
   auto& properties = properties_;
   properties.resize_nofill(numProp * numVertsNew);
   for_each_n(
