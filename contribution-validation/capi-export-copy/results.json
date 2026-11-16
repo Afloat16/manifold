@@ -1,0 +1,32 @@
+{
+  "upstream_base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "patch_head": "c09c5b3b28a7e880f17e2ca644d78a81972f493d",
+  "local_patch_commit": "43a178a00e5a0007f76deebcc1853044da757b96",
+  "compiler": "GCC 14.2.0",
+  "cpp_standard": 17,
+  "cmake": {
+    "build_type": "Release",
+    "MANIFOLD_PAR": false,
+    "MANIFOLD_STRICT": true,
+    "MANIFOLD_DEBUG": true,
+    "MANIFOLD_ASSERT": true
+  },
+  "native_tests": "25/25 CBIND passed",
+  "ownership_checks": "All four exports compared field-by-field after deleting the input Manifold (256 segments)",
+  "history": {
+    "source_blobs": 153,
+    "export_function_variants": 14,
+    "paths": [
+      "bindings/c/manifoldc.cpp",
+      "src/manifoldc.cpp"
+    ],
+    "result": "No equivalent removal of the redundant lvalue MeshGL copies in any audited variant"
+  },
+  "before_csv": "entry,segments,vertices,triangles,median_ms,allocated_bytes,peak_requested_bytes,returned_live_bytes,allocations,payload_bytes\nmesh32,1024,262146,524288,68.231817,36700758,25166194,12583221,262162,12582973\nmesh32_normals,1024,262146,524288,91.440915,36700758,25166194,12583221,262162,12582973\nmesh64,1024,262146,524288,104.391118,61866698,50332130,25166189,262162,25165941\nmesh64_normals,1024,262146,524288,97.111759,61866698,50332130,25166189,262162,25165941\n",
+  "after_csv": "entry,segments,vertices,triangles,median_ms,allocated_bytes,peak_requested_bytes,returned_live_bytes,allocations,payload_bytes\nmesh32,1024,262146,524288,44.241281,24117785,24117629,12583221,262157,12582973\nmesh32_normals,1024,262146,524288,45.503357,24117785,24117629,12583221,262157,12582973\nmesh64,1024,262146,524288,73.180612,36700757,36700597,25166189,262157,25165941\nmesh64_normals,1024,262146,524288,76.103639,36700757,36700597,25166189,262157,25165941\n",
+  "notes": [
+    "Counter is requested C++ allocation bytes during one public export, not process RSS.",
+    "Latency is median of 7 calls after 2 warmups on a shared host; allocation savings are the primary result.",
+    "Benchmark overrides global new/delete and requires MANIFOLD_PAR=OFF."
+  ]
+}
