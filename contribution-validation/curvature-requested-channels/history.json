@@ -1,0 +1,18 @@
+{
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "property_source_blobs": 151,
+  "implementation_source_blobs": 1416,
+  "curvature_function_variants": 47,
+  "curvature_angles_variants": 17,
+  "old_getter_variants": 10,
+  "property_paths": [
+    "manifold/src/properties.cpp",
+    "manifold/src/properties.cu",
+    "src/manifold/src/properties.cpp",
+    "src/properties.cpp"
+  ],
+  "all_upstream_pr_states_and_old_fork_intermediate_commits_included": true,
+  "equivalent_skipping_unrequested_channels_found": false,
+  "older_GetCurvature_API": "Always returns both results; takes no channel arguments",
+  "related_open_pr1620": "Degenerate-face checks and zero-area handling; does not skip unrequested channels or buffers"
+}

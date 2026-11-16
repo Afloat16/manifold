@@ -1,0 +1,11 @@
+{
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "library_sha256": "f2116cd8fa14297ad5a6ae3c22cb0f77ddaf43e80ef053b3375227289c13c2af",
+  "flags": {
+    "CMAKE_BUILD_TYPE": "Release",
+    "MANIFOLD_PAR": false,
+    "MANIFOLD_DEBUG": true,
+    "MANIFOLD_ASSERT": true,
+    "MANIFOLD_STRICT": true
+  }
+}

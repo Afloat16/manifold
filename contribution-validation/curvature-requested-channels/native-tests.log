@@ -1,0 +1,87 @@
+Note: Google Test filter = Properties.*:Smooth.*:Manifold.ErrorPropagationCalculateCurvature
+[==========] Running 36 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 14 tests from Properties
+[ RUN      ] Properties.Measurements
+[       OK ] Properties.Measurements (1 ms)
+[ RUN      ] Properties.BooleanBarycentricWeightsRemainFinite
+[       OK ] Properties.BooleanBarycentricWeightsRemainFinite (2 ms)
+[ RUN      ] Properties.Epsilon
+[       OK ] Properties.Epsilon (0 ms)
+[ RUN      ] Properties.Epsilon2
+[       OK ] Properties.Epsilon2 (0 ms)
+[ RUN      ] Properties.Tolerance
+[       OK ] Properties.Tolerance (0 ms)
+[ RUN      ] Properties.ToleranceSphere
+[       OK ] Properties.ToleranceSphere (53268 ms)
+[ RUN      ] Properties.ToleranceCylinder
+[       OK ] Properties.ToleranceCylinder (2 ms)
+[ RUN      ] Properties.ToleranceCube
+[       OK ] Properties.ToleranceCube (1 ms)
+[ RUN      ] Properties.CalculateCurvature
+[       OK ] Properties.CalculateCurvature (26 ms)
+[ RUN      ] Properties.CurvatureChannels
+[       OK ] Properties.CurvatureChannels (4 ms)
+[ RUN      ] Properties.CalculateNormals
+[       OK ] Properties.CalculateNormals (9 ms)
+[ RUN      ] Properties.PropertyIndexTooLarge
+[       OK ] Properties.PropertyIndexTooLarge (0 ms)
+[ RUN      ] Properties.SetPropertiesNegative
+[       OK ] Properties.SetPropertiesNegative (0 ms)
+[ RUN      ] Properties.Coplanar
+[       OK ] Properties.Coplanar (1 ms)
+[----------] 14 tests from Properties (53319 ms total)
+
+[----------] 1 test from Manifold
+[ RUN      ] Manifold.ErrorPropagationCalculateCurvature
+[       OK ] Manifold.ErrorPropagationCalculateCurvature (0 ms)
+[----------] 1 test from Manifold (0 ms total)
+
+[----------] 21 tests from Smooth
+[ RUN      ] Smooth.Tetrahedron
+[       OK ] Smooth.Tetrahedron (119 ms)
+[ RUN      ] Smooth.RefineQuads
+[       OK ] Smooth.RefineQuads (50 ms)
+[ RUN      ] Smooth.TruncatedCone
+[       OK ] Smooth.TruncatedCone (24 ms)
+[ RUN      ] Smooth.ToLength
+[       OK ] Smooth.ToLength (423 ms)
+[ RUN      ] Smooth.Sphere
+[       OK ] Smooth.Sphere (202 ms)
+[ RUN      ] Smooth.Precision
+[       OK ] Smooth.Precision (56 ms)
+[ RUN      ] Smooth.Normals
+[       OK ] Smooth.Normals (605 ms)
+[ RUN      ] Smooth.FacetedNormals
+[       OK ] Smooth.FacetedNormals (1239 ms)
+[ RUN      ] Smooth.NormalTransform
+[       OK ] Smooth.NormalTransform (15 ms)
+[ RUN      ] Smooth.MissingNormals
+[       OK ] Smooth.MissingNormals (2 ms)
+[ RUN      ] Smooth.MissingNormalsCone
+[       OK ] Smooth.MissingNormalsCone (3 ms)
+[ RUN      ] Smooth.OperandOrder
+[       OK ] Smooth.OperandOrder (97 ms)
+[ RUN      ] Smooth.Fillet
+[       OK ] Smooth.Fillet (13 ms)
+[ RUN      ] Smooth.Fillet2
+[       OK ] Smooth.Fillet2 (17 ms)
+[ RUN      ] Smooth.Manual
+[       OK ] Smooth.Manual (219 ms)
+[ RUN      ] Smooth.InvalidTangents
+[       OK ] Smooth.InvalidTangents (0 ms)
+[ RUN      ] Smooth.NormalIdxOutOfRange
+[       OK ] Smooth.NormalIdxOutOfRange (1 ms)
+[ RUN      ] Smooth.Mirrored
+[       OK ] Smooth.Mirrored (2 ms)
+[ RUN      ] Smooth.Csaszar
+[       OK ] Smooth.Csaszar (310 ms)
+[ RUN      ] Smooth.Torus
+[       OK ] Smooth.Torus (49 ms)
+[ RUN      ] Smooth.SDF
+[       OK ] Smooth.SDF (10814 ms)
+[----------] 21 tests from Smooth (14272 ms total)
+
+[----------] Global test environment tear-down
+[==========] 36 tests from 3 test suites ran. (67591 ms total)
+[  PASSED  ] 36 tests.

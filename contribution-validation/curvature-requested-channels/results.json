@@ -1,0 +1,499 @@
+{
+  "base": "74493803a4d8469779cdf9d8e3e23a11b349c22f",
+  "local_head": "f8e773ca325273faf985c5516672bcad144af7ab",
+  "cases": 12,
+  "serialized_payloads": [
+    {
+      "name": "colored-input-after.bin",
+      "bytes": 393421,
+      "sha256": "9a5346d67e89eeb6c71aafa741c6a5ff36bf6840198d30358e417e1b6f5cd5d9",
+      "byte_equal": true
+    },
+    {
+      "name": "colored-input-before.bin",
+      "bytes": 393421,
+      "sha256": "9a5346d67e89eeb6c71aafa741c6a5ff36bf6840198d30358e417e1b6f5cd5d9",
+      "byte_equal": true
+    },
+    {
+      "name": "colored_gaussian.bin",
+      "bytes": 393421,
+      "sha256": "e26fa9b8faef93b76b28ba1cafe93ac9b640c94d118131f14be7e81f6dce0720",
+      "byte_equal": true
+    },
+    {
+      "name": "colored_mean.bin",
+      "bytes": 393421,
+      "sha256": "48cde7c7e6a12b8088bdaa1db1d8074dacff824af4ac81b7e16dbda30efe37a0",
+      "byte_equal": true
+    },
+    {
+      "name": "concave_gaussian.bin",
+      "bytes": 81469,
+      "sha256": "0a147a60cd0bb423b08bc0bc31de29788039248f4d19fde4f7b4ae32c6cf545b",
+      "byte_equal": true
+    },
+    {
+      "name": "concave_mean.bin",
+      "bytes": 81469,
+      "sha256": "a63039e4598e912e70b751a4d9b3384e0a52f513699892869bf001953fe22b4e",
+      "byte_equal": true
+    },
+    {
+      "name": "empty.bin",
+      "bytes": 96,
+      "sha256": "1d41b0a814a19a975d5007ad2efa94a929b89c718257dbeef49475e97647b062",
+      "byte_equal": true
+    },
+    {
+      "name": "flat_gaussian.bin",
+      "bytes": 123149,
+      "sha256": "1f87132fb33beae267ec9fa060d2fdb5a9498221b500c519b1a65db3f272566a",
+      "byte_equal": true
+    },
+    {
+      "name": "flat_mean.bin",
+      "bytes": 123149,
+      "sha256": "831a48c835aa6b901e3649a30c4be88ba5dc3db6bd872322cd511a9dcc0f4d4a",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere-input-after.bin",
+      "bytes": 4718749,
+      "sha256": "80984608e18d5c9a5b04abce77d0e6eafc4ab91268dd33e5744471a1cfeb84d7",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere-input-before.bin",
+      "bytes": 4718749,
+      "sha256": "80984608e18d5c9a5b04abce77d0e6eafc4ab91268dd33e5744471a1cfeb84d7",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere_aliased.bin",
+      "bytes": 5243053,
+      "sha256": "496535d8a15f90634584b0de42d8e22607843419345546c25813adc1e82431ec",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere_both.bin",
+      "bytes": 5767357,
+      "sha256": "5ac2a1d79c4d084746da3a6568a402af40dbc6fed2dfcbed4ca012b98111fc83",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere_gaussian.bin",
+      "bytes": 5243053,
+      "sha256": "5ee5c5ed941b67d6e6be75bfbbc09175abd624064f0a6090263e10e606df0bbb",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere_mean.bin",
+      "bytes": 5243053,
+      "sha256": "496535d8a15f90634584b0de42d8e22607843419345546c25813adc1e82431ec",
+      "byte_equal": true
+    },
+    {
+      "name": "sphere_neither.bin",
+      "bytes": 4718749,
+      "sha256": "80984608e18d5c9a5b04abce77d0e6eafc4ab91268dd33e5744471a1cfeb84d7",
+      "byte_equal": true
+    }
+  ],
+  "total_bytes": 37635779,
+  "input_unchanged": true,
+  "measurements": {
+    "before": [
+      {
+        "case": "sphere_mean",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "63991193"
+      },
+      {
+        "case": "sphere_gaussian",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "57631744"
+      },
+      {
+        "case": "sphere_both",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30999594",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "59276956"
+      },
+      {
+        "case": "sphere_aliased",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "63531017"
+      },
+      {
+        "case": "sphere_neither",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "27788232",
+        "allocation_calls": "17",
+        "median_thread_cpu_ns_7_repetitions": "16650415"
+      },
+      {
+        "case": "colored_mean",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2167962",
+        "allocation_calls": "25",
+        "median_thread_cpu_ns_7_repetitions": "2288316"
+      },
+      {
+        "case": "colored_gaussian",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2167962",
+        "allocation_calls": "25",
+        "median_thread_cpu_ns_7_repetitions": "2472546"
+      },
+      {
+        "case": "concave_mean",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "473025",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "546328"
+      },
+      {
+        "case": "concave_gaussian",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "473025",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "445532"
+      },
+      {
+        "case": "flat_mean",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "715290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "555322"
+      },
+      {
+        "case": "flat_gaussian",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "715290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "773812"
+      },
+      {
+        "case": "empty",
+        "vertices": "0",
+        "triangles": "0",
+        "requested_malloc_bytes": "780",
+        "allocation_calls": "6",
+        "median_thread_cpu_ns_7_repetitions": "445"
+      }
+    ],
+    "after": [
+      {
+        "case": "sphere_mean",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "29950986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "50534183"
+      },
+      {
+        "case": "sphere_gaussian",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "29950986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "42889714"
+      },
+      {
+        "case": "sphere_both",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30999594",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "60325214"
+      },
+      {
+        "case": "sphere_aliased",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "57741545"
+      },
+      {
+        "case": "sphere_neither",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "27788232",
+        "allocation_calls": "17",
+        "median_thread_cpu_ns_7_repetitions": "17124938"
+      },
+      {
+        "case": "colored_mean",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2135178",
+        "allocation_calls": "24",
+        "median_thread_cpu_ns_7_repetitions": "2250733"
+      },
+      {
+        "case": "colored_gaussian",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2135178",
+        "allocation_calls": "24",
+        "median_thread_cpu_ns_7_repetitions": "1615556"
+      },
+      {
+        "case": "concave_mean",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "464889",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "503130"
+      },
+      {
+        "case": "concave_gaussian",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "464889",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "413490"
+      },
+      {
+        "case": "flat_mean",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "702986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "894254"
+      },
+      {
+        "case": "flat_gaussian",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "702986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "557302"
+      },
+      {
+        "case": "empty",
+        "vertices": "0",
+        "triangles": "0",
+        "requested_malloc_bytes": "780",
+        "allocation_calls": "6",
+        "median_thread_cpu_ns_7_repetitions": "425"
+      }
+    ],
+    "before-repeat": [
+      {
+        "case": "sphere_mean",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "54762194"
+      },
+      {
+        "case": "sphere_gaussian",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "54880487"
+      },
+      {
+        "case": "sphere_both",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30999594",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "57929250"
+      },
+      {
+        "case": "sphere_aliased",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "53979875"
+      },
+      {
+        "case": "sphere_neither",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "27788232",
+        "allocation_calls": "17",
+        "median_thread_cpu_ns_7_repetitions": "22827061"
+      },
+      {
+        "case": "colored_mean",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2167962",
+        "allocation_calls": "25",
+        "median_thread_cpu_ns_7_repetitions": "2266825"
+      },
+      {
+        "case": "colored_gaussian",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2167962",
+        "allocation_calls": "25",
+        "median_thread_cpu_ns_7_repetitions": "1881584"
+      },
+      {
+        "case": "concave_mean",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "473025",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "400829"
+      },
+      {
+        "case": "concave_gaussian",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "473025",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "506330"
+      },
+      {
+        "case": "flat_mean",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "715290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "872044"
+      },
+      {
+        "case": "flat_gaussian",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "715290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "579935"
+      },
+      {
+        "case": "empty",
+        "vertices": "0",
+        "triangles": "0",
+        "requested_malloc_bytes": "780",
+        "allocation_calls": "6",
+        "median_thread_cpu_ns_7_repetitions": "430"
+      }
+    ],
+    "after-repeat": [
+      {
+        "case": "sphere_mean",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "29950986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "58845873"
+      },
+      {
+        "case": "sphere_gaussian",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "29950986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "52970817"
+      },
+      {
+        "case": "sphere_both",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30999594",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "59550237"
+      },
+      {
+        "case": "sphere_aliased",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "30475290",
+        "allocation_calls": "23",
+        "median_thread_cpu_ns_7_repetitions": "63219820"
+      },
+      {
+        "case": "sphere_neither",
+        "vertices": "65538",
+        "triangles": "131072",
+        "requested_malloc_bytes": "27788232",
+        "allocation_calls": "17",
+        "median_thread_cpu_ns_7_repetitions": "19194637"
+      },
+      {
+        "case": "colored_mean",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2135178",
+        "allocation_calls": "24",
+        "median_thread_cpu_ns_7_repetitions": "1779576"
+      },
+      {
+        "case": "colored_gaussian",
+        "vertices": "4098",
+        "triangles": "8192",
+        "requested_malloc_bytes": "2135178",
+        "allocation_calls": "24",
+        "median_thread_cpu_ns_7_repetitions": "1301420"
+      },
+      {
+        "case": "concave_mean",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "464889",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "346681"
+      },
+      {
+        "case": "concave_gaussian",
+        "vertices": "1017",
+        "triangles": "2030",
+        "requested_malloc_bytes": "464889",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "328550"
+      },
+      {
+        "case": "flat_mean",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "702986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "546076"
+      },
+      {
+        "case": "flat_gaussian",
+        "vertices": "1538",
+        "triangles": "3072",
+        "requested_malloc_bytes": "702986",
+        "allocation_calls": "22",
+        "median_thread_cpu_ns_7_repetitions": "555657"
+      },
+      {
+        "case": "empty",
+        "vertices": "0",
+        "triangles": "0",
+        "requested_malloc_bytes": "780",
+        "allocation_calls": "6",
+        "median_thread_cpu_ns_7_repetitions": "445"
+      }
+    ]
+  }
+}
