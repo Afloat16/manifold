@@ -315,6 +315,11 @@ Manifold::Impl::Impl(const MeshGLP<Precision, I>& meshGL,
     return;
   }
 
+  if (meshGL.vertProperties.size() % meshGL.numProp != 0) {
+    MakeEmpty(Error::PropertiesWrongLength);
+    return;
+  }
+
   const uint32_t numVert = meshGL.NumVert();
   const uint32_t numTri = meshGL.NumTri();
 

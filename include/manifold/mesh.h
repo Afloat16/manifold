@@ -169,8 +169,9 @@ struct MeshGLP {
   /**
    * Updates the mergeFromVert and mergeToVert vectors in order to create a
    * manifold solid. If the MeshGL is already manifold, or is invalid (fewer
-   * than 3 properties, merge vectors of different lengths, or out-of-range
-   * indices), no change will occur and the function will return false.
+   * than 3 properties, incomplete vertex records, merge vectors of different
+   * lengths, or out-of-range indices), no change will occur and the function
+   * will return false.
    * Otherwise, this will merge verts
    * along open edges within tolerance (the maximum of the MeshGL tolerance
    * and the baseline bounding-box tolerance), keeping any from the existing

@@ -79,7 +79,7 @@ template <typename Precision, typename I>
 bool MergeMeshGLP(MeshGLP<Precision, I>& mesh) {
   ZoneScoped;
 
-  if (mesh.numProp < 3 ||
+  if (mesh.numProp < 3 || mesh.vertProperties.size() % mesh.numProp != 0 ||
       mesh.mergeFromVert.size() != mesh.mergeToVert.size()) {
     return false;
   }
@@ -618,7 +618,8 @@ void Manifold::Impl::ReorderHalfedges(ExecutionContext::Impl* ctx) {
 /**
  * Updates the mergeFromVert and mergeToVert vectors in order to create a
  * manifold solid. If the MeshGL is already manifold, or is invalid (fewer than
- * 3 properties, merge vectors of different lengths, or out-of-range indices),
+ * 3 properties, incomplete vertex records, merge vectors of different lengths,
+ * or out-of-range indices),
  * no change will occur and the function will return false. Otherwise, this
  * will merge verts along open edges within tolerance (the maximum of the MeshGL
  * tolerance and the baseline bounding-box tolerance), keeping any from the

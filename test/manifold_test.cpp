@@ -281,6 +281,28 @@ TEST(Manifold, InvalidInputNoProperties) {
   EXPECT_EQ(tet.Status(), Manifold::Error::MissingPositionProperties);
 }
 
+TEST(Manifold, InvalidInputIncompleteProperties) {
+  const auto check = [](const auto& original) {
+    ASSERT_EQ(Manifold(original).Status(), Manifold::Error::NoError);
+    for (size_t extra = 1; extra < original.numProp; ++extra) {
+      auto mesh = original;
+      mesh.vertProperties.resize(mesh.vertProperties.size() + extra, 42);
+      EXPECT_EQ(Manifold(mesh).Status(),
+                Manifold::Error::PropertiesWrongLength);
+      mesh.vertProperties.resize(extra);
+      mesh.triVerts.clear();
+      EXPECT_EQ(Manifold(mesh).Status(),
+                Manifold::Error::PropertiesWrongLength);
+    }
+  };
+  const Manifold cube = Manifold::Cube();
+  check(cube.GetMeshGL());
+  check(cube.GetMeshGL64());
+  const Manifold colored = WithPositionColors(cube);
+  check(colored.GetMeshGL());
+  check(colored.GetMeshGL64());
+}
+
 TEST(Manifold, ErrorPropagationDecompose) {
   MeshGL in = TetGL();
   in.vertProperties[2 * 3 + 1] = NAN;
@@ -1396,6 +1418,32 @@ TEST(Manifold, Merge) {
   EXPECT_TRUE(cubeSTL.Merge());
   EXPECT_EQ(cubeSTL.mergeFromVert.size(), 28);
   CheckCube(cubeSTL);
+}
+
+TEST(Manifold, MergeIncompleteProperties) {
+  const auto check = [](const auto& original) {
+    auto valid = original;
+    ASSERT_TRUE(valid.Merge());
+    ASSERT_EQ(Manifold(valid).Status(), Manifold::Error::NoError);
+    for (size_t extra = 1; extra < original.numProp; ++extra) {
+      auto mesh = original;
+      mesh.vertProperties.resize(mesh.vertProperties.size() + extra, 42);
+      const auto before = mesh;
+      EXPECT_FALSE(mesh.Merge());
+      EXPECT_EQ(mesh.mergeFromVert, before.mergeFromVert);
+      EXPECT_EQ(mesh.mergeToVert, before.mergeToVert);
+      EXPECT_EQ(mesh.triVerts, before.triVerts);
+      EXPECT_EQ(mesh.vertProperties, before.vertProperties);
+    }
+  };
+  const MeshGL mesh = CubeSTL();
+  check(mesh);
+  MeshGL64 mesh64;
+  mesh64.numProp = mesh.numProp;
+  mesh64.vertProperties.assign(mesh.vertProperties.begin(),
+                               mesh.vertProperties.end());
+  mesh64.triVerts.assign(mesh.triVerts.begin(), mesh.triVerts.end());
+  check(mesh64);
 }
 
 TEST(Manifold, MergeCollapsedEdgeParity) {
