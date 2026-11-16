@@ -1,3 +1,5 @@
+> Superseded experiment: do not submit this direct-reference implementation. The parallel loop shares its callback body, so direct calls can share mutable target state. A native regression also demonstrated changed sequential return values. These measurements describe the rejected experiment, not the proposed improvement. The safe replacement is `784c68b3889659e746d5ecad4514ea2771c8e4d9`, which retains private copies for actual evaluations and root searches and only skips unevaluated paths.
+
 # LevelSet callback-copy validation
 
 Candidate: `a2e56909af490fb54c7cf2e9c9e292ec14d53ac4` (same complete tree as local `ca5f9e7552052e464c26d5475c29b0e75a8ddab4`).
