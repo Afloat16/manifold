@@ -657,10 +657,10 @@ Manifold Manifold::WarpBatch(
  *
  * If propFunc is a nullptr, this function will just set the channel to zeroes.
  *
- * Any normals recording set by `CalculateNormals()` is preserved. If the new
- * properties overwrite slot 0..2 with non-normal data, the recording becomes
- * stale; re-call `CalculateNormals()` (or use a numProp < 3 call followed by
- * CalculateNormals) to reset.
+ * Any normals recording set by `CalculateNormals()` is preserved when at least
+ * three property channels remain. Removing those channels clears the recording.
+ * If the new properties overwrite slot 0..2 with non-normal data, the recording
+ * becomes stale; re-call `CalculateNormals()` to reset it.
  *
  * @param numProp The new number of properties per vertex.
  * @param propFunc A function that modifies the properties of a given vertex.
@@ -681,6 +681,12 @@ Manifold Manifold::SetProperties(
 
   if (numProp == 0) {
     pImpl->properties_.clear();
+    if (oldNumProp > 0) {
+      pImpl->halfedge_.MakeUnique();
+      for (size_t edge = 0; edge < pImpl->halfedge_.size(); ++edge) {
+        pImpl->halfedge_.SetProp(edge, pImpl->halfedge_.Start(edge));
+      }
+    }
   } else {
     pImpl->properties_ = Vec<double>(numProp * NumPropVert(), 0);
     if (propFunc != nullptr) {
@@ -701,6 +707,11 @@ Manifold Manifold::SetProperties(
   }
 
   pImpl->numProp_ = numProp;
+  if (numProp < 3) {
+    for (auto& relation : pImpl->meshRelation_.meshIDtransform) {
+      relation.second.hasNormals = false;
+    }
+  }
   return Manifold(std::make_shared<CsgLeafNode>(pImpl));
 }
 

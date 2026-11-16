@@ -286,6 +286,54 @@ TEST(Properties, SetPropertiesWithoutCallbacks) {
   }
 }
 
+TEST(Properties, SetPropertiesAfterRemovingChannels) {
+  const Manifold source = Manifold::Cube().CalculateNormals();
+  const auto before = source.GetMeshGL64();
+  ASSERT_GT(source.NumPropVert(), source.NumVert());
+  const auto color = [](double* prop, vec3, const double*) {
+    prop[0] = 1;
+    prop[1] = 0.25;
+    prop[2] = 0.5;
+  };
+  for (int remaining : {0, 1, 2}) {
+    const Manifold stripped = source.SetProperties(remaining, nullptr);
+    const auto mesh = stripped.GetMeshGL64();
+    for (size_t run = 0; run < mesh.NumRun(); ++run) {
+      EXPECT_FALSE(mesh.HasNormals(run));
+      EXPECT_FALSE(stripped.GetMeshGL().HasNormals(run));
+    }
+    for (const Manifold& input : {stripped, Manifold(mesh)}) {
+      const Manifold colored = input.SetProperties(3, color).Rotate(0, 0, 90);
+      ASSERT_EQ(colored.Status(), Manifold::Error::NoError);
+      EXPECT_EQ(colored.NumVert(), 8);
+      EXPECT_EQ(colored.NumTri(), 12);
+      EXPECT_DOUBLE_EQ(colored.Volume(), 1);
+      const auto output = colored.GetMeshGL64();
+      for (size_t run = 0; run < output.NumRun(); ++run)
+        EXPECT_FALSE(output.HasNormals(run));
+      for (size_t v = 0; v < output.NumVert(); ++v) {
+        EXPECT_EQ(output.vertProperties[v * output.numProp + 3], 1);
+        EXPECT_EQ(output.vertProperties[v * output.numProp + 4], 0.25);
+        EXPECT_EQ(output.vertProperties[v * output.numProp + 5], 0.5);
+      }
+
+      const auto normals = colored.CalculateNormals().GetMeshGL64();
+      for (size_t run = 0; run < normals.NumRun(); ++run)
+        EXPECT_TRUE(normals.HasNormals(run));
+      for (size_t v = 0; v < normals.NumVert(); ++v) {
+        const vec3 normal(normals.vertProperties[v * normals.numProp + 3],
+                          normals.vertProperties[v * normals.numProp + 4],
+                          normals.vertProperties[v * normals.numProp + 5]);
+        EXPECT_NEAR(la::length(normal), 1, 1e-12);
+      }
+    }
+    const auto unchanged = source.GetMeshGL64();
+    EXPECT_EQ(unchanged.vertProperties, before.vertProperties);
+    EXPECT_EQ(unchanged.triVerts, before.triVerts);
+    EXPECT_EQ(unchanged.runFlags, before.runFlags);
+  }
+}
+
 TEST(Properties, Coplanar) {
   Manifold peg = Manifold::Cube({1, 1, 2}).Translate({1, 1, 0}).AsOriginal();
   const size_t pegID = peg.OriginalID();
