@@ -652,6 +652,8 @@ Manifold Manifold::WarpBatch(
  * input. You may specify any number of output properties, allowing creation and
  * removal of channels. Note: undefined behavior will result if you read past
  * the number of input properties or write past the number of output properties.
+ * The callback runs once per referenced property vertex, including separate
+ * property vertices that share a position at a seam.
  *
  * If propFunc is a nullptr, this function will just set the channel to zeroes.
  *
@@ -675,18 +677,21 @@ Manifold Manifold::SetProperties(
     return PropagateStatus(Error::ResultTooLarge);
   auto pImpl = std::make_shared<Impl>(*leafImpl);
   const int oldNumProp = NumProp();
-  const Vec<double> oldProperties = pImpl->properties_;
+  const Vec<double>& oldProperties = leafImpl->properties_;
 
   if (numProp == 0) {
     pImpl->properties_.clear();
   } else {
     pImpl->properties_ = Vec<double>(numProp * NumPropVert(), 0);
     if (propFunc != nullptr) {
+      Vec<bool> visited(NumPropVert(), false);
       for_each_n(ExecutionPolicy::Seq, countAt(0), NumTri(), [&](int tri) {
         for (int i : {0, 1, 2}) {
           const int edge = 3 * tri + i;
           const int vert = pImpl->halfedge_.Start(edge);
           const int propVert = pImpl->halfedge_.Prop(edge);
+          if (visited[propVert]) continue;
+          visited[propVert] = true;
           propFunc(&pImpl->properties_[numProp * propVert],
                    pImpl->vertPos_[vert],
                    oldProperties.data() + oldNumProp * propVert);

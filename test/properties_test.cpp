@@ -228,6 +228,64 @@ TEST(Properties, SetPropertiesNegative) {
             Manifold::Error::InvalidConstruction);
 }
 
+TEST(Properties, SetPropertiesVisitsEachPropertyVertexOnce) {
+  for (const Manifold& source : {Manifold::Cube(), Manifold::Sphere(1, 16),
+                                 Manifold::Cube().CalculateNormals(0)}) {
+    const auto before = source.GetMeshGL64();
+    const int oldNumProp = source.NumProp();
+    size_t calls = 0;
+    const Manifold mapped = source.SetProperties(
+        oldNumProp + 1, [&](double* prop, vec3, const double* oldProp) {
+          for (int i = 0; i < oldNumProp; ++i) prop[i] = oldProp[i];
+          prop[oldNumProp] = ++calls;
+        });
+    ASSERT_EQ(mapped.Status(), Manifold::Error::NoError);
+    EXPECT_EQ(calls, source.NumPropVert());
+    EXPECT_EQ(mapped.NumTri(), source.NumTri());
+    EXPECT_DOUBLE_EQ(mapped.Volume(), source.Volume());
+    const auto after = mapped.GetMeshGL64();
+    ASSERT_EQ(after.NumVert(), before.NumVert());
+
+    std::vector<std::vector<double>> expected, actual;
+    std::set<double> ids;
+    for (size_t i = 0; i < before.NumVert(); ++i) {
+      const auto oldBegin = before.vertProperties.begin() + i * before.numProp;
+      expected.emplace_back(oldBegin, oldBegin + before.numProp);
+      const auto newBegin = after.vertProperties.begin() + i * after.numProp;
+      actual.emplace_back(newBegin, newBegin + before.numProp);
+      ids.insert(after.vertProperties[(i + 1) * after.numProp - 1]);
+    }
+    std::sort(expected.begin(), expected.end());
+    std::sort(actual.begin(), actual.end());
+    EXPECT_EQ(actual, expected);
+    ASSERT_EQ(ids.size(), source.NumPropVert());
+    EXPECT_EQ(*ids.begin(), 1);
+    EXPECT_EQ(*ids.rbegin(), source.NumPropVert());
+    EXPECT_EQ(source.GetMeshGL64().vertProperties, before.vertProperties);
+  }
+}
+
+TEST(Properties, SetPropertiesWithoutCallbacks) {
+  int calls = 0;
+  const auto callback = [&](double*, vec3, const double*) { ++calls; };
+  const Manifold empty = Manifold().SetProperties(3, callback);
+  EXPECT_EQ(empty.Status(), Manifold::Error::NoError);
+  EXPECT_TRUE(empty.IsEmpty());
+
+  const Manifold cube = Manifold::Cube().CalculateNormals(0);
+  const Manifold stripped = cube.SetProperties(0, callback);
+  EXPECT_EQ(stripped.NumProp(), 0);
+  EXPECT_EQ(calls, 0);
+  EXPECT_DOUBLE_EQ(stripped.Volume(), 1);
+
+  const auto zeroed = cube.SetProperties(4, nullptr).GetMeshGL64();
+  for (size_t i = 0; i < zeroed.NumVert(); ++i) {
+    for (size_t p = 3; p < zeroed.numProp; ++p) {
+      EXPECT_EQ(zeroed.vertProperties[i * zeroed.numProp + p], 0);
+    }
+  }
+}
+
 TEST(Properties, Coplanar) {
   Manifold peg = Manifold::Cube({1, 1, 2}).Translate({1, 1, 0}).AsOriginal();
   const size_t pegID = peg.OriginalID();
