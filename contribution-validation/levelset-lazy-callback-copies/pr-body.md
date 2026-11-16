@@ -13,3 +13,5 @@ This change moves each helper's private callback copy past those early exits. An
 - Coarser surfaces, refined searches, a clipped plane, and an empty result are also covered. Clang-format 20 and `git diff --check` pass.
 
 Parallel validation: [baseline](https://github.com/Afloat16/manifold/actions/runs/43949632683), [candidate](https://github.com/Afloat16/manifold/actions/runs/43949770241).
+
+The [validation record](https://github.com/Afloat16/manifold/tree/validation/levelset-lazy-callback-copies-20261116/contribution-validation/levelset-lazy-callback-copies) preserves both full TSAN logs, measured allocation results, and full-payload hashes.
