@@ -287,6 +287,10 @@ class Collider {
     return nodeBBox_[collider_internal::Internal2Node(0)];
   }
 
+  Box GetLeafBoundingBox(int leaf) const {
+    return nodeBBox_[collider_internal::Leaf2Node(leaf)];
+  }
+
   void UpdateBoxes(const VecView<const Box>& leafBB) {
     ZoneScoped;
     DEBUG_ASSERT(leafBB.size() == NumLeaves(), userErr,

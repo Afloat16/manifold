@@ -276,6 +276,33 @@ TEST(Measurement, MinGapAfterTransformationsOutOfBounds) {
   ASSERT_NEAR(distance, 0.95, 0.001);
 }
 
+TEST(Measurement, MinGapUpdatedFaceBounds) {
+  const Manifold cube = Manifold::Cube();
+  const std::vector<Manifold> others = {
+      cube.Translate({3, 0, 0}),
+      cube.Scale({-1, 1, 1}).Translate({4, 0, 0}),
+      cube.Rotate(0, 0, 90).Translate({4, 0, 0}),
+      cube.Refine(2).Translate({3, 0, 0}),
+      cube.Warp([](vec3& p) { p.x += 3 + 0.25 * p.y; }),
+      (cube + cube.Translate({0, 3, 0})).Translate({3, 0, 0})};
+  for (size_t i = 0; i < others.size(); ++i) {
+    SCOPED_TRACE(i);
+    ASSERT_EQ(others[i].Status(), Manifold::Error::NoError);
+    EXPECT_DOUBLE_EQ(cube.MinGap(others[i], 3), 2);
+    EXPECT_DOUBLE_EQ(others[i].MinGap(cube, 3), 2);
+    EXPECT_DOUBLE_EQ(cube.MinGap(others[i], 1), 1);
+    EXPECT_DOUBLE_EQ(others[i].MinGap(cube, 1), 1);
+  }
+}
+
+TEST(Measurement, MinGapEmpty) {
+  const Manifold empty;
+  const Manifold cube = Manifold::Cube();
+  EXPECT_DOUBLE_EQ(cube.MinGap(empty, 1), 1);
+  EXPECT_DOUBLE_EQ(empty.MinGap(cube, 1), 1);
+  EXPECT_DOUBLE_EQ(empty.MinGap(empty, 1), 1);
+}
+
 TEST(Measurement, TriangleDistanceClosestPointsOnVertices) {
   std::array<vec3, 3> p = {vec3{-1, 0, 0}, vec3{1, 0, 0}, vec3{0, 1, 0}};
 

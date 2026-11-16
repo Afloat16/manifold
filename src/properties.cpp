@@ -477,19 +477,13 @@ struct MinDistanceRecorder {
 double Manifold::Impl::MinGap(const Manifold::Impl& other,
                               double searchLength) const {
   ZoneScoped;
-  Vec<Box> faceBoxOther;
-  Vec<uint32_t> faceMortonOther;
-
-  other.GetFaceBoxMorton(faceBoxOther, faceMortonOther);
-
-  transform(faceBoxOther.begin(), faceBoxOther.end(), faceBoxOther.begin(),
-            [searchLength](const Box& box) {
-              return Box(box.min - vec3(searchLength),
-                         box.max + vec3(searchLength));
-            });
-
+  // The collider already stores each face's bounds in triangle order.
+  const auto faceBoxOther = [&other, searchLength](int face) {
+    const Box box = other.collider_.GetLeafBoundingBox(face);
+    return Box(box.min - vec3(searchLength), box.max + vec3(searchLength));
+  };
   MinDistanceRecorder recorder{*this, other};
-  collider_.Collisions<false>(recorder, faceBoxOther.cview(), false);
+  collider_.Collisions<false>(recorder, faceBoxOther, other.NumTri(), false);
   double minDistanceSquared =
       std::min(recorder.get(), searchLength * searchLength);
   return sqrt(minDistanceSquared);
