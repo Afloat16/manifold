@@ -136,7 +136,7 @@ vec3 Bound(vec3 pos, vec3 origin, vec3 spacing, ivec3 gridSize) {
 }
 
 double BoundedSDF(ivec4 gridIndex, vec3 origin, vec3 spacing, ivec3 gridSize,
-                  double level, std::function<double(vec3)> sdf) {
+                  double level, const std::function<double(vec3)>& sdf) {
   const ivec3 xyz(gridIndex);
   const int lowerBoundDist = minelem(xyz);
   const int upperBoundDist = minelem(gridSize - xyz);
@@ -145,14 +145,16 @@ double BoundedSDF(ivec4 gridIndex, vec3 origin, vec3 spacing, ivec3 gridSize,
   if (boundDist < 0) {
     return 0.0;
   }
-  const double d = sdf(Position(gridIndex, origin, spacing)) - level;
+  // Keep mutable callback state private to this evaluation.
+  const auto localSDF = sdf;
+  const double d = localSDF(Position(gridIndex, origin, spacing)) - level;
   return boundDist == 0 ? std::min(d, 0.0) : d;
 }
 
 // Simplified ITP root finding algorithm - same worst-case performance as
 // bisection, better average performance.
 inline vec3 FindSurface(vec3 pos0, double d0, vec3 pos1, double d1, double tol,
-                        double level, std::function<double(vec3)> sdf) {
+                        double level, const std::function<double(vec3)>& sdf) {
   if (d0 == 0) {
     return pos0;
   } else if (d1 == 0) {
@@ -163,6 +165,9 @@ inline vec3 FindSurface(vec3 pos0, double d0, vec3 pos1, double d1, double tol,
   // performance, but also hits the worst case more often.
   const double k = 0.1;
   const double check = 2 * tol / la::length(pos0 - pos1);
+  if (!(check < 1)) return la::lerp(pos0, pos1, d0 / (d0 - d1));
+  // One private callback for the whole search, including repeated evaluations.
+  const auto localSDF = sdf;
   double frac = 1;
   double biFrac = 1;
   while (frac > check) {
@@ -171,7 +176,7 @@ inline vec3 FindSurface(vec3 pos0, double d0, vec3 pos1, double d1, double tol,
     const double x = la::abs(t - 0.5) < r ? t : 0.5 - r * (t < 0.5 ? 1 : -1);
 
     const vec3 mid = la::lerp(pos0, pos1, x);
-    const double d = sdf(mid) - level;
+    const double d = localSDF(mid) - level;
 
     if ((d > 0) == (d0 > 0)) {
       d0 = d;
