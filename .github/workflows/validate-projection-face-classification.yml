@@ -3,6 +3,8 @@ on:
   create:
   push:
     branches: [validation-projection-face-classification-20261119]
+  pull_request:
+    branches: [validation-projection-base-20261119]
   workflow_dispatch:
 permissions:
   contents: read
@@ -11,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   native:
-    if: github.repository == 'Afloat16/manifold' && github.ref == 'refs/heads/validation-projection-face-classification-20261119'
+    if: github.repository == 'Afloat16/manifold'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
