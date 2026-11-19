@@ -1,0 +1,233 @@
+name: Validate projection face classification
+on:
+  create:
+  push:
+    branches: [validation-projection-face-classification-20261119]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: validation-projection-face-classification-20261119
+  cancel-in-progress: true
+jobs:
+  native:
+    if: github.repository == 'Afloat16/manifold' && github.ref == 'refs/heads/validation-projection-face-classification-20261119'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          repository: Afloat16/manifold
+          ref: 69b514c9a6ce62f3e8ecfc917b271a5f3d4c6751
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Install build tools
+        shell: bash
+        run: |
+          python3 -m venv .validation-env
+          .validation-env/bin/python -m pip install cmake==4.4.5 ninja==1.13.0 clang-format==20.1.8
+          echo "$GITHUB_WORKSPACE/.validation-env/bin" >> "$GITHUB_PATH"
+          mkdir -p validation-results
+          .validation-env/bin/python -m pip freeze > validation-results/build-tools.txt
+          c++ --version > validation-results/compiler.txt
+          git worktree add --detach ../projection-base dd22417913d8161d92e466bd71987fe039498987
+      - name: Build and test the exact baseline
+        shell: bash
+        run: |
+          cmake -S ../projection-base -B build-base -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DMANIFOLD_TEST=ON -DMANIFOLD_PAR=OFF -DMANIFOLD_CBIND=ON -DMANIFOLD_PYBIND=OFF -DMANIFOLD_DEBUG=ON -DMANIFOLD_ASSERT=ON -DMANIFOLD_STRICT=ON 2>&1 | tee validation-results/base-configure.log
+          cmake --build build-base --parallel 2 2>&1 | tee validation-results/base-build.log
+          ctest --test-dir build-base --output-on-failure --parallel 2 --output-junit "$GITHUB_WORKSPACE/validation-results/base-tests.xml" 2>&1 | tee validation-results/base-tests.log
+      - name: Build and test the changed code
+        shell: bash
+        run: |
+          cmake -S . -B build-fixed -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DMANIFOLD_TEST=ON -DMANIFOLD_PAR=OFF -DMANIFOLD_CBIND=ON -DMANIFOLD_PYBIND=OFF -DMANIFOLD_DEBUG=ON -DMANIFOLD_ASSERT=ON -DMANIFOLD_STRICT=ON 2>&1 | tee validation-results/fixed-configure.log
+          cmake --build build-fixed --parallel 2 2>&1 | tee validation-results/fixed-build.log
+          ctest --test-dir build-fixed --output-on-failure --parallel 2 --output-junit "$GITHUB_WORKSPACE/validation-results/fixed-tests.xml" 2>&1 | tee validation-results/fixed-tests.log
+          clang-format --dry-run --Werror src/face_op.cpp
+          git diff --check
+          git diff --exit-code
+      - name: Prepare public Project benchmark
+        shell: bash
+        run: |
+          cat > validation-results/probe.cpp <<'SOURCE'
+          #include <algorithm>
+          #include <chrono>
+          #include <cstdint>
+          #include <cstdio>
+          #include <cstring>
+          #include <string>
+          #include <vector>
+          
+          #include "manifold/cross_section.h"
+          #include "manifold/manifold.h"
+          
+          using namespace manifold;
+          
+          uint64_t Digest(const Polygons& polygons) {
+            uint64_t result = 14695981039346656037ull;
+            const auto add = [&](uint64_t value) {
+              result ^= value;
+              result *= 1099511628211ull;
+            };
+            add(polygons.size());
+            for (const auto& polygon : polygons) {
+              add(polygon.size());
+              for (const auto& point : polygon) {
+                for (int axis = 0; axis < 2; ++axis) {
+                  uint64_t bits;
+                  const double coordinate = point[axis];
+                  std::memcpy(&bits, &coordinate, sizeof(bits));
+                  add(bits);
+                }
+              }
+            }
+            return result;
+          }
+          
+          int main(int argc, char** argv) {
+            struct Case {
+              const char* name;
+              Manifold solid;
+              int calls;
+            };
+            std::vector<Manifold> components;
+            for (int i = 0; i < 256; ++i) {
+              components.push_back(Manifold::Tetrahedron().Translate(
+                  {4.0 * (i % 16), 4.0 * (i / 16), 0}));
+            }
+            const CrossSection ring = CrossSection::Circle(3, 256) -
+                                      CrossSection::Circle(1, 256);
+            const CrossSection torusProfile =
+                CrossSection::Circle(0.5, 128).Translate({2, 0});
+            std::vector<Case> cases = {
+                {"empty", Manifold(), 10000},
+                {"tetrahedron", Manifold::Tetrahedron(), 10000},
+                {"sphere128", Manifold::Sphere(1, 128), 300},
+                {"sphere1024", Manifold::Sphere(1, 1024), 20},
+                {"rotated_sphere512", Manifold::Sphere(1, 512).Rotate(17, 29, 41), 60},
+                {"refined_cube32", Manifold::Cube({2, 3, 4}, true).Refine(32).Rotate(17, 29, 41), 100},
+                {"components256", Manifold::BatchBoolean(components, OpType::Add), 200},
+                {"ring_prism", Manifold::Extrude(ring.ToPolygons(), 2, 8).Refine(4), 50},
+                {"torus", Manifold::Revolve(torusProfile.ToPolygons(), 512), 50},
+                {"mirrored_torus", Manifold::Revolve(torusProfile.ToPolygons(), 512).Scale({-2, 3, -1}).Rotate(17, 29, 41), 50},
+            };
+            for (const auto& example : cases) {
+              if (example.solid.Status() != Manifold::Error::NoError) return 2;
+              const Polygons expected = example.solid.Project();
+              const uint64_t digest = Digest(expected);
+              if (argc > 1) {
+                const std::string path = std::string(argv[1]) + "/" + example.name + ".txt";
+                FILE* output = std::fopen(path.c_str(), "w");
+                if (!output) return 5;
+                std::fprintf(output, "%zu\n", expected.size());
+                for (const auto& polygon : expected) {
+                  std::fprintf(output, "%zu\n", polygon.size());
+                  for (const auto& point : polygon) {
+                    for (int axis = 0; axis < 2; ++axis) {
+                      uint64_t bits;
+                      const double coordinate = point[axis];
+                      std::memcpy(&bits, &coordinate, sizeof(bits));
+                      std::fprintf(output, "%016llx ", static_cast<unsigned long long>(bits));
+                    }
+                    std::fprintf(output, "\n");
+                  }
+                }
+                if (std::fclose(output) != 0) return 6;
+              }
+              size_t points = 0;
+              for (const auto& polygon : expected) points += polygon.size();
+              for (int i = 0; i < 10; ++i) {
+                if (Digest(example.solid.Project()) != digest) return 3;
+              }
+              std::vector<double> samples;
+              size_t observed = 0;
+              for (int sample = 0; sample < 7; ++sample) {
+                const auto begin = std::chrono::steady_clock::now();
+                for (int call = 0; call < example.calls; ++call) {
+                  const Polygons projected = example.solid.Project();
+                  observed += projected.size();
+                }
+                const auto end = std::chrono::steady_clock::now();
+                samples.push_back(std::chrono::duration<double, std::micro>(end - begin).count() / example.calls);
+              }
+              if (observed != expected.size() * example.calls * 7) return 4;
+              std::printf("%s %zu %zu %zu %llu", example.name, example.solid.NumTri(), expected.size(), points,
+                          static_cast<unsigned long long>(digest));
+              for (const double sample : samples) std::printf(" %.6f", sample);
+              std::printf("\n");
+              std::fflush(stdout);
+            }
+          }
+          
+          SOURCE
+          cat > validation-results/benchmark-native.py <<'SOURCE'
+          from pathlib import Path
+          import hashlib
+          import json
+          import os
+          import platform
+          import statistics
+          import subprocess
+          
+          root = Path("validation-results").resolve()
+          cpu = min(os.sched_getaffinity(0))
+          os.sched_setaffinity(0, {cpu})
+          records = {}
+          for sample in range(5):
+              for label in (("base", "fixed") if sample % 2 == 0 else ("fixed", "base")):
+                  library = Path("build-base/src" if label == "base" else "build-fixed/src").resolve()
+                  env = os.environ.copy()
+                  env["LD_LIBRARY_PATH"] = str(library)
+                  output_dir = root / f"coordinates-{label}-{sample}"
+                  output_dir.mkdir()
+                  result = subprocess.run([str(root / "probe"), str(output_dir)], env=env, text=True, capture_output=True, check=True)
+                  (root / f"{label}-{sample}.txt").write_text(result.stdout)
+                  (root / f"{label}-{sample}.stderr").write_text(result.stderr)
+                  (root / f"{label}-loader.txt").write_text(subprocess.check_output(["ldd", str(root / "probe")], env=env, text=True))
+                  cases = {}
+                  for line in result.stdout.splitlines():
+                      fields = line.split()
+                      cases[fields[0]] = {"triangles": int(fields[1]), "contours": int(fields[2]), "points": int(fields[3]),
+                                          "digest": fields[4], "timings_us": list(map(float, fields[5:]))}
+                  records[(label, sample)] = cases
+                  print(label, sample, "complete", flush=True)
+          summary = []
+          for name, expected in records[("base", 0)].items():
+              expected_bytes = (root / "coordinates-base-0" / f"{name}.txt").read_bytes()
+              row = {"name": name, **{key: value for key, value in expected.items() if key != "timings_us"}}
+              row["coordinate_bits_sha256"] = hashlib.sha256(expected_bytes).hexdigest()
+              for label in ("base", "fixed"):
+                  samples = []
+                  for sample in range(5):
+                      actual = records[(label, sample)][name]
+                      assert all(actual[key] == expected[key] for key in ("triangles", "contours", "points", "digest"))
+                      assert (root / f"coordinates-{label}-{sample}" / f"{name}.txt").read_bytes() == expected_bytes
+                      samples.append({"median_us": statistics.median(actual["timings_us"]), "inner_timings_us": actual["timings_us"]})
+                  row[label + "_samples"] = samples
+                  row[label + "_median_us"] = statistics.median(sample["median_us"] for sample in samples)
+              row["change_percent"] = 100 * (row["fixed_median_us"] / row["base_median_us"] - 1)
+              summary.append(row)
+          (root / "summary.json").write_text(json.dumps({
+              "base": "dd22417913d8161d92e466bd71987fe039498987",
+              "changed": "69b514c9a6ce62f3e8ecfc917b271a5f3d4c6751",
+              "platform": platform.platform(), "python": platform.python_version(), "affinity_cpu": cpu,
+              "results": summary,
+          }, indent=2) + "\n")
+          for row in summary:
+              print(row["name"], row["base_median_us"], row["fixed_median_us"], row["change_percent"])
+          
+          SOURCE
+          c++ -std=c++17 -O3 validation-results/probe.cpp -Iinclude -Ibuild-fixed/include -Lbuild-fixed/src -Wl,-rpath,"$GITHUB_WORKSPACE/build-fixed/src" -lmanifold -o validation-results/probe
+      - name: Measure five fresh alternating process pairs
+        shell: bash
+        run: |
+          python3 validation-results/benchmark-native.py | tee validation-results/benchmark.log
+          sha256sum ../projection-base/src/face_op.cpp src/face_op.cpp build-base/src/libmanifold.so.3.5.1 build-fixed/src/libmanifold.so.3.5.1 > validation-results/source-library-hashes.txt
+      - name: Save validation evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: projection-face-classification-69b514c
+          path: validation-results/
+          if-no-files-found: warn
+          retention-days: 14
