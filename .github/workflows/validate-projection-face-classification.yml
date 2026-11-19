@@ -21,9 +21,16 @@ jobs:
           ref: 69b514c9a6ce62f3e8ecfc917b271a5f3d4c6751
           fetch-depth: 2
           persist-credentials: false
+      - name: Verify pinned source revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = 69b514c9a6ce62f3e8ecfc917b271a5f3d4c6751
+          git status --short
       - name: Install build tools
         shell: bash
         run: |
+          set -euo pipefail
           python3 -m venv .validation-env
           .validation-env/bin/python -m pip install cmake==4.4.5 ninja==1.13.0 clang-format==20.1.8
           echo "$GITHUB_WORKSPACE/.validation-env/bin" >> "$GITHUB_PATH"
@@ -34,12 +41,14 @@ jobs:
       - name: Build and test the exact baseline
         shell: bash
         run: |
+          set -euo pipefail
           cmake -S ../projection-base -B build-base -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DMANIFOLD_TEST=ON -DMANIFOLD_PAR=OFF -DMANIFOLD_CBIND=ON -DMANIFOLD_PYBIND=OFF -DMANIFOLD_DEBUG=ON -DMANIFOLD_ASSERT=ON -DMANIFOLD_STRICT=ON 2>&1 | tee validation-results/base-configure.log
           cmake --build build-base --parallel 2 2>&1 | tee validation-results/base-build.log
           ctest --test-dir build-base --output-on-failure --parallel 2 --output-junit "$GITHUB_WORKSPACE/validation-results/base-tests.xml" 2>&1 | tee validation-results/base-tests.log
       - name: Build and test the changed code
         shell: bash
         run: |
+          set -euo pipefail
           cmake -S . -B build-fixed -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=ON -DMANIFOLD_TEST=ON -DMANIFOLD_PAR=OFF -DMANIFOLD_CBIND=ON -DMANIFOLD_PYBIND=OFF -DMANIFOLD_DEBUG=ON -DMANIFOLD_ASSERT=ON -DMANIFOLD_STRICT=ON 2>&1 | tee validation-results/fixed-configure.log
           cmake --build build-fixed --parallel 2 2>&1 | tee validation-results/fixed-build.log
           ctest --test-dir build-fixed --output-on-failure --parallel 2 --output-junit "$GITHUB_WORKSPACE/validation-results/fixed-tests.xml" 2>&1 | tee validation-results/fixed-tests.log
@@ -49,6 +58,7 @@ jobs:
       - name: Prepare public Project benchmark
         shell: bash
         run: |
+          set -euo pipefail
           cat > validation-results/probe.cpp <<'SOURCE'
           #include <algorithm>
           #include <chrono>
@@ -221,6 +231,7 @@ jobs:
       - name: Measure five fresh alternating process pairs
         shell: bash
         run: |
+          set -euo pipefail
           python3 validation-results/benchmark-native.py | tee validation-results/benchmark.log
           sha256sum ../projection-base/src/face_op.cpp src/face_op.cpp build-base/src/libmanifold.so.3.5.1 build-fixed/src/libmanifold.so.3.5.1 > validation-results/source-library-hashes.txt
       - name: Save validation evidence
