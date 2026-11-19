@@ -219,6 +219,10 @@ else()
       -fkeep-inline-functions
       -fkeep-static-functions
     )
+    # Tests call Manifold concurrently even when MANIFOLD_PAR is disabled.
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+      list(APPEND MANIFOLD_FLAGS -fprofile-update=atomic)
+    endif()
     add_link_options(-coverage)
   endif()
 endif()
