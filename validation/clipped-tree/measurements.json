@@ -1,0 +1,544 @@
+{
+  "cpu": 0,
+  "summary": [
+    {
+      "case": "polygon0 128",
+      "base_cpu_ms": 0.143852,
+      "changed_cpu_ms": 0.13872,
+      "change_pct": -3.567555543197176,
+      "digest": "5568214170773955171"
+    },
+    {
+      "case": "polygon0 1024",
+      "base_cpu_ms": 2.83415,
+      "changed_cpu_ms": 2.639525,
+      "change_pct": -6.867138295432507,
+      "digest": "9757613128248758211"
+    },
+    {
+      "case": "polygon0 4096",
+      "base_cpu_ms": 27.2536,
+      "changed_cpu_ms": 25.3214,
+      "change_pct": -7.089705580180228,
+      "digest": "12719826900534012359"
+    },
+    {
+      "case": "polygon1 128",
+      "base_cpu_ms": 0.170418,
+      "changed_cpu_ms": 0.157192,
+      "change_pct": -7.760917273996871,
+      "digest": "1299589250102099798"
+    },
+    {
+      "case": "polygon1 1024",
+      "base_cpu_ms": 3.818975,
+      "changed_cpu_ms": 2.971225,
+      "change_pct": -22.19836474446677,
+      "digest": "8246530382819626337"
+    },
+    {
+      "case": "polygon1 4096",
+      "base_cpu_ms": 21.1862,
+      "changed_cpu_ms": 18.1144,
+      "change_pct": -14.499060709329658,
+      "digest": "11043790888474031679"
+    },
+    {
+      "case": "polygon2 128",
+      "base_cpu_ms": 0.349502,
+      "changed_cpu_ms": 0.323146,
+      "change_pct": -7.541015502057213,
+      "digest": "13526050728913362055"
+    },
+    {
+      "case": "polygon2 1024",
+      "base_cpu_ms": 4.57365,
+      "changed_cpu_ms": 4.341475,
+      "change_pct": -5.076361330665879,
+      "digest": "11088116063637699887"
+    },
+    {
+      "case": "polygon2 4096",
+      "base_cpu_ms": 41.5948,
+      "changed_cpu_ms": 35.7842,
+      "change_pct": -13.96953465337013,
+      "digest": "18363002377746467035"
+    }
+  ],
+  "raw": {
+    "base": [
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.153658,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.872375,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 28.0754,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.170418,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 6.20565,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 21.1578,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.329924,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.406225,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 41.5948,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.142696,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.853725,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 27.2536,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.168306,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 4.88205,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 21.3708,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.359204,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 5.592075,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 71.5108,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.149174,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.83415,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 25.954,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.174344,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 3.817075,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 21.0312,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.334378,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.50015,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 52.9874,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.142758,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.790475,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 27.5832,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.173758,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 3.615675,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 21.4272,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.349502,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.57365,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 39.4152,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.143852,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.772,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 27.196,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.163624,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 3.818975,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 21.1862,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.3959,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.6761,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 40.4574,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      }
+    ],
+    "changed": [
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.167508,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.768125,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 26.1376,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.160974,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 3.64595,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 24.657,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.349684,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.570475,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 34.5366,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.13558,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.556775,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 26.7382,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.149036,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 2.971225,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 18.1144,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.318054,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.341475,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 35.7842,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.13872,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.639525,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 25.3214,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.158936,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 2.9639,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 20.9118,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.332246,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.15045,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 36.3148,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.1475,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.78255,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 24.4066,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.157192,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 3.139025,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 17.0188,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.323146,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.567275,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 44.4804,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      },
+      {
+        "polygon0 128": {
+          "cpu_ms": 0.135008,
+          "triangles": 126,
+          "digest": "5568214170773955171"
+        },
+        "polygon0 1024": {
+          "cpu_ms": 2.474975,
+          "triangles": 1022,
+          "digest": "9757613128248758211"
+        },
+        "polygon0 4096": {
+          "cpu_ms": 23.6802,
+          "triangles": 4094,
+          "digest": "12719826900534012359"
+        },
+        "polygon1 128": {
+          "cpu_ms": 0.151288,
+          "triangles": 126,
+          "digest": "1299589250102099798"
+        },
+        "polygon1 1024": {
+          "cpu_ms": 2.9695,
+          "triangles": 1022,
+          "digest": "8246530382819626337"
+        },
+        "polygon1 4096": {
+          "cpu_ms": 16.7388,
+          "triangles": 4094,
+          "digest": "11043790888474031679"
+        },
+        "polygon2 128": {
+          "cpu_ms": 0.317626,
+          "triangles": 192,
+          "digest": "13526050728913362055"
+        },
+        "polygon2 1024": {
+          "cpu_ms": 4.13945,
+          "triangles": 1536,
+          "digest": "11088116063637699887"
+        },
+        "polygon2 4096": {
+          "cpu_ms": 35.691,
+          "triangles": 6144,
+          "digest": "18363002377746467035"
+        }
+      }
+    ]
+  }
+}
