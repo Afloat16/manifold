@@ -1,0 +1,45 @@
+Note: Google Test filter = *Merge*
+[==========] Running 15 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 6 tests from Manifold
+[ RUN      ] Manifold.Merge
+[       OK ] Manifold.Merge (0 ms)
+[ RUN      ] Manifold.MergeTolerance
+[       OK ] Manifold.MergeTolerance (0 ms)
+[ RUN      ] Manifold.MergeCollapsedEdgeParity
+[       OK ] Manifold.MergeCollapsedEdgeParity (0 ms)
+[ RUN      ] Manifold.MergeEmpty
+[       OK ] Manifold.MergeEmpty (0 ms)
+[ RUN      ] Manifold.MergeDegenerates
+[       OK ] Manifold.MergeDegenerates (0 ms)
+[ RUN      ] Manifold.MergeRefine
+[       OK ] Manifold.MergeRefine (1 ms)
+[----------] 6 tests from Manifold (2 ms total)
+
+[----------] 7 tests from CrossSectionComplex
+[ RUN      ] CrossSectionComplex.MergeVertsTransitiveChainCanDriftPastEps
+[       OK ] CrossSectionComplex.MergeVertsTransitiveChainCanDriftPastEps (0 ms)
+[ RUN      ] CrossSectionComplex.VertexMergeIdempotenceTightCluster
+[       OK ] CrossSectionComplex.VertexMergeIdempotenceTightCluster (0 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsChainAcrossSlabs
+[       OK ] CrossSectionComplex.MergeVertsChainAcrossSlabs (0 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsSharedColumns
+[       OK ] CrossSectionComplex.MergeVertsSharedColumns (37 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsGrid
+[       OK ] CrossSectionComplex.MergeVertsGrid (205 ms)
+[ RUN      ] CrossSectionComplex.BooleanRobustnessMergeTopologyBalance
+[       OK ] CrossSectionComplex.BooleanRobustnessMergeTopologyBalance (1 ms)
+[ RUN      ] CrossSectionComplex.RemoveOverlapsMergesExactDuplicateCoordinates
+[       OK ] CrossSectionComplex.RemoveOverlapsMergesExactDuplicateCoordinates (0 ms)
+[----------] 7 tests from CrossSectionComplex (244 ms total)
+
+[----------] 2 tests from Polygon
+[ RUN      ] Polygon.MultiMerge
+[       OK ] Polygon.MultiMerge (0 ms)
+[ RUN      ] Polygon.Merges
+[       OK ] Polygon.Merges (0 ms)
+[----------] 2 tests from Polygon (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 15 tests from 3 test suites ran. (247 ms total)
+[  PASSED  ] 15 tests.
