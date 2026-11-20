@@ -1,0 +1,26 @@
+{
+  "base_commit": "6ca62006abf4579f60c40ee7b6c49b66cc4ae8fc",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "flags": "GCC14.2 Release -O3, strict warnings/Werror, DEBUG/ASSERT=ON, PAR=OFF, C/Python=ON",
+  "affinity": "CPU0 via taskset",
+  "method": "public MinGap; pre-evaluated meshes; one warmup + 11 samples; cumulative glibc malloc requested bytes, not peak/RSS; input MeshGL64 numProp and all10 vectors compared before/after",
+  "scalar_outputs": "all24 base/patch exactly equal and within1e-12 of independent analytic values",
+  "libraries": {
+    "contrib-validation/tangent-baseline-serial/libmanifold.so.3.5.1": "335f0fbc0bc5e3ba269606cd4c609045119358bc05564f28fa26d18b2ea0c200",
+    "manifold-min-gap-query-round2/build-mingap-query/src/libmanifold.so.3.5.1": "ad189fe74e0481688af338032609eb0e2d86356f23b4067fb4b5a3c7bcb68228"
+  },
+  "validation": {
+    "build": "98/98 passed",
+    "baseline_new_tests": "2 passed (behavioral controls for performance change)",
+    "patch_measurement": "41 passed/9.199s",
+    "format": "passed",
+    "diffcheck": "passed",
+    "peer_review": "read-only no blocker; no tests run"
+  },
+  "remote_commit": "ac41dab6060eae5d36cb8e3c010d4a931db4eb61",
+  "local_commit": "bd1f50cf01dbb0e6fdacde04401e3ea3c6f5a439",
+  "tree": "9f5d09427eb22809577554d38d0285c57982e9ef",
+  "branch": "perf/min-gap-smaller-query-20261120",
+  "fork_branches_checked": 79,
+  "exact_head_matches": 0
+}
