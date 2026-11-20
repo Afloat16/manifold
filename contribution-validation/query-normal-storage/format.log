@@ -1,0 +1,2 @@
+['/workspace/scratch/c05378b96efa/contrib-env/bin/clang-format', '--dry-run', '--Werror', 'src/boolean3.cpp']: exit 0
+['git', 'diff', '--check', '6ca62006abf4579f60c40ee7b6c49b66cc4ae8fc', 'HEAD']: exit 0

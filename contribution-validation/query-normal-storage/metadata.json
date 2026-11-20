@@ -1,0 +1,25 @@
+{
+  "base_commit": "6ca62006abf4579f60c40ee7b6c49b66cc4ae8fc",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "parallelism": "MANIFOLD_PAR=OFF",
+  "build": "Release; ASSERT=ON; DEBUG=ON; STRICT=ON; C/Python bindings=ON; -j1",
+  "libraries": {
+    "base": {
+      "path": "/workspace/scratch/c05378b96efa/contrib-validation/tangent-baseline-serial/libmanifold.so.3",
+      "sha256": "335f0fbc0bc5e3ba269606cd4c609045119358bc05564f28fa26d18b2ea0c200"
+    },
+    "patch": {
+      "path": "/workspace/scratch/c05378b96efa/manifold-query-normals-round2/build-query-normals/src/libmanifold.so.3",
+      "sha256": "5136242b20ecd04d5ecfa32b64f9fb9708991d18bcf94532d04d576771019844"
+    }
+  },
+  "probe": "round2_manifold_query_normals_bench.cpp",
+  "observations": "One untimed warmup and 11 samples per case, median and interquartile range; glibc interposed malloc requested bytes and call counts measured inside each public API invocation. Not RSS or peak live memory. Construction, prior mesh evaluation, output checks and serialization are outside timed/allocation intervals. CPU was not pinned; timings have shared-host noise. No general speedup claim.",
+  "local_commit": "506cc924b91166f53537a6b053eb5f4fd74dd815",
+  "source_commit": "ddc9ec5a2f1aed841fb5c45b1257e3757991c6dc",
+  "tree": "744d5267a30284874a7b8bc20ec89fb95bfc9ca1",
+  "functional": "39 Measurement tests passed",
+  "build_steps": "98/98 passed",
+  "workloads": 27
+}

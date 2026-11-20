@@ -1,0 +1,87 @@
+Note: Google Test filter = Measurement.*
+[==========] Running 39 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 39 tests from Measurement
+[ RUN      ] Measurement.RayCastHitCube
+[       OK ] Measurement.RayCastHitCube (0 ms)
+[ RUN      ] Measurement.RayCastMiss
+[       OK ] Measurement.RayCastMiss (0 ms)
+[ RUN      ] Measurement.RayCastDiagonal
+[       OK ] Measurement.RayCastDiagonal (0 ms)
+[ RUN      ] Measurement.RayCastBehindOrigin
+[       OK ] Measurement.RayCastBehindOrigin (0 ms)
+[ RUN      ] Measurement.RayCastSphere
+[       OK ] Measurement.RayCastSphere (11 ms)
+[ RUN      ] Measurement.RayCastTwoCubes
+[       OK ] Measurement.RayCastTwoCubes (0 ms)
+[ RUN      ] Measurement.RayCastEmpty
+[       OK ] Measurement.RayCastEmpty (0 ms)
+[ RUN      ] Measurement.RayCastAlongX
+[       OK ] Measurement.RayCastAlongX (0 ms)
+[ RUN      ] Measurement.RayCastAlongY
+[       OK ] Measurement.RayCastAlongY (0 ms)
+[ RUN      ] Measurement.RayCastZeroLength
+[       OK ] Measurement.RayCastZeroLength (0 ms)
+[ RUN      ] Measurement.RayCastWatertightVertex
+[       OK ] Measurement.RayCastWatertightVertex (0 ms)
+[ RUN      ] Measurement.RayCastSilhouetteEdge
+[       OK ] Measurement.RayCastSilhouetteEdge (0 ms)
+[ RUN      ] Measurement.RayCastCrossingMatchesWinding
+[       OK ] Measurement.RayCastCrossingMatchesWinding (2 ms)
+[ RUN      ] Measurement.RayCastTiesSortedByFaceID
+[       OK ] Measurement.RayCastTiesSortedByFaceID (0 ms)
+[ RUN      ] Measurement.RayCastDistantObliqueGrazing
+[       OK ] Measurement.RayCastDistantObliqueGrazing (0 ms)
+[ RUN      ] Measurement.MinGapCubeCube
+[       OK ] Measurement.MinGapCubeCube (0 ms)
+[ RUN      ] Measurement.MinGapCubeCube2
+[       OK ] Measurement.MinGapCubeCube2 (0 ms)
+[ RUN      ] Measurement.MinGapCubeSphereOverlapping
+[       OK ] Measurement.MinGapCubeSphereOverlapping (0 ms)
+[ RUN      ] Measurement.MinGapSphereSphere
+[       OK ] Measurement.MinGapSphereSphere (0 ms)
+[ RUN      ] Measurement.MinGapSphereSphereOutOfBounds
+[       OK ] Measurement.MinGapSphereSphereOutOfBounds (0 ms)
+[ RUN      ] Measurement.MinGapBoundingBoxClearance
+[       OK ] Measurement.MinGapBoundingBoxClearance (3 ms)
+[ RUN      ] Measurement.MinGapBoundingBoxEmptyAndNonpositiveLimits
+[       OK ] Measurement.MinGapBoundingBoxEmptyAndNonpositiveLimits (0 ms)
+[ RUN      ] Measurement.MinGapBoundingBoxPendingCSG
+[       OK ] Measurement.MinGapBoundingBoxPendingCSG (3 ms)
+[ RUN      ] Measurement.MinGapBoundingBoxTouchingAndContained
+[       OK ] Measurement.MinGapBoundingBoxTouchingAndContained (0 ms)
+[ RUN      ] Measurement.MinGapClosestPointOnEdge
+[       OK ] Measurement.MinGapClosestPointOnEdge (0 ms)
+[ RUN      ] Measurement.MinGapClosestPointOnTriangleFace
+[       OK ] Measurement.MinGapClosestPointOnTriangleFace (0 ms)
+[ RUN      ] Measurement.MingapAfterTransformations
+[       OK ] Measurement.MingapAfterTransformations (2625 ms)
+[ RUN      ] Measurement.MingapStretchyBracelet
+[       OK ] Measurement.MingapStretchyBracelet (6131 ms)
+[ RUN      ] Measurement.MinGapAfterTransformationsOutOfBounds
+[       OK ] Measurement.MinGapAfterTransformationsOutOfBounds (651 ms)
+[ RUN      ] Measurement.TriangleDistanceClosestPointsOnVertices
+[       OK ] Measurement.TriangleDistanceClosestPointsOnVertices (0 ms)
+[ RUN      ] Measurement.TriangleDistanceClosestPointOnEdge
+[       OK ] Measurement.TriangleDistanceClosestPointOnEdge (0 ms)
+[ RUN      ] Measurement.TriangleDistanceClosestPointOnEdge2
+[       OK ] Measurement.TriangleDistanceClosestPointOnEdge2 (0 ms)
+[ RUN      ] Measurement.TriangleDistanceClosestPointOnFace
+[       OK ] Measurement.TriangleDistanceClosestPointOnFace (0 ms)
+[ RUN      ] Measurement.TriangleDistanceOverlapping
+[       OK ] Measurement.TriangleDistanceOverlapping (0 ms)
+[ RUN      ] Measurement.WindingTallBox
+[       OK ] Measurement.WindingTallBox (0 ms)
+[ RUN      ] Measurement.WindingEmpty
+[       OK ] Measurement.WindingEmpty (0 ms)
+[ RUN      ] Measurement.WindingWatertight
+[       OK ] Measurement.WindingWatertight (0 ms)
+[ RUN      ] Measurement.WindingHollowShell
+[       OK ] Measurement.WindingHollowShell (3 ms)
+[ RUN      ] Measurement.WindingMatchesRayCastParity
+[       OK ] Measurement.WindingMatchesRayCastParity (0 ms)
+[----------] 39 tests from Measurement (9438 ms total)
+
+[----------] Global test environment tear-down
+[==========] 39 tests from 1 test suite ran. (9438 ms total)
+[  PASSED  ] 39 tests.
