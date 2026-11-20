@@ -1,0 +1,21 @@
+{
+  "base": "7fae9769195d1d4eccf373cbc0491f754eb6c193",
+  "head": "2a08c02bad4ca91afe5466faca48ff9b3be1542f",
+  "compiler": "GCC14.2.0",
+  "build": "Release; MANIFOLD_PAR=OFF; MANIFOLD_DEBUG=ON; MANIFOLD_ASSERT=ON; MANIFOLD_STRICT=ON",
+  "measure": "Linux/glibc executable malloc interposition; total requested malloc bytes during public call, not process RSS or peak storage",
+  "samples": "one warm-up and five measured calls per configuration",
+  "base_library_sha256": "e6fd832994e6e58abb82eaec224e5949ed726aadf07f5022deae991497cccc30",
+  "branch_library_sha256": "54ee09f3518f2d5a717eebb7970e2620f190a38d8a0bf11700b343bdb33bf0e4",
+  "hash_buffers": [
+    "vertProperties",
+    "triVerts",
+    "halfedgeTangent",
+    "mergeFromVert",
+    "mergeToVert",
+    "runIndex",
+    "faceID"
+  ],
+  "hash_algorithm": "FNV-1a64",
+  "validation": "173 tests from Properties, Manifold, SDF and Smooth; all passed in62536ms; clang-format20.1.8 and git diff --check passed"
+}
