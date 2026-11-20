@@ -1,0 +1,3 @@
+[1/3] Building CXX object test/CMakeFiles/manifold_test.dir/manifold_test.cpp.o
+[2/3] Running utility command for manifold3d_stub
+[3/3] Linking CXX executable test/manifold_test

@@ -1,0 +1,7 @@
+axis,input,revolve_status,revolve_volume,revolve_tris,extrude_status
+0,nan,11,0,0,11
+0,inf,11,0,0,11
+0,-inf,11,0,0,11
+1,nan,11,0,0,11
+1,inf,11,0,0,11
+1,-inf,11,0,0,11

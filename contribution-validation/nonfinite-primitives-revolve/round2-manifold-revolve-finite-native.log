@@ -1,0 +1,751 @@
+Note: Google Test filter = Manifold.*:Properties.*:Smooth.*:CrossSection.*:CrossSectionComplex.*:CrossSectionOffsetCorpus.*:CBIND.*
+[==========] Running 362 tests from 7 test suites.
+[----------] Global test environment set-up.
+[----------] 16 tests from Properties
+[ RUN      ] Properties.Measurements
+[       OK ] Properties.Measurements (0 ms)
+[ RUN      ] Properties.BooleanBarycentricWeightsRemainFinite
+[       OK ] Properties.BooleanBarycentricWeightsRemainFinite (0 ms)
+[ RUN      ] Properties.Epsilon
+[       OK ] Properties.Epsilon (0 ms)
+[ RUN      ] Properties.Epsilon2
+[       OK ] Properties.Epsilon2 (0 ms)
+[ RUN      ] Properties.Tolerance
+[       OK ] Properties.Tolerance (0 ms)
+[ RUN      ] Properties.ToleranceSphere
+[       OK ] Properties.ToleranceSphere (22558 ms)
+[ RUN      ] Properties.ToleranceCylinder
+[       OK ] Properties.ToleranceCylinder (1 ms)
+[ RUN      ] Properties.ToleranceCube
+[       OK ] Properties.ToleranceCube (0 ms)
+[ RUN      ] Properties.CalculateCurvature
+[       OK ] Properties.CalculateCurvature (10 ms)
+[ RUN      ] Properties.CurvatureChannels
+[       OK ] Properties.CurvatureChannels (1 ms)
+[ RUN      ] Properties.CalculateNormals
+[       OK ] Properties.CalculateNormals (2 ms)
+[ RUN      ] Properties.CalculateNormalsWithPropertySeams
+[       OK ] Properties.CalculateNormalsWithPropertySeams (0 ms)
+[ RUN      ] Properties.PropertyIndexTooLarge
+[       OK ] Properties.PropertyIndexTooLarge (0 ms)
+[ RUN      ] Properties.SetPropertiesNegative
+[       OK ] Properties.SetPropertiesNegative (0 ms)
+[ RUN      ] Properties.Coplanar
+[       OK ] Properties.Coplanar (0 ms)
+[ RUN      ] Properties.CalculateCurvatureDeterministic
+[       OK ] Properties.CalculateCurvatureDeterministic (49 ms)
+[----------] 16 tests from Properties (22627 ms total)
+
+[----------] 123 tests from Manifold
+[ RUN      ] Manifold.GetMeshGL
+[       OK ] Manifold.GetMeshGL (0 ms)
+[ RUN      ] Manifold.SharedTopologyCopyIsolation
+[       OK ] Manifold.SharedTopologyCopyIsolation (2 ms)
+[ RUN      ] Manifold.SharedTopologyThrowingCallbacks
+[       OK ] Manifold.SharedTopologyThrowingCallbacks (0 ms)
+[ RUN      ] Manifold.SharedTopologyConcurrentCopies
+[       OK ] Manifold.SharedTopologyConcurrentCopies (6 ms)
+[ RUN      ] Manifold.WarpNonFiniteResults
+[       OK ] Manifold.WarpNonFiniteResults (0 ms)
+[ RUN      ] Manifold.MeshDeterminism
+[       OK ] Manifold.MeshDeterminism (0 ms)
+[ RUN      ] Manifold.Empty
+[       OK ] Manifold.Empty (0 ms)
+[ RUN      ] Manifold.ValidInput
+[       OK ] Manifold.ValidInput (0 ms)
+[ RUN      ] Manifold.ValidInputOneRunIndex
+[       OK ] Manifold.ValidInputOneRunIndex (0 ms)
+[ RUN      ] Manifold.InvalidInput1
+[       OK ] Manifold.InvalidInput1 (0 ms)
+[ RUN      ] Manifold.InvalidInput2
+[       OK ] Manifold.InvalidInput2 (0 ms)
+[ RUN      ] Manifold.InvalidInput3
+[       OK ] Manifold.InvalidInput3 (0 ms)
+[ RUN      ] Manifold.InvalidInput4
+[       OK ] Manifold.InvalidInput4 (0 ms)
+[ RUN      ] Manifold.InvalidInput5
+[       OK ] Manifold.InvalidInput5 (0 ms)
+[ RUN      ] Manifold.InvalidInputOddHalfedgeCount
+[       OK ] Manifold.InvalidInputOddHalfedgeCount (0 ms)
+[ RUN      ] Manifold.InvalidInput6
+[       OK ] Manifold.InvalidInput6 (0 ms)
+[ RUN      ] Manifold.InvalidInput64BitIndex
+[       OK ] Manifold.InvalidInput64BitIndex (0 ms)
+[ RUN      ] Manifold.InvalidInput7
+[       OK ] Manifold.InvalidInput7 (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexPastEnd
+[       OK ] Manifold.InvalidInputRunIndexPastEnd (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexDecreasing
+[       OK ] Manifold.InvalidInputRunIndexDecreasing (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexStart
+[       OK ] Manifold.InvalidInputRunIndexStart (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIDsWithoutIndex
+[       OK ] Manifold.InvalidInputRunIDsWithoutIndex (0 ms)
+[ RUN      ] Manifold.InvalidInputShortTangents
+[       OK ] Manifold.InvalidInputShortTangents (0 ms)
+[ RUN      ] Manifold.LongTangents
+[       OK ] Manifold.LongTangents (0 ms)
+[ RUN      ] Manifold.InvalidInputNoProperties
+[       OK ] Manifold.InvalidInputNoProperties (0 ms)
+[ RUN      ] Manifold.ErrorPropagationDecompose
+[       OK ] Manifold.ErrorPropagationDecompose (0 ms)
+[ RUN      ] Manifold.ErrorPropagationHull
+[       OK ] Manifold.ErrorPropagationHull (0 ms)
+[ RUN      ] Manifold.ErrorPropagationHullMulti
+[       OK ] Manifold.ErrorPropagationHullMulti (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSetProperties
+[       OK ] Manifold.ErrorPropagationSetProperties (0 ms)
+[ RUN      ] Manifold.ErrorPropagationCalculateCurvature
+[       OK ] Manifold.ErrorPropagationCalculateCurvature (0 ms)
+[ RUN      ] Manifold.ErrorPropagationCalculateNormals
+[       OK ] Manifold.ErrorPropagationCalculateNormals (0 ms)
+[ RUN      ] Manifold.NormalsCavity
+[       OK ] Manifold.NormalsCavity (2 ms)
+[ RUN      ] Manifold.NormalsRotateBeforeCalc
+[       OK ] Manifold.NormalsRotateBeforeCalc (0 ms)
+[ RUN      ] Manifold.LargeRotationsPreserveVolume
+[       OK ] Manifold.LargeRotationsPreserveVolume (0 ms)
+[ RUN      ] Manifold.NormalsRotateAfterCalc
+[       OK ] Manifold.NormalsRotateAfterCalc (0 ms)
+[ RUN      ] Manifold.NormalsAutoSubstitute
+[       OK ] Manifold.NormalsAutoSubstitute (0 ms)
+[ RUN      ] Manifold.NormalsRoundTrip
+[       OK ] Manifold.NormalsRoundTrip (2 ms)
+[ RUN      ] Manifold.NormalsRefinePreserved
+[       OK ] Manifold.NormalsRefinePreserved (2 ms)
+[ RUN      ] Manifold.NormalsSmoothByNormalsNoArg
+[       OK ] Manifold.NormalsSmoothByNormalsNoArg (0 ms)
+[ RUN      ] Manifold.NormalsNonStandardSlotNotRecorded
+[       OK ] Manifold.NormalsNonStandardSlotNotRecorded (0 ms)
+[ RUN      ] Manifold.NormalsDroppedWithChannels
+[       OK ] Manifold.NormalsDroppedWithChannels (0 ms)
+[ RUN      ] Manifold.NormalsSharedPropVertMixedFlagsUndefined
+[       OK ] Manifold.NormalsSharedPropVertMixedFlagsUndefined (0 ms)
+[ RUN      ] Manifold.GetNormalLegacyContract
+[       OK ] Manifold.GetNormalLegacyContract (0 ms)
+[ RUN      ] Manifold.TransformMixedNormalsPerMeshID
+[       OK ] Manifold.TransformMixedNormalsPerMeshID (1 ms)
+[ RUN      ] Manifold.ComposeMixedNormalsPerMeshID
+[       OK ] Manifold.ComposeMixedNormalsPerMeshID (0 ms)
+[ RUN      ] Manifold.BooleanSubtractMixedQPerMeshIDNegation
+[       OK ] Manifold.BooleanSubtractMixedQPerMeshIDNegation (1 ms)
+[ RUN      ] Manifold.CalculateNormalsNonZeroIdxSurvivesTransform
+[       OK ] Manifold.CalculateNormalsNonZeroIdxSurvivesTransform (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSmoothByNormals
+[       OK ] Manifold.ErrorPropagationSmoothByNormals (0 ms)
+[ RUN      ] Manifold.ErrorPropagationRefine
+[       OK ] Manifold.ErrorPropagationRefine (0 ms)
+[ RUN      ] Manifold.ErrorPropagationAsOriginal
+[       OK ] Manifold.ErrorPropagationAsOriginal (0 ms)
+[ RUN      ] Manifold.ErrorPropagationWarp
+[       OK ] Manifold.ErrorPropagationWarp (0 ms)
+[ RUN      ] Manifold.ErrorPropagationMinkowski
+[       OK ] Manifold.ErrorPropagationMinkowski (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSplitByPlane
+[       OK ] Manifold.ErrorPropagationSplitByPlane (0 ms)
+[ RUN      ] Manifold.ErrorPropagationMirror
+[       OK ] Manifold.ErrorPropagationMirror (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSimplify
+[       OK ] Manifold.ErrorPropagationSimplify (0 ms)
+[ RUN      ] Manifold.ObjRoundTrip
+[       OK ] Manifold.ObjRoundTrip (0 ms)
+[ RUN      ] Manifold.ObjNoTrailingNewline
+[       OK ] Manifold.ObjNoTrailingNewline (0 ms)
+[ RUN      ] Manifold.ObjHugeFaceIndex
+[       OK ] Manifold.ObjHugeFaceIndex (0 ms)
+[ RUN      ] Manifold.OppositeFace
+[       OK ] Manifold.OppositeFace (0 ms)
+[ RUN      ] Manifold.Decompose
+[       OK ] Manifold.Decompose (0 ms)
+[ RUN      ] Manifold.DecomposeGroupsEnclosedNegativeVolume
+[       OK ] Manifold.DecomposeGroupsEnclosedNegativeVolume (0 ms)
+[ RUN      ] Manifold.DecomposeDeeplyNestedVugsAndSeparateSolid
+[       OK ] Manifold.DecomposeDeeplyNestedVugsAndSeparateSolid (0 ms)
+[ RUN      ] Manifold.DecomposeProps
+[       OK ] Manifold.DecomposeProps (0 ms)
+[ RUN      ] Manifold.Sphere
+[       OK ] Manifold.Sphere (2 ms)
+[ RUN      ] Manifold.CircularSegmentsWhileReset
+[       OK ] Manifold.CircularSegmentsWhileReset (100 ms)
+[ RUN      ] Manifold.CircularSegmentsTinyAngle
+[       OK ] Manifold.CircularSegmentsTinyAngle (0 ms)
+[ RUN      ] Manifold.AssignToMovedFrom
+[       OK ] Manifold.AssignToMovedFrom (0 ms)
+[ RUN      ] Manifold.Cylinder
+[       OK ] Manifold.Cylinder (24 ms)
+[ RUN      ] Manifold.CylinderZeroRadiusLow
+[       OK ] Manifold.CylinderZeroRadiusLow (6 ms)
+[ RUN      ] Manifold.CylinderCenter
+[       OK ] Manifold.CylinderCenter (8 ms)
+[ RUN      ] Manifold.ConstructorsOriginalID
+[       OK ] Manifold.ConstructorsOriginalID (0 ms)
+[ RUN      ] Manifold.Extrude
+[       OK ] Manifold.Extrude (0 ms)
+[ RUN      ] Manifold.ExtrudeInvalid
+[       OK ] Manifold.ExtrudeInvalid (0 ms)
+[ RUN      ] Manifold.ShortContours
+[       OK ] Manifold.ShortContours (0 ms)
+[ RUN      ] Manifold.ExtrudeNegativeDivisions
+[       OK ] Manifold.ExtrudeNegativeDivisions (0 ms)
+[ RUN      ] Manifold.ExtrudeSquare
+[       OK ] Manifold.ExtrudeSquare (0 ms)
+[ RUN      ] Manifold.ExtrudeCone
+[       OK ] Manifold.ExtrudeCone (0 ms)
+[ RUN      ] Manifold.Revolve
+[       OK ] Manifold.Revolve (0 ms)
+[ RUN      ] Manifold.Revolve2
+[       OK ] Manifold.Revolve2 (0 ms)
+[ RUN      ] Manifold.Revolve3
+[       OK ] Manifold.Revolve3 (0 ms)
+[ RUN      ] Manifold.RevolveClip
+[       OK ] Manifold.RevolveClip (0 ms)
+[ RUN      ] Manifold.PartialRevolveOnYAxis
+[       OK ] Manifold.PartialRevolveOnYAxis (1 ms)
+[ RUN      ] Manifold.PartialRevolveOffset
+[       OK ] Manifold.PartialRevolveOffset (1 ms)
+[ RUN      ] Manifold.PartialRevolveSmallAngle
+[       OK ] Manifold.PartialRevolveSmallAngle (0 ms)
+[ RUN      ] Manifold.RevolveInvalidAngle
+[       OK ] Manifold.RevolveInvalidAngle (0 ms)
+[ RUN      ] Manifold.RevolveSliceCountOverflow
+[       OK ] Manifold.RevolveSliceCountOverflow (0 ms)
+[ RUN      ] Manifold.RevolveNegativeAngle
+[       OK ] Manifold.RevolveNegativeAngle (1 ms)
+[ RUN      ] Manifold.Warp
+[       OK ] Manifold.Warp (0 ms)
+[ RUN      ] Manifold.Warp2
+[       OK ] Manifold.Warp2 (0 ms)
+[ RUN      ] Manifold.WarpBatch
+[       OK ] Manifold.WarpBatch (0 ms)
+[ RUN      ] Manifold.Project
+[       OK ] Manifold.Project (0 ms)
+[ RUN      ] Manifold.ProjectRefinedSphereContours
+[       OK ] Manifold.ProjectRefinedSphereContours (59 ms)
+[ RUN      ] Manifold.ProjectGrowingContoursAndHoles
+[       OK ] Manifold.ProjectGrowingContoursAndHoles (28 ms)
+[ RUN      ] Manifold.Transform
+[       OK ] Manifold.Transform (0 ms)
+[ RUN      ] Manifold.Slice
+[       OK ] Manifold.Slice (0 ms)
+[ RUN      ] Manifold.SliceEmptyObject
+[       OK ] Manifold.SliceEmptyObject (0 ms)
+[ RUN      ] Manifold.Simplify
+[       OK ] Manifold.Simplify (13 ms)
+[ RUN      ] Manifold.MeshID
+[       OK ] Manifold.MeshID (0 ms)
+[ RUN      ] Manifold.MeshRelation
+[       OK ] Manifold.MeshRelation (10 ms)
+[ RUN      ] Manifold.MeshRelationTransform
+[       OK ] Manifold.MeshRelationTransform (0 ms)
+[ RUN      ] Manifold.MeshRelationRefine
+[       OK ] Manifold.MeshRelationRefine (16 ms)
+[ RUN      ] Manifold.MeshRelationRefinePrecision
+[       OK ] Manifold.MeshRelationRefinePrecision (5 ms)
+[ RUN      ] Manifold.MeshGLRoundTrip
+[       OK ] Manifold.MeshGLRoundTrip (0 ms)
+[ RUN      ] Manifold.Merge
+[       OK ] Manifold.Merge (0 ms)
+[ RUN      ] Manifold.MergeTolerance
+[       OK ] Manifold.MergeTolerance (0 ms)
+[ RUN      ] Manifold.MergeCollapsedEdgeParity
+[       OK ] Manifold.MergeCollapsedEdgeParity (0 ms)
+[ RUN      ] Manifold.MergeEmpty
+[       OK ] Manifold.MergeEmpty (0 ms)
+[ RUN      ] Manifold.PinchedVert
+[       OK ] Manifold.PinchedVert (0 ms)
+[ RUN      ] Manifold.FaceIDRoundTrip
+[       OK ] Manifold.FaceIDRoundTrip (0 ms)
+[ RUN      ] Manifold.MirrorUnion
+[       OK ] Manifold.MirrorUnion (0 ms)
+[ RUN      ] Manifold.MirrorUnion2
+[       OK ] Manifold.MirrorUnion2 (0 ms)
+[ RUN      ] Manifold.MirroredNormals
+[       OK ] Manifold.MirroredNormals (0 ms)
+[ RUN      ] Manifold.Invalid
+[       OK ] Manifold.Invalid (0 ms)
+[ RUN      ] Manifold.NonFiniteCubeIsInvalid
+[       OK ] Manifold.NonFiniteCubeIsInvalid (0 ms)
+[ RUN      ] Manifold.NonFiniteSphereIsInvalid
+[       OK ] Manifold.NonFiniteSphereIsInvalid (0 ms)
+[ RUN      ] Manifold.NonFiniteCylinderIsInvalid
+[       OK ] Manifold.NonFiniteCylinderIsInvalid (0 ms)
+[ RUN      ] Manifold.NonFiniteRevolveCoordinatesAreInvalid
+[       OK ] Manifold.NonFiniteRevolveCoordinatesAreInvalid (0 ms)
+[ RUN      ] Manifold.RevolveStillIgnoresShortContours
+[       OK ] Manifold.RevolveStillIgnoresShortContours (0 ms)
+[ RUN      ] Manifold.CylinderFiniteNegativeTopRadiusUsesBottomRadius
+[       OK ] Manifold.CylinderFiniteNegativeTopRadiusUsesBottomRadius (0 ms)
+[ RUN      ] Manifold.MergeDegenerates
+[       OK ] Manifold.MergeDegenerates (0 ms)
+[ RUN      ] Manifold.MergeRefine
+[       OK ] Manifold.MergeRefine (1 ms)
+[ RUN      ] Manifold.DeepChainDoesNotOverflowNumLeaves
+[       OK ] Manifold.DeepChainDoesNotOverflowNumLeaves (3242 ms)
+[ RUN      ] Manifold.DedupeEdgesNeverMovesACorner
+[       OK ] Manifold.DedupeEdgesNeverMovesACorner (488 ms)
+[----------] 123 tests from Manifold (4048 ms total)
+
+[----------] 28 tests from Smooth
+[ RUN      ] Smooth.Tetrahedron
+[       OK ] Smooth.Tetrahedron (60 ms)
+[ RUN      ] Smooth.RefineQuads
+[       OK ] Smooth.RefineQuads (34 ms)
+[ RUN      ] Smooth.TruncatedCone
+[       OK ] Smooth.TruncatedCone (8 ms)
+[ RUN      ] Smooth.ToLength
+[       OK ] Smooth.ToLength (234 ms)
+[ RUN      ] Smooth.Sphere
+[       OK ] Smooth.Sphere (120 ms)
+[ RUN      ] Smooth.Precision
+[       OK ] Smooth.Precision (33 ms)
+[ RUN      ] Smooth.Normals
+[       OK ] Smooth.Normals (214 ms)
+[ RUN      ] Smooth.FacetedNormals
+[       OK ] Smooth.FacetedNormals (639 ms)
+[ RUN      ] Smooth.NormalTransform
+[       OK ] Smooth.NormalTransform (5 ms)
+[ RUN      ] Smooth.MissingNormals
+[       OK ] Smooth.MissingNormals (1 ms)
+[ RUN      ] Smooth.MissingNormalsCone
+[       OK ] Smooth.MissingNormalsCone (1 ms)
+[ RUN      ] Smooth.OperandOrder
+[       OK ] Smooth.OperandOrder (45 ms)
+[ RUN      ] Smooth.Fillet
+[       OK ] Smooth.Fillet (6 ms)
+[ RUN      ] Smooth.Fillet2
+[       OK ] Smooth.Fillet2 (6 ms)
+[ RUN      ] Smooth.Manual
+[       OK ] Smooth.Manual (92 ms)
+[ RUN      ] Smooth.ExportTangentsFollowTriangleRuns
+[       OK ] Smooth.ExportTangentsFollowTriangleRuns (481 ms)
+[ RUN      ] Smooth.InvalidTangents
+[       OK ] Smooth.InvalidTangents (0 ms)
+[ RUN      ] Smooth.NormalIdxOutOfRange
+[       OK ] Smooth.NormalIdxOutOfRange (0 ms)
+[ RUN      ] Smooth.Mirrored
+[       OK ] Smooth.Mirrored (0 ms)
+[ RUN      ] Smooth.Csaszar
+[       OK ] Smooth.Csaszar (701 ms)
+[ RUN      ] Smooth.Torus
+[       OK ] Smooth.Torus (43 ms)
+[ RUN      ] Smooth.SDF
+[       OK ] Smooth.SDF (3435 ms)
+[ RUN      ] Smooth.RefineInvalid
+[       OK ] Smooth.RefineInvalid (0 ms)
+[ RUN      ] Smooth.RefineTooLarge
+[       OK ] Smooth.RefineTooLarge (0 ms)
+[ RUN      ] Smooth.RefinePropertiesTooLarge
+[       OK ] Smooth.RefinePropertiesTooLarge (0 ms)
+[ RUN      ] Smooth.SphereTooLarge
+[       OK ] Smooth.SphereTooLarge (0 ms)
+[ RUN      ] Smooth.RefineFlatTriangles
+[       OK ] Smooth.RefineFlatTriangles (1695 ms)
+[ RUN      ] Smooth.RefineLongEdges
+[       OK ] Smooth.RefineLongEdges (667 ms)
+[----------] 28 tests from Smooth (8536 ms total)
+
+[----------] 103 tests from CrossSection
+[ RUN      ] CrossSection.Square
+[       OK ] CrossSection.Square (0 ms)
+[ RUN      ] CrossSection.EvenOddNestedContours
+[       OK ] CrossSection.EvenOddNestedContours (0 ms)
+[ RUN      ] CrossSection.EvenOddReversedInnerIsAHoleEitherWay
+[       OK ] CrossSection.EvenOddReversedInnerIsAHoleEitherWay (0 ms)
+[ RUN      ] CrossSection.EvenOddBowtieKeepsBothLobes
+[       OK ] CrossSection.EvenOddBowtieKeepsBothLobes (0 ms)
+[ RUN      ] CrossSection.EvenOddNestingAlternatesByDepth
+[       OK ] CrossSection.EvenOddNestingAlternatesByDepth (0 ms)
+[ RUN      ] CrossSection.EvenOddFillsAClockwiseContour
+[       OK ] CrossSection.EvenOddFillsAClockwiseContour (0 ms)
+[ RUN      ] CrossSection.EvenOddSelfIntersectingContour
+[       OK ] CrossSection.EvenOddSelfIntersectingContour (0 ms)
+[ RUN      ] CrossSection.NonZeroFillsBothSignsAndEvenWinding
+[       OK ] CrossSection.NonZeroFillsBothSignsAndEvenWinding (0 ms)
+[ RUN      ] CrossSection.NonZeroSameDirectionNestingStaysFilled
+[       OK ] CrossSection.NonZeroSameDirectionNestingStaysFilled (0 ms)
+[ RUN      ] CrossSection.NonZeroSelfIntersectingContour
+[       OK ] CrossSection.NonZeroSelfIntersectingContour (0 ms)
+[ RUN      ] CrossSection.NonZeroCancelsOppositeCoincidentContours
+[       OK ] CrossSection.NonZeroCancelsOppositeCoincidentContours (0 ms)
+[ RUN      ] CrossSection.NonZeroOppositeOverlapsLeaveZeroWindingEmpty
+[       OK ] CrossSection.NonZeroOppositeOverlapsLeaveZeroWindingEmpty (0 ms)
+[ RUN      ] CrossSection.NonZeroNormalizesHolesForLaterOperations
+[       OK ] CrossSection.NonZeroNormalizesHolesForLaterOperations (0 ms)
+[ RUN      ] CrossSection.NonZeroSelfIntersectionsMatchPositiveReverseUnion
+[       OK ] CrossSection.NonZeroSelfIntersectionsMatchPositiveReverseUnion (0 ms)
+[ RUN      ] CrossSection.EvenOddOutputIsCanonicalPositive
+[       OK ] CrossSection.EvenOddOutputIsCanonicalPositive (0 ms)
+[ RUN      ] CrossSection.MirrorUnion
+[       OK ] CrossSection.MirrorUnion (0 ms)
+[ RUN      ] CrossSection.MirrorCheckAxis
+[       OK ] CrossSection.MirrorCheckAxis (0 ms)
+[ RUN      ] CrossSection.RoundOffset
+[       OK ] CrossSection.RoundOffset (0 ms)
+[ RUN      ] CrossSection.BevelOffset
+[       OK ] CrossSection.BevelOffset (0 ms)
+[ RUN      ] CrossSection.MiterOffset
+[       OK ] CrossSection.MiterOffset (0 ms)
+[ RUN      ] CrossSection.OffsetWithHole
+[       OK ] CrossSection.OffsetWithHole (0 ms)
+[ RUN      ] CrossSection.OffsetThinPinch
+[       OK ] CrossSection.OffsetThinPinch (0 ms)
+[ RUN      ] CrossSection.OffsetMultipleDisjointOuters
+[       OK ] CrossSection.OffsetMultipleDisjointOuters (0 ms)
+[ RUN      ] CrossSection.OffsetCollapsedOuterVanishes
+[       OK ] CrossSection.OffsetCollapsedOuterVanishes (0 ms)
+[ RUN      ] CrossSection.OffsetCollapsedHoleVanishes
+[       OK ] CrossSection.OffsetCollapsedHoleVanishes (1 ms)
+[ RUN      ] CrossSection.OffsetFarCollapsedContoursVanish
+[       OK ] CrossSection.OffsetFarCollapsedContoursVanish (12 ms)
+[ RUN      ] CrossSection.FourConcurrentEdges
+[       OK ] CrossSection.FourConcurrentEdges (0 ms)
+[ RUN      ] CrossSection.ConcurrentIndependentEdgePairs
+[       OK ] CrossSection.ConcurrentIndependentEdgePairs (0 ms)
+[ RUN      ] CrossSection.TranslatedShallowConcurrentEdges
+[       OK ] CrossSection.TranslatedShallowConcurrentEdges (0 ms)
+[ RUN      ] CrossSection.TranslatedSmallPolygonDroppedBelowEps
+[       OK ] CrossSection.TranslatedSmallPolygonDroppedBelowEps (0 ms)
+[ RUN      ] CrossSection.TinyFeatureNearCornerEdgeSoupParity
+[       OK ] CrossSection.TinyFeatureNearCornerEdgeSoupParity (0 ms)
+[ RUN      ] CrossSection.TinyFeatureNearCornerHostFeatureSwap
+[       OK ] CrossSection.TinyFeatureNearCornerHostFeatureSwap (0 ms)
+[ RUN      ] CrossSection.TinyFeatureNearCornerHostDropAtOffset4096
+[       OK ] CrossSection.TinyFeatureNearCornerHostDropAtOffset4096 (0 ms)
+[ RUN      ] CrossSection.NearCornerTouchDropsMacroFeature
+[       OK ] CrossSection.NearCornerTouchDropsMacroFeature (0 ms)
+[ RUN      ] CrossSection.NearCoincidentLargeCoordIsValid
+[       OK ] CrossSection.NearCoincidentLargeCoordIsValid (0 ms)
+[ RUN      ] CrossSection.CenteredSubEpsNonClosingWalk
+[       OK ] CrossSection.CenteredSubEpsNonClosingWalk (0 ms)
+[ RUN      ] CrossSection.NearCoincidentCornersMatchSequentialUnion
+[       OK ] CrossSection.NearCoincidentCornersMatchSequentialUnion (0 ms)
+[ RUN      ] CrossSection.ExtrudeProjectSliceNonClosingWalk
+[       OK ] CrossSection.ExtrudeProjectSliceNonClosingWalk (0 ms)
+[ RUN      ] CrossSection.DenseNeedleClusterNonClosingWalk
+[       OK ] CrossSection.DenseNeedleClusterNonClosingWalk (0 ms)
+[ RUN      ] CrossSection.DenseNearConcurrentFanNonClosingWalk
+[       OK ] CrossSection.DenseNearConcurrentFanNonClosingWalk (0 ms)
+[ RUN      ] CrossSection.OffsetOverBooleanOutput
+[       OK ] CrossSection.OffsetOverBooleanOutput (0 ms)
+[ RUN      ] CrossSection.NearParallelPencilNonClosingWalk
+[       OK ] CrossSection.NearParallelPencilNonClosingWalk (0 ms)
+[ RUN      ] CrossSection.CornerChainLargeCoord
+[       OK ] CrossSection.CornerChainLargeCoord (0 ms)
+[ RUN      ] CrossSection.NearVerticalConcurrenceStaysConsistent
+[       OK ] CrossSection.NearVerticalConcurrenceStaysConsistent (0 ms)
+[ RUN      ] CrossSection.TinyEdgeFeatureKeepsSquare
+[       OK ] CrossSection.TinyEdgeFeatureKeepsSquare (0 ms)
+[ RUN      ] CrossSection.TinyFeatureNearCornerHostDropAtOffset1024
+[       OK ] CrossSection.TinyFeatureNearCornerHostDropAtOffset1024 (0 ms)
+[ RUN      ] CrossSection.SquareAnnihilation
+[       OK ] CrossSection.SquareAnnihilation (0 ms)
+[ RUN      ] CrossSection.InclusionExclusionSliver
+[       OK ] CrossSection.InclusionExclusionSliver (0 ms)
+[ RUN      ] CrossSection.SubEpsRectangleOverlap
+[       OK ] CrossSection.SubEpsRectangleOverlap (0 ms)
+[ RUN      ] CrossSection.CornerCrossingStrip
+[       OK ] CrossSection.CornerCrossingStrip (0 ms)
+[ RUN      ] CrossSection.TJunctionAtSharedEndpoint
+[       OK ] CrossSection.TJunctionAtSharedEndpoint (0 ms)
+[ RUN      ] CrossSection.CollinearSegmentOverlap
+[       OK ] CrossSection.CollinearSegmentOverlap (0 ms)
+[ RUN      ] CrossSection.ManyPolygonsShareCenterVertex
+[       OK ] CrossSection.ManyPolygonsShareCenterVertex (0 ms)
+[ RUN      ] CrossSection.OffsetPositiveOnExtremeRadiusStar
+[       OK ] CrossSection.OffsetPositiveOnExtremeRadiusStar (0 ms)
+[ RUN      ] CrossSection.SubtractInvariantsSeeds
+[       OK ] CrossSection.SubtractInvariantsSeeds (0 ms)
+[ RUN      ] CrossSection.BooleanCommutativitySeeds
+[       OK ] CrossSection.BooleanCommutativitySeeds (0 ms)
+[ RUN      ] CrossSection.PrismSeeds
+[       OK ] CrossSection.PrismSeeds (0 ms)
+[ RUN      ] CrossSection.BooleanAssociativitySeeds
+[       OK ] CrossSection.BooleanAssociativitySeeds (0 ms)
+[ RUN      ] CrossSection.BooleanDistributivitySeeds
+[       OK ] CrossSection.BooleanDistributivitySeeds (12 ms)
+[ RUN      ] CrossSection.OffsetInverseTriangleMiter
+[       OK ] CrossSection.OffsetInverseTriangleMiter (0 ms)
+[ RUN      ] CrossSection.DecomposeRecomposeOuterStarWithSmallHole
+[       OK ] CrossSection.DecomposeRecomposeOuterStarWithSmallHole (0 ms)
+[ RUN      ] CrossSection.DecomposeRecomposeNearTangentSmallHole
+[       OK ] CrossSection.DecomposeRecomposeNearTangentSmallHole (0 ms)
+[ RUN      ] CrossSection.DegenerateCoincidentVertexUnion
+[       OK ] CrossSection.DegenerateCoincidentVertexUnion (0 ms)
+[ RUN      ] CrossSection.DegenerateCoincidentVertexUnionReduced
+[       OK ] CrossSection.DegenerateCoincidentVertexUnionReduced (0 ms)
+[ RUN      ] CrossSection.DegenerateCoincidentVertexUnionTinyTriangle
+[       OK ] CrossSection.DegenerateCoincidentVertexUnionTinyTriangle (0 ms)
+[ RUN      ] CrossSection.NonFiniteInputReturnsEmpty
+[       OK ] CrossSection.NonFiniteInputReturnsEmpty (0 ms)
+[ RUN      ] CrossSection.NonFiniteCircleIsEmpty
+[       OK ] CrossSection.NonFiniteCircleIsEmpty (0 ms)
+[ RUN      ] CrossSection.NonFiniteSquareIsEmpty
+[       OK ] CrossSection.NonFiniteSquareIsEmpty (0 ms)
+[ RUN      ] CrossSection.NonFiniteRectangleIsEmpty
+[       OK ] CrossSection.NonFiniteRectangleIsEmpty (0 ms)
+[ RUN      ] CrossSection.OffsetNotInvariantUnderLargeTranslation
+[       OK ] CrossSection.OffsetNotInvariantUnderLargeTranslation (0 ms)
+[ RUN      ] CrossSection.SimplifyPostFiltersBoolean2Output
+[       OK ] CrossSection.SimplifyPostFiltersBoolean2Output (0 ms)
+[ RUN      ] CrossSection.SimplifyRemovesCollinearVertices
+[       OK ] CrossSection.SimplifyRemovesCollinearVertices (0 ms)
+[ RUN      ] CrossSection.SimplifyReducesCurveWithoutCollapsing
+[       OK ] CrossSection.SimplifyReducesCurveWithoutCollapsing (0 ms)
+[ RUN      ] CrossSection.SimplifyEqualDeviationsKeepDeterministicCorners
+[       OK ] CrossSection.SimplifyEqualDeviationsKeepDeterministicCorners (0 ms)
+[ RUN      ] CrossSection.Empty
+[       OK ] CrossSection.Empty (0 ms)
+[ RUN      ] CrossSection.Rect
+[       OK ] CrossSection.Rect (0 ms)
+[ RUN      ] CrossSection.RectAxisAlignedTransform
+[       OK ] CrossSection.RectAxisAlignedTransform (0 ms)
+[ RUN      ] CrossSection.LargeRotationsPreserveArea
+[       OK ] CrossSection.LargeRotationsPreserveArea (0 ms)
+[ RUN      ] CrossSection.Transform
+[       OK ] CrossSection.Transform (0 ms)
+[ RUN      ] CrossSection.Warp
+[       OK ] CrossSection.Warp (0 ms)
+[ RUN      ] CrossSection.Decompose
+[       OK ] CrossSection.Decompose (0 ms)
+[ RUN      ] CrossSection.DecomposeNestedHoleAndIsland
+[       OK ] CrossSection.DecomposeNestedHoleAndIsland (0 ms)
+[ RUN      ] CrossSection.WarpAffineMatchesScaleTranslate
+[       OK ] CrossSection.WarpAffineMatchesScaleTranslate (0 ms)
+[ RUN      ] CrossSection.ShearTransformPreservesArea
+[       OK ] CrossSection.ShearTransformPreservesArea (0 ms)
+[ RUN      ] CrossSection.InformationPreservesDeferredTransforms
+[       OK ] CrossSection.InformationPreservesDeferredTransforms (0 ms)
+[ RUN      ] CrossSection.InformationMatchesTransformedContours
+[       OK ] CrossSection.InformationMatchesTransformedContours (0 ms)
+[ RUN      ] CrossSection.ConcurrentConstAccessorsAreRaceFree
+[       OK ] CrossSection.ConcurrentConstAccessorsAreRaceFree (1 ms)
+[ RUN      ] CrossSection.ConcurrentInformationAndMaterialization
+[       OK ] CrossSection.ConcurrentInformationAndMaterialization (6 ms)
+[ RUN      ] CrossSection.PublicRoundOffsetRoundTripsMismatchCount
+[       OK ] CrossSection.PublicRoundOffsetRoundTripsMismatchCount (0 ms)
+[ RUN      ] CrossSection.OffsetRoundNonFiniteAndHugeDelta
+[       OK ] CrossSection.OffsetRoundNonFiniteAndHugeDelta (0 ms)
+[ RUN      ] CrossSection.OffsetDoesNotInflateToleranceDownstream
+[       OK ] CrossSection.OffsetDoesNotInflateToleranceDownstream (0 ms)
+[ RUN      ] CrossSection.PublicOffsetSquareInsetCapStaysOnSolidSide
+[       OK ] CrossSection.PublicOffsetSquareInsetCapStaysOnSolidSide (0 ms)
+[ RUN      ] CrossSection.HullDegenerateInputIsEmpty
+[       OK ] CrossSection.HullDegenerateInputIsEmpty (0 ms)
+[ RUN      ] CrossSection.TransformNonFiniteIsNoOp
+[       OK ] CrossSection.TransformNonFiniteIsNoOp (0 ms)
+[ RUN      ] CrossSection.SquareDegenerateDimIsEmpty
+[       OK ] CrossSection.SquareDegenerateDimIsEmpty (0 ms)
+[ RUN      ] CrossSection.Hull
+[       OK ] CrossSection.Hull (2 ms)
+[ RUN      ] CrossSection.HullError
+[       OK ] CrossSection.HullError (0 ms)
+[ RUN      ] CrossSection.BatchBoolean
+[       OK ] CrossSection.BatchBoolean (0 ms)
+[ RUN      ] CrossSection.SubtractInvariantsEmptyIntersectionDrop
+[       OK ] CrossSection.SubtractInvariantsEmptyIntersectionDrop (0 ms)
+[ RUN      ] CrossSection.BooleanOperatorAssignments
+[       OK ] CrossSection.BooleanOperatorAssignments (0 ms)
+[ RUN      ] CrossSection.NegativeOffset
+[       OK ] CrossSection.NegativeOffset (0 ms)
+[ RUN      ] CrossSection.ResolvedWindingInputsWithVerticalTJunctions
+[       OK ] CrossSection.ResolvedWindingInputsWithVerticalTJunctions (1 ms)
+[ RUN      ] CrossSection.WindingSweepCrossingsAndRoundOffsets
+[       OK ] CrossSection.WindingSweepCrossingsAndRoundOffsets (1 ms)
+[----------] 103 tests from CrossSection (48 ms total)
+
+[----------] 64 tests from CrossSectionComplex
+[ RUN      ] CrossSectionComplex.CleanInputsKeepEpsSeparatedVerts
+[       OK ] CrossSectionComplex.CleanInputsKeepEpsSeparatedVerts (0 ms)
+[ RUN      ] CrossSectionComplex.RemoveOverlaps2DTopologyMixedScale
+[       OK ] CrossSectionComplex.RemoveOverlaps2DTopologyMixedScale (0 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsTransitiveChainCanDriftPastEps
+[       OK ] CrossSectionComplex.MergeVertsTransitiveChainCanDriftPastEps (0 ms)
+[ RUN      ] CrossSectionComplex.VertexMergeIdempotenceTightCluster
+[       OK ] CrossSectionComplex.VertexMergeIdempotenceTightCluster (0 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsChainAcrossSlabs
+[       OK ] CrossSectionComplex.MergeVertsChainAcrossSlabs (0 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsSharedColumns
+[       OK ] CrossSectionComplex.MergeVertsSharedColumns (13 ms)
+[ RUN      ] CrossSectionComplex.MergeVertsGrid
+[       OK ] CrossSectionComplex.MergeVertsGrid (57 ms)
+[ RUN      ] CrossSectionComplex.IncidenceListsAlongLongEdge
+[       OK ] CrossSectionComplex.IncidenceListsAlongLongEdge (0 ms)
+[ RUN      ] CrossSectionComplex.IncidenceListsAlongLongEdgeUnevenLayout
+[       OK ] CrossSectionComplex.IncidenceListsAlongLongEdgeUnevenLayout (0 ms)
+[ RUN      ] CrossSectionComplex.IncidenceClusterInRandomOrder
+[       OK ] CrossSectionComplex.IncidenceClusterInRandomOrder (207 ms)
+[ RUN      ] CrossSectionComplex.IncidenceParallelDiagonalSlivers
+[       OK ] CrossSectionComplex.IncidenceParallelDiagonalSlivers (1524 ms)
+[ RUN      ] CrossSectionComplex.IncidenceExtremeExtents
+[       OK ] CrossSectionComplex.IncidenceExtremeExtents (15 ms)
+[ RUN      ] CrossSectionComplex.IncidenceUnevenLayout
+[       OK ] CrossSectionComplex.IncidenceUnevenLayout (214 ms)
+[ RUN      ] CrossSectionComplex.IncidenceBrickWall
+[       OK ] CrossSectionComplex.IncidenceBrickWall (286 ms)
+[ RUN      ] CrossSectionComplex.ValidatorRejectsRetainedVertsWithinEps
+[       OK ] CrossSectionComplex.ValidatorRejectsRetainedVertsWithinEps (0 ms)
+[ RUN      ] CrossSectionComplex.ValidatorRejectsNearEndpointTJunction
+[       OK ] CrossSectionComplex.ValidatorRejectsNearEndpointTJunction (0 ms)
+[ RUN      ] CrossSectionComplex.ValidatorRejectsRetainedStrictCrossing
+[       OK ] CrossSectionComplex.ValidatorRejectsRetainedStrictCrossing (0 ms)
+[ RUN      ] CrossSectionComplex.CleanupPassMatchesValidAddSinglePass
+[       OK ] CrossSectionComplex.CleanupPassMatchesValidAddSinglePass (0 ms)
+[ RUN      ] CrossSectionComplex.FillRulesRetainedGraphMatchAddArrangement
+[       OK ] CrossSectionComplex.FillRulesRetainedGraphMatchAddArrangement (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetRoundUsesRequestedSegments
+[       OK ] CrossSectionComplex.OffsetRoundUsesRequestedSegments (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetRoundClampsHugeSegmentCount
+[       OK ] CrossSectionComplex.OffsetRoundClampsHugeSegmentCount (39 ms)
+[ RUN      ] CrossSectionComplex.OffsetZeroDeltaRejectsNonFiniteInput
+[       OK ] CrossSectionComplex.OffsetZeroDeltaRejectsNonFiniteInput (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetExtremeFiniteEdgesStayFinite
+[       OK ] CrossSectionComplex.OffsetExtremeFiniteEdgesStayFinite (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetSquareJoinKeepsCapOnSharpSpike
+[       OK ] CrossSectionComplex.OffsetSquareJoinKeepsCapOnSharpSpike (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentBboxUsesTolerance
+[       OK ] CrossSectionComplex.DecomposeContainmentBboxUsesTolerance (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentDropsDegenerateRings
+[       OK ] CrossSectionComplex.DecomposeContainmentDropsDegenerateRings (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetSquareInsetCapStaysOnSolidSide
+[       OK ] CrossSectionComplex.OffsetSquareInsetCapStaysOnSolidSide (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetLargeMiterLimitStaysBounded
+[       OK ] CrossSectionComplex.OffsetLargeMiterLimitStaysBounded (0 ms)
+[ RUN      ] CrossSectionComplex.OffsetReversalSpikeKeepsFarCap
+[       OK ] CrossSectionComplex.OffsetReversalSpikeKeepsFarCap (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentDropsZeroAreaRing
+[       OK ] CrossSectionComplex.DecomposeContainmentDropsZeroAreaRing (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentKeepsFiniteThinHole
+[       OK ] CrossSectionComplex.DecomposeContainmentKeepsFiniteThinHole (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentKeepsNestedPositiveRing
+[       OK ] CrossSectionComplex.DecomposeContainmentKeepsNestedPositiveRing (0 ms)
+[ RUN      ] CrossSectionComplex.DecomposeContainmentToleranceIsSizeScaledOffOrigin
+[       OK ] CrossSectionComplex.DecomposeContainmentToleranceIsSizeScaledOffOrigin (0 ms)
+[ RUN      ] CrossSectionComplex.BooleanRobustnessMergeTopologyBalance
+[       OK ] CrossSectionComplex.BooleanRobustnessMergeTopologyBalance (0 ms)
+[ RUN      ] CrossSectionComplex.BooleanRobustnessDirectCastKeepsExpectedArea
+[       OK ] CrossSectionComplex.BooleanRobustnessDirectCastKeepsExpectedArea (0 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsClosesSimpleRing
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsClosesSimpleRing (0 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsLongLoop2048
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsLongLoop2048 (7 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsLongLoop8192
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsLongLoop8192 (6 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsManySmallContours
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsManySmallContours (10 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsSplitsExactRepeatedVertex
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsSplitsExactRepeatedVertex (0 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsPreservesSplitOrderAndResetsPositions
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsPreservesSplitOrderAndResetsPositions (0 ms)
+[ RUN      ] CrossSectionComplex.OutEdgesToPolygonsKeepsNearDistinctVertex
+[       OK ] CrossSectionComplex.OutEdgesToPolygonsKeepsNearDistinctVertex (0 ms)
+[ RUN      ] CrossSectionComplex.KeepsNearDistinctPresentationVertex
+[       OK ] CrossSectionComplex.KeepsNearDistinctPresentationVertex (0 ms)
+[ RUN      ] CrossSectionComplex.NearCornerCrossingDistinctUnlessIncident
+[       OK ] CrossSectionComplex.NearCornerCrossingDistinctUnlessIncident (0 ms)
+[ RUN      ] CrossSectionComplex.RemoveOverlapsMergesExactDuplicateCoordinates
+[       OK ] CrossSectionComplex.RemoveOverlapsMergesExactDuplicateCoordinates (0 ms)
+[ RUN      ] CrossSectionComplex.NonFiniteInputReturnsEmpty
+[       OK ] CrossSectionComplex.NonFiniteInputReturnsEmpty (0 ms)
+[ RUN      ] CrossSectionComplex.NearOriginSubtractStaysValid
+[       OK ] CrossSectionComplex.NearOriginSubtractStaysValid (0 ms)
+[ RUN      ] CrossSectionComplex.ShortEdgeFusion
+[       OK ] CrossSectionComplex.ShortEdgeFusion (0 ms)
+[ RUN      ] CrossSectionComplex.ShortEdgeFusionAddIntersect
+[       OK ] CrossSectionComplex.ShortEdgeFusionAddIntersect (0 ms)
+[ RUN      ] CrossSectionComplex.VisibleMissedCrossingLargeEps
+[       OK ] CrossSectionComplex.VisibleMissedCrossingLargeEps (0 ms)
+[ RUN      ] CrossSectionComplex.SweepSharedStartPreservesSubdivisions
+[       OK ] CrossSectionComplex.SweepSharedStartPreservesSubdivisions (0 ms)
+[ RUN      ] CrossSectionComplex.SweepOppositeOverlappingRemainders
+[       OK ] CrossSectionComplex.SweepOppositeOverlappingRemainders (0 ms)
+[ RUN      ] CrossSectionComplex.SweepPreservesExtremeScaleResults
+[       OK ] CrossSectionComplex.SweepPreservesExtremeScaleResults (0 ms)
+[ RUN      ] CrossSectionComplex.SweepHighDegreeSharedOriginExactEdges
+[       OK ] CrossSectionComplex.SweepHighDegreeSharedOriginExactEdges (1 ms)
+[ RUN      ] CrossSectionComplex.SweepThreeWayCrossingsExactEdges
+[       OK ] CrossSectionComplex.SweepThreeWayCrossingsExactEdges (0 ms)
+[ RUN      ] CrossSectionComplex.SweepPreservesSignedZeroRepresentative
+[       OK ] CrossSectionComplex.SweepPreservesSignedZeroRepresentative (0 ms)
+[ RUN      ] CrossSectionComplex.SignedZeroReducerPreservesPublicCoordinateBits
+[       OK ] CrossSectionComplex.SignedZeroReducerPreservesPublicCoordinateBits (0 ms)
+[ RUN      ] CrossSectionComplex.SweepRequeuedRemaindersExactOutput
+[       OK ] CrossSectionComplex.SweepRequeuedRemaindersExactOutput (0 ms)
+[ RUN      ] CrossSectionComplex.SweepManySeparatedContours
+[       OK ] CrossSectionComplex.SweepManySeparatedContours (94 ms)
+[ RUN      ] CrossSectionComplex.SweepManySeparatedContoursRotated90
+[       OK ] CrossSectionComplex.SweepManySeparatedContoursRotated90 (58 ms)
+[ RUN      ] CrossSectionComplex.SweepCrossingContours
+[       OK ] CrossSectionComplex.SweepCrossingContours (71 ms)
+[ RUN      ] CrossSectionComplex.OffsetRoundMergingContours
+[       OK ] CrossSectionComplex.OffsetRoundMergingContours (40 ms)
+[ RUN      ] CrossSectionComplex.OffsetMiterWavyRing
+[       OK ] CrossSectionComplex.OffsetMiterWavyRing (76 ms)
+[ RUN      ] CrossSectionComplex.DifferenceManyContoursFewCrossings
+[       OK ] CrossSectionComplex.DifferenceManyContoursFewCrossings (194 ms)
+[----------] 64 tests from CrossSectionComplex (2925 ms total)
+
+[----------] 1 test from CrossSectionOffsetCorpus
+[ RUN      ] CrossSectionOffsetCorpus.TriangulatesCleanly
+[       OK ] CrossSectionOffsetCorpus.TriangulatesCleanly (56 ms)
+[----------] 1 test from CrossSectionOffsetCorpus (56 ms total)
+
+[----------] 27 tests from CBIND
+[ RUN      ] CBIND.version
+[       OK ] CBIND.version (0 ms)
+[ RUN      ] CBIND.meshgl_no_props
+[       OK ] CBIND.meshgl_no_props (0 ms)
+[ RUN      ] CBIND.sphere
+[       OK ] CBIND.sphere (3 ms)
+[ RUN      ] CBIND.warp_translation
+[       OK ] CBIND.warp_translation (214 ms)
+[ RUN      ] CBIND.include_pt_mutates_bounds
+[       OK ] CBIND.include_pt_mutates_bounds (0 ms)
+[ RUN      ] CBIND.obj_round_trip
+[       OK ] CBIND.obj_round_trip (0 ms)
+[ RUN      ] CBIND.level_set
+[       OK ] CBIND.level_set (8081 ms)
+[ RUN      ] CBIND.execution_context_factories
+[       OK ] CBIND.execution_context_factories (731 ms)
+[ RUN      ] CBIND.level_set_64
+[       OK ] CBIND.level_set_64 (8421 ms)
+[ RUN      ] CBIND.properties
+[       OK ] CBIND.properties (0 ms)
+[ RUN      ] CBIND.extrude
+[       OK ] CBIND.extrude (0 ms)
+[ RUN      ] CBIND.compose_decompose
+[       OK ] CBIND.compose_decompose (19 ms)
+[ RUN      ] CBIND.polygons
+[       OK ] CBIND.polygons (0 ms)
+[ RUN      ] CBIND.polygon_copies_own_their_storage
+[       OK ] CBIND.polygon_copies_own_their_storage (0 ms)
+[ RUN      ] CBIND.exported_polygons_outlive_cross_section
+[       OK ] CBIND.exported_polygons_outlive_cross_section (0 ms)
+[ RUN      ] CBIND.triangulation
+[       OK ] CBIND.triangulation (0 ms)
+[ RUN      ] CBIND.meshgl_merge_returns_mem
+[       OK ] CBIND.meshgl_merge_returns_mem (0 ms)
+[ RUN      ] CBIND.meshgl64_merge_returns_mem
+[       OK ] CBIND.meshgl64_merge_returns_mem (0 ms)
+[ RUN      ] CBIND.ray_cast
+[       OK ] CBIND.ray_cast (0 ms)
+[ RUN      ] CBIND.simplify_smoke
+[       OK ] CBIND.simplify_smoke (14 ms)
+[ RUN      ] CBIND.num_prop_vert
+[       OK ] CBIND.num_prop_vert (0 ms)
+[ RUN      ] CBIND.meshgl_run_accessors
+[       OK ] CBIND.meshgl_run_accessors (2 ms)
+[ RUN      ] CBIND.run_flag_accessors
+[       OK ] CBIND.run_flag_accessors (1 ms)
+[ RUN      ] CBIND.cross_section_non_zero
+[       OK ] CBIND.cross_section_non_zero (0 ms)
+[ RUN      ] CBIND.cross_section_even_odd
+[       OK ] CBIND.cross_section_even_odd (0 ms)
+[ RUN      ] CBIND.execution_context_happy_path
+[       OK ] CBIND.execution_context_happy_path (0 ms)
+[ RUN      ] CBIND.execution_context_cancel
+[       OK ] CBIND.execution_context_cancel (0 ms)
+[----------] 27 tests from CBIND (17491 ms total)
+
+[----------] Global test environment tear-down
+[==========] 362 tests from 7 test suites ran. (55734 ms total)
+[  PASSED  ] 362 tests.

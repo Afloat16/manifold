@@ -1,0 +1,135 @@
+Note: Google Test filter = Manifold.NonFiniteRevolveCoordinatesAreInvalid:Manifold.RevolveStillIgnoresShortContours
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from Manifold
+[ RUN      ] Manifold.NonFiniteRevolveCoordinatesAreInvalid
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=-180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=-180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=360
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=0, degrees=360
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=-180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=-180
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1995: Failure
+Expected equality of these values:
+  result.Status()
+    Which is: No Error
+  Manifold::Error::InvalidConstruction
+    Which is: Invalid Construction
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=360
+
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1996: Failure
+Value of: result.IsEmpty()
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/test/manifold_test.cpp:1988: nan, axis=0, segments=16, degrees=360
+
+-----------------------------------
+Triangulation failed! Precision = -1
+Error in file: /workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/src/polygon.cpp (120): 'std::all_of(triangles.begin(), triangles.end(), [&vertPos, epsilon](const ivec3& tri) { return CCW(vertPos[tri[0]], vertPos[tri[1]], vertPos[tri[2]], epsilon) >= 0; })' is false: triangulation is not entirely CCW!
+Polygon 0 -1 1
+4
+1 0
+2 nan
+2 1
+1 1
+# ... 
+show(array([
+  [1, 0],
+  [2, nan],
+  [2, 1],
+  [1, 1],
+]))
+produced this triangulation:
+0, 1, 3
+1, 2, 3
+unknown file: Failure
+C++ exception with description "Error in file: /workspace/scratch/c05378b96efa/manifold-finite-primitives-round2/src/polygon.cpp (120): 'std::all_of(triangles.begin(), triangles.end(), [&vertPos, epsilon](const ivec3& tri) { return CCW(vertPos[tri[0]], vertPos[tri[1]], vertPos[tri[2]], epsilon) >= 0; })' is false: triangulation is not entirely CCW!" thrown in the test body.
+
+[  FAILED  ] Manifold.NonFiniteRevolveCoordinatesAreInvalid (1 ms)
+[ RUN      ] Manifold.RevolveStillIgnoresShortContours
+[       OK ] Manifold.RevolveStillIgnoresShortContours (0 ms)
+[----------] 2 tests from Manifold (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 1 test.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] Manifold.NonFiniteRevolveCoordinatesAreInvalid
+
+ 1 FAILED TEST
