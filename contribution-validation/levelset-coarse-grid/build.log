@@ -1,0 +1,103 @@
+[1/98] Building CXX object src/CMakeFiles/manifold.dir/boolean2.cpp.o
+[2/98] Building CXX object src/CMakeFiles/manifold.dir/boolean2_diagnostics.cpp.o
+[3/98] Building CXX object src/CMakeFiles/manifold.dir/boolean2_offset.cpp.o
+[4/98] Building CXX object src/CMakeFiles/manifold.dir/boolean2_predicates.cpp.o
+[5/98] Building CXX object src/CMakeFiles/manifold.dir/boolean2_sweep.cpp.o
+[6/98] Building CXX object src/CMakeFiles/manifold.dir/boolean3.cpp.o
+[7/98] Building CXX object src/CMakeFiles/manifold.dir/boolean_result.cpp.o
+[8/98] Building CXX object src/CMakeFiles/manifold.dir/constructors.cpp.o
+[9/98] Building CXX object src/CMakeFiles/manifold.dir/cross_section.cpp.o
+[10/98] Building CXX object src/CMakeFiles/manifold.dir/csg_tree.cpp.o
+[11/98] Building CXX object src/CMakeFiles/manifold.dir/edge_op.cpp.o
+[12/98] Building CXX object src/CMakeFiles/manifold.dir/execution_impl.cpp.o
+[13/98] Building CXX object src/CMakeFiles/manifold.dir/face_op.cpp.o
+[14/98] Building CXX object src/CMakeFiles/manifold.dir/impl.cpp.o
+[15/98] Building CXX object src/CMakeFiles/manifold.dir/manifold.cpp.o
+[16/98] Building CXX object src/CMakeFiles/manifold.dir/minkowski.cpp.o
+[17/98] Building CXX object src/CMakeFiles/manifold.dir/polygon.cpp.o
+[18/98] Building CXX object src/CMakeFiles/manifold.dir/properties.cpp.o
+[19/98] Building CXX object src/CMakeFiles/manifold.dir/quickhull.cpp.o
+[20/98] Building CXX object src/CMakeFiles/manifold.dir/sdf.cpp.o
+[21/98] Building CXX object src/CMakeFiles/manifold.dir/smoothing.cpp.o
+[22/98] Building CXX object src/CMakeFiles/manifold.dir/sort.cpp.o
+[23/98] Building CXX object src/CMakeFiles/manifold.dir/subdivision.cpp.o
+[24/98] Building CXX object src/CMakeFiles/manifold.dir/tree2d.cpp.o
+[25/98] Linking CXX shared library src/libmanifold.so.3.5.1
+[26/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_internals.cpp.o
+[27/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_func.cpp.o
+[28/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_type.cpp.o
+[29/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_enum.cpp.o
+[30/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_ndarray.cpp.o
+[31/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_static_property.cpp.o
+[32/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/nb_datetime.cpp.o
+[33/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/common.cpp.o
+[34/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/error.cpp.o
+[35/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/trampoline.cpp.o
+[36/98] Building CXX object bindings/python/CMakeFiles/nanobind-static.dir/workspace/scratch/c05378b96efa/contrib-env/lib/python3.12/site-packages/nanobind/src/implicit.cpp.o
+[37/98] Creating library symlink src/libmanifold.so.3 src/libmanifold.so
+[38/98] Linking CXX static library bindings/python/libnanobind-static.a
+[39/98] Generating autogen_docstrings.inl
+[40/98] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[41/98] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/manifoldc.cpp.o
+[42/98] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/conv.cpp.o
+[43/98] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/box.cpp.o
+[44/98] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/cross.cpp.o
+[45/98] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/rect.cpp.o
+[46/98] Building CXX object bindings/python/CMakeFiles/manifold3d.dir/manifold3d.cpp.o
+[47/98] Building CXX object samples/CMakeFiles/samples.dir/src/menger_sponge.cpp.o
+[48/98] Building CXX object samples/CMakeFiles/samples.dir/src/rounded_frame.cpp.o
+[49/98] Building CXX object samples/CMakeFiles/samples.dir/src/scallop.cpp.o
+[50/98] Building CXX object samples/CMakeFiles/samples.dir/src/tet_puzzle.cpp.o
+[51/98] Building CXX object samples/CMakeFiles/samples.dir/src/gyroid_module.cpp.o
+[52/98] Building CXX object samples/CMakeFiles/samples.dir/src/condensed_matter.cpp.o
+[53/98] Building CXX object samples/CMakeFiles/samples.dir/src/bracelet.cpp.o
+[54/98] Building CXX object samples/CMakeFiles/samples.dir/src/knot.cpp.o
+[55/98] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[56/98] Linking CXX static library lib/libgtest.a
+[57/98] Building CXX object _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[58/98] Linking CXX shared library bindings/c/libmanifoldc.so.3.5.1
+[59/98] Linking CXX shared module bindings/python/manifold3d.cpython-312-x86_64-linux-gnu.so
+make: TMPDIR value /tmp: No such file or directory
+make: using default temporary directory '/tmp'
+make: TMPDIR value /tmp: No such file or directory
+make: using default temporary directory '/tmp'
+make: jobserver mkfifo: /tmp/GMfifo367: No such file or directory
+[60/98] Linking CXX shared library samples/libsamples.so.3.5.1
+[61/98] Linking CXX static library lib/libgmock.a
+[62/98] Building CXX object _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[63/98] Linking CXX static library lib/libgtest_main.a
+[64/98] Creating library symlink bindings/c/libmanifoldc.so.3 bindings/c/libmanifoldc.so
+[65/98] Generating manifold3d.pyi
+[66/98] Creating library symlink samples/libsamples.so.3 samples/libsamples.so
+[67/98] Building CXX object test/CMakeFiles/manifold_test.dir/test_main.cpp.o
+[68/98] Building CXX object test/CMakeFiles/manifold_test.dir/utils_test.cpp.o
+[69/98] Building CXX object test/CMakeFiles/manifold_test.dir/polygon_test.cpp.o
+[70/98] Building CXX object test/CMakeFiles/manifold_test.dir/properties_test.cpp.o
+[71/98] Building CXX object test/CMakeFiles/manifold_test.dir/manifold_test.cpp.o
+[72/98] Building CXX object test/CMakeFiles/manifold_test.dir/context_test.cpp.o
+[73/98] Building CXX object test/CMakeFiles/manifold_test.dir/measurement_test.cpp.o
+[74/98] Building CXX object test/CMakeFiles/manifold_test.dir/boolean_test.cpp.o
+[75/98] Building CXX object test/CMakeFiles/manifold_test.dir/sdf_test.cpp.o
+[76/98] Building CXX object test/CMakeFiles/manifold_test.dir/smooth_test.cpp.o
+[77/98] Building CXX object test/CMakeFiles/manifold_test.dir/hull_test.cpp.o
+[78/98] Building CXX object test/CMakeFiles/manifold_test.dir/samples_test.cpp.o
+[79/98] Building CXX object test/CMakeFiles/manifold_test.dir/boolean_complex_test.cpp.o
+[80/98] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_test.cpp.o
+[81/98] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_complex_test.cpp.o
+[82/98] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_offset_corpus_test.cpp.o
+[83/98] Building CXX object test/CMakeFiles/manifold_test.dir/manifoldc_test.cpp.o
+[84/98] Building CXX object test/CMakeFiles/manifold_test.dir/__/samples/src/bracelet.cpp.o
+[85/98] Building CXX object test/CMakeFiles/manifold_test.dir/__/samples/src/knot.cpp.o
+[86/98] Building CXX object extras/CMakeFiles/perfTest.dir/perf_test.cpp.o
+[87/98] Building CXX object extras/CMakeFiles/perfPhases.dir/perf_phases.cpp.o
+[88/98] Building CXX object extras/CMakeFiles/perfPhases.dir/__/samples/src/bracelet.cpp.o
+[89/98] Building CXX object extras/CMakeFiles/perfPhases.dir/__/samples/src/knot.cpp.o
+[90/98] Building CXX object extras/CMakeFiles/largeSceneTest.dir/large_scene_test.cpp.o
+[91/98] Building CXX object extras/CMakeFiles/minimizeTestcase.dir/minimize_testcase.cpp.o
+[92/98] Linking CXX static library lib/libgmock_main.a
+[93/98] Running utility command for manifold3d_stub
+[94/98] Linking CXX executable test/manifold_test
+[95/98] Linking CXX executable extras/perfTest
+[96/98] Linking CXX executable extras/perfPhases
+[97/98] Linking CXX executable extras/largeSceneTest
+[98/98] Linking CXX executable extras/minimizeTestcase

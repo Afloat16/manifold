@@ -1,0 +1,26 @@
+Note: Google Test filter = SDF.CoarseGridSamplesFiniteCoordinates:SDF.ThinBoundsKeepFiniteGridSpacing:SDF.DegenerateBoundsSampleFiniteCoordinates:Context.LevelSetCoarseGrid:SDF.InvalidGrid:SDF.Bounds:Context.LevelSetCancelBeforeSampling
+[==========] Running 7 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from Context
+[ RUN      ] Context.LevelSetCoarseGrid
+[       OK ] Context.LevelSetCoarseGrid (0 ms)
+[ RUN      ] Context.LevelSetCancelBeforeSampling
+[       OK ] Context.LevelSetCancelBeforeSampling (0 ms)
+[----------] 2 tests from Context (0 ms total)
+
+[----------] 5 tests from SDF
+[ RUN      ] SDF.InvalidGrid
+[       OK ] SDF.InvalidGrid (0 ms)
+[ RUN      ] SDF.CoarseGridSamplesFiniteCoordinates
+[       OK ] SDF.CoarseGridSamplesFiniteCoordinates (0 ms)
+[ RUN      ] SDF.ThinBoundsKeepFiniteGridSpacing
+[       OK ] SDF.ThinBoundsKeepFiniteGridSpacing (0 ms)
+[ RUN      ] SDF.DegenerateBoundsSampleFiniteCoordinates
+[       OK ] SDF.DegenerateBoundsSampleFiniteCoordinates (0 ms)
+[ RUN      ] SDF.Bounds
+[       OK ] SDF.Bounds (0 ms)
+[----------] 5 tests from SDF (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test suites ran. (2 ms total)
+[  PASSED  ] 7 tests.

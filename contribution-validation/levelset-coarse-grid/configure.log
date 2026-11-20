@@ -1,0 +1,65 @@
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test HAS_FP_CONTRACT
+-- Performing Test HAS_FP_CONTRACT - Success
+-- Performing Test HAS_FP_PRECISION
+-- Performing Test HAS_FP_PRECISION - Success
+-- Found Python: /workspace/scratch/c05378b96efa/contrib-env/bin/python (found version "3.12.14") found components: Interpreter Development.Module
+Found nanobind, version 3.1.0
+-- Performing Test NB_HAS_MTLS_GNU2
+-- Performing Test NB_HAS_MTLS_GNU2 - Success
+-- GTest not found, downloading from source
+-- The C compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+Python_EXECUTABLE=/workspace/scratch/c05378b96efa/contrib-env/bin/python
+-- Performing Test MANIFOLD_HAS_EXCLUDE_LIBS
+-- Performing Test MANIFOLD_HAS_EXCLUDE_LIBS - Success
+-- ====================================
+-- Manifold Build Configuration Summary
+-- ====================================
+--  
+-- Environment: Linux
+--  
+-- CMAKE_VERSION:                 4.4.5
+-- CMAKE_TOOLCHAIN_FILE:          
+-- CMAKE_GENERATOR:               Ninja
+-- CPACK_CMAKE_GENERATOR:         
+-- CMAKE_BUILD_TYPE:              Release
+-- CMAKE_PREFIX_PATH:             
+-- CMAKE_CXX_COMPILER_ID:         GNU
+-- CMAKE_CXX_COMPILER_VERSION:    14.2.0
+-- BUILD_SHARED_LIBS:             ON
+--  
+-- MANIFOLD_VERSION:              3.5.1
+-- MANIFOLD_PAR:                  OFF
+-- MANIFOLD_TEST:                 ON
+-- MANIFOLD_DEBUG:                ON
+-- MANIFOLD_ASSERT:               ON
+-- MANIFOLD_CBIND:                ON
+-- MANIFOLD_PYBIND:               ON
+-- MANIFOLD_JSBIND:               OFF
+-- MANIFOLD_FLAGS:                -Wall;-Wno-unknown-warning-option;-Wno-unused;-Wno-shorten-64-to-32;-Wno-sign-compare;-Wno-alloc-size-larger-than;-Werror;-O3;-ffp-contract=off;-fexcess-precision=standard
+-- MANIFOLD_COMPILE_OPTIONS:      -Wall;-Wno-unknown-warning-option;-Wno-unused;-Wno-shorten-64-to-32;-Wno-sign-compare;-Wno-alloc-size-larger-than;-Werror;-O3;-ffp-contract=off;-fexcess-precision=standard
+-- MANIFOLD_LINK_OPTIONS:         
+-- MANIFOLD_DOWNLOADS:            ON
+-- MANIFOLD_USE_BUILTIN_TBB:      OFF
+-- MANIFOLD_USE_BUILTIN_NANOBIND: OFF
+-- MANIFOLD_FUZZ:                 OFF
+-- TRACY_ENABLE:                  OFF
+-- TRACY_MEMORY_USAGE:            OFF
+-- ASSIMP_ENABLE:                 OFF
+--  
+-- Configuring done (1.2s)
+-- Generating done (0.0s)
+-- Build files have been written to: /workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/build-levelset-coarse

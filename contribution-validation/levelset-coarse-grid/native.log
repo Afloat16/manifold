@@ -1,0 +1,105 @@
+Note: Google Test filter = SDF.*:Context.LevelSet*:CBIND.*
+[==========] Running 45 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 4 tests from Context
+[ RUN      ] Context.LevelSetHappyPath
+[       OK ] Context.LevelSetHappyPath (16 ms)
+[ RUN      ] Context.LevelSetCoarseGrid
+[       OK ] Context.LevelSetCoarseGrid (0 ms)
+[ RUN      ] Context.LevelSetMatchesFactory
+[       OK ] Context.LevelSetMatchesFactory (27 ms)
+[ RUN      ] Context.LevelSetCancelBeforeSampling
+[       OK ] Context.LevelSetCancelBeforeSampling (0 ms)
+[----------] 4 tests from Context (44 ms total)
+
+[----------] 14 tests from SDF
+[ RUN      ] SDF.InvalidGrid
+[       OK ] SDF.InvalidGrid (0 ms)
+[ RUN      ] SDF.CoarseGridSamplesFiniteCoordinates
+[       OK ] SDF.CoarseGridSamplesFiniteCoordinates (0 ms)
+[ RUN      ] SDF.ThinBoundsKeepFiniteGridSpacing
+[       OK ] SDF.ThinBoundsKeepFiniteGridSpacing (0 ms)
+[ RUN      ] SDF.DegenerateBoundsSampleFiniteCoordinates
+[       OK ] SDF.DegenerateBoundsSampleFiniteCoordinates (0 ms)
+[ RUN      ] SDF.SphereShell
+[       OK ] SDF.SphereShell (10068 ms)
+[ RUN      ] SDF.CubeVoid
+[       OK ] SDF.CubeVoid (0 ms)
+[ RUN      ] SDF.Bounds
+[       OK ] SDF.Bounds (0 ms)
+[ RUN      ] SDF.Bounds2
+[       OK ] SDF.Bounds2 (0 ms)
+[ RUN      ] SDF.Bounds3
+[       OK ] SDF.Bounds3 (15 ms)
+[ RUN      ] SDF.Void
+[       OK ] SDF.Void (7 ms)
+[ RUN      ] SDF.Resize
+[       OK ] SDF.Resize (27 ms)
+[ RUN      ] SDF.SineSurface
+[       OK ] SDF.SineSurface (3 ms)
+[ RUN      ] SDF.Determinism
+[       OK ] SDF.Determinism (348 ms)
+[ RUN      ] SDF.Blobs
+[       OK ] SDF.Blobs (7881 ms)
+[----------] 14 tests from SDF (18355 ms total)
+
+[----------] 27 tests from CBIND
+[ RUN      ] CBIND.version
+[       OK ] CBIND.version (0 ms)
+[ RUN      ] CBIND.meshgl_no_props
+[       OK ] CBIND.meshgl_no_props (0 ms)
+[ RUN      ] CBIND.sphere
+[       OK ] CBIND.sphere (3 ms)
+[ RUN      ] CBIND.warp_translation
+[       OK ] CBIND.warp_translation (223 ms)
+[ RUN      ] CBIND.include_pt_mutates_bounds
+[       OK ] CBIND.include_pt_mutates_bounds (0 ms)
+[ RUN      ] CBIND.obj_round_trip
+[       OK ] CBIND.obj_round_trip (1 ms)
+[ RUN      ] CBIND.level_set
+[       OK ] CBIND.level_set (9230 ms)
+[ RUN      ] CBIND.execution_context_factories
+[       OK ] CBIND.execution_context_factories (724 ms)
+[ RUN      ] CBIND.level_set_64
+[       OK ] CBIND.level_set_64 (8348 ms)
+[ RUN      ] CBIND.properties
+[       OK ] CBIND.properties (0 ms)
+[ RUN      ] CBIND.extrude
+[       OK ] CBIND.extrude (0 ms)
+[ RUN      ] CBIND.compose_decompose
+[       OK ] CBIND.compose_decompose (15 ms)
+[ RUN      ] CBIND.polygons
+[       OK ] CBIND.polygons (0 ms)
+[ RUN      ] CBIND.polygon_copies_own_their_storage
+[       OK ] CBIND.polygon_copies_own_their_storage (0 ms)
+[ RUN      ] CBIND.exported_polygons_outlive_cross_section
+[       OK ] CBIND.exported_polygons_outlive_cross_section (0 ms)
+[ RUN      ] CBIND.triangulation
+[       OK ] CBIND.triangulation (0 ms)
+[ RUN      ] CBIND.meshgl_merge_returns_mem
+[       OK ] CBIND.meshgl_merge_returns_mem (0 ms)
+[ RUN      ] CBIND.meshgl64_merge_returns_mem
+[       OK ] CBIND.meshgl64_merge_returns_mem (0 ms)
+[ RUN      ] CBIND.ray_cast
+[       OK ] CBIND.ray_cast (0 ms)
+[ RUN      ] CBIND.simplify_smoke
+[       OK ] CBIND.simplify_smoke (12 ms)
+[ RUN      ] CBIND.num_prop_vert
+[       OK ] CBIND.num_prop_vert (0 ms)
+[ RUN      ] CBIND.meshgl_run_accessors
+[       OK ] CBIND.meshgl_run_accessors (1 ms)
+[ RUN      ] CBIND.run_flag_accessors
+[       OK ] CBIND.run_flag_accessors (1 ms)
+[ RUN      ] CBIND.cross_section_non_zero
+[       OK ] CBIND.cross_section_non_zero (0 ms)
+[ RUN      ] CBIND.cross_section_even_odd
+[       OK ] CBIND.cross_section_even_odd (0 ms)
+[ RUN      ] CBIND.execution_context_happy_path
+[       OK ] CBIND.execution_context_happy_path (0 ms)
+[ RUN      ] CBIND.execution_context_cancel
+[       OK ] CBIND.execution_context_cancel (0 ms)
+[----------] 27 tests from CBIND (18565 ms total)
+
+[----------] Global test environment tear-down
+[==========] 45 tests from 3 test suites ran. (36966 ms total)
+[  PASSED  ] 45 tests.

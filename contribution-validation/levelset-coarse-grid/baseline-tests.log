@@ -1,0 +1,272 @@
+Note: Google Test filter = SDF.CoarseGridSamplesFiniteCoordinates:SDF.ThinBoundsKeepFiniteGridSpacing:SDF.DegenerateBoundsSampleFiniteCoordinates:Context.LevelSetCoarseGrid:SDF.InvalidGrid:SDF.Bounds:Context.LevelSetCancelBeforeSampling
+[==========] Running 7 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from Context
+[ RUN      ] Context.LevelSetCoarseGrid
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/context_test.cpp:1076: Failure
+Value of: finite
+  Actual: false
+Expected: true
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/context_test.cpp:1078: Failure
+The difference between box.Volume() and 8.0 is 8, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+8.0 evaluates to 8, and
+1e-10 evaluates to 1e-10.
+
+[  FAILED  ] Context.LevelSetCoarseGrid (0 ms)
+[ RUN      ] Context.LevelSetCancelBeforeSampling
+[       OK ] Context.LevelSetCancelBeforeSampling (0 ms)
+[----------] 2 tests from Context (0 ms total)
+
+[----------] 5 tests from SDF
+[ RUN      ] SDF.InvalidGrid
+[       OK ] SDF.InvalidGrid (0 ms)
+[ RUN      ] SDF.CoarseGridSamplesFiniteCoordinates
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:82: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 3
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:84: Failure
+Value of: box.IsEmpty()
+  Actual: true
+Expected: false
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 3
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:85: Failure
+The difference between box.Volume() and 8.0 is 8, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+8.0 evaluates to 8, and
+1e-10 evaluates to 1e-10.
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 3
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:86: Failure
+Expected equality of these values:
+  box.BoundingBox().min
+    Which is: {inf,inf,inf}
+  bounds.min
+    Which is: {-1,-1,-1}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 3
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:87: Failure
+Expected equality of these values:
+  box.BoundingBox().max
+    Which is: {-inf,-inf,-inf}
+  bounds.max
+    Which is: {1,1,1}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 3
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:82: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 10
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:84: Failure
+Value of: box.IsEmpty()
+  Actual: true
+Expected: false
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 10
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:85: Failure
+The difference between box.Volume() and 8.0 is 8, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+8.0 evaluates to 8, and
+1e-10 evaluates to 1e-10.
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 10
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:86: Failure
+Expected equality of these values:
+  box.BoundingBox().min
+    Which is: {inf,inf,inf}
+  bounds.min
+    Which is: {-1,-1,-1}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 10
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:87: Failure
+Expected equality of these values:
+  box.BoundingBox().max
+    Which is: {-inf,-inf,-inf}
+  bounds.max
+    Which is: {1,1,1}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:71: 10
+
+[  FAILED  ] SDF.CoarseGridSamplesFiniteCoordinates (0 ms)
+[ RUN      ] SDF.ThinBoundsKeepFiniteGridSpacing
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:104: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 0
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:106: Failure
+Value of: box.IsEmpty()
+  Actual: true
+Expected: false
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 0
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:107: Failure
+The difference between box.Volume() and 0.4 is 0.40000000000000002, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+0.4 evaluates to 0.40000000000000002, and
+1e-10 evaluates to 1e-10.
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 0
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:108: Failure
+Expected equality of these values:
+  box.BoundingBox().min
+    Which is: {inf,inf,inf}
+  bounds.min
+    Which is: {0,0,0}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 0
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:109: Failure
+Expected equality of these values:
+  box.BoundingBox().max
+    Which is: {-inf,-inf,-inf}
+  bounds.max
+    Which is: {0.1,2,2}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 0
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:104: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 1
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:106: Failure
+Value of: box.IsEmpty()
+  Actual: true
+Expected: false
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 1
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:107: Failure
+The difference between box.Volume() and 0.4 is 0.40000000000000002, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+0.4 evaluates to 0.40000000000000002, and
+1e-10 evaluates to 1e-10.
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 1
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:108: Failure
+Expected equality of these values:
+  box.BoundingBox().min
+    Which is: {inf,inf,inf}
+  bounds.min
+    Which is: {0,0,0}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 1
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:109: Failure
+Expected equality of these values:
+  box.BoundingBox().max
+    Which is: {-inf,-inf,-inf}
+  bounds.max
+    Which is: {2,0.1,2}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 1
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:104: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 2
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:106: Failure
+Value of: box.IsEmpty()
+  Actual: true
+Expected: false
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 2
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:107: Failure
+The difference between box.Volume() and 0.4 is 0.40000000000000002, which exceeds 1e-10, where
+box.Volume() evaluates to 0,
+0.4 evaluates to 0.40000000000000002, and
+1e-10 evaluates to 1e-10.
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 2
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:108: Failure
+Expected equality of these values:
+  box.BoundingBox().min
+    Which is: {inf,inf,inf}
+  bounds.min
+    Which is: {0,0,0}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 2
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:109: Failure
+Expected equality of these values:
+  box.BoundingBox().max
+    Which is: {-inf,-inf,-inf}
+  bounds.max
+    Which is: {2,2,0.1}
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:93: 2
+
+[  FAILED  ] SDF.ThinBoundsKeepFiniteGridSpacing (0 ms)
+[ RUN      ] SDF.DegenerateBoundsSampleFiniteCoordinates
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:124: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:116: {0,2,2}
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:124: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:116: {2,0,2}
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:124: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:116: {2,2,0}
+
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:124: Failure
+Value of: finite
+  Actual: false
+Expected: true
+Google Test trace:
+/workspace/scratch/c05378b96efa/manifold-levelset-coarse-round2/test/sdf_test.cpp:116: {0,0,0}
+
+[  FAILED  ] SDF.DegenerateBoundsSampleFiniteCoordinates (0 ms)
+[ RUN      ] SDF.Bounds
+[       OK ] SDF.Bounds (0 ms)
+[----------] 5 tests from SDF (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test suites ran. (2 ms total)
+[  PASSED  ] 3 tests.
+[  FAILED  ] 4 tests, listed below:
+[  FAILED  ] Context.LevelSetCoarseGrid
+[  FAILED  ] SDF.CoarseGridSamplesFiniteCoordinates
+[  FAILED  ] SDF.ThinBoundsKeepFiniteGridSpacing
+[  FAILED  ] SDF.DegenerateBoundsSampleFiniteCoordinates
+
+ 4 FAILED TESTS

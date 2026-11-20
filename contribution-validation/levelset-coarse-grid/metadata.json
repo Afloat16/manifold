@@ -1,0 +1,40 @@
+{
+  "base_commit": "6ca62006abf4579f60c40ee7b6c49b66cc4ae8fc",
+  "local_commit": "7d23e178c17245c80169e5c08b154e9d75555303",
+  "remote_commit": "9a1c480dcdce191d30be171d31f4e87103802051",
+  "tree": "5f9828619465161576b284454f25e6cc96c2b340",
+  "branch": "fix/levelset-coarse-grid-20261120",
+  "compiler": "GCC 14.2.0",
+  "flags": "Release; DEBUG/ASSERT/STRICT ON; PAR OFF; C/Python bindings ON; Ninja -j1",
+  "baseline_source_identity": "Archived unchanged 6ca62006 serial library, recorded in round2-manifold-tangent-scratch-metadata.json; probe and new test binary loaded it through LD_LIBRARY_PATH",
+  "libraries": {
+    "contrib-validation/tangent-baseline-serial/libmanifold.so.3": "335f0fbc0bc5e3ba269606cd4c609045119358bc05564f28fa26d18b2ea0c200",
+    "manifold-levelset-coarse-round2/build-levelset-coarse/src/libmanifold.so.3": "46171977ff641c8cd62eda4c724d4a7912934819b370f2a0e5783805e0f38309"
+  },
+  "validation": {
+    "baseline_new_and_control_tests": "4 failed, 3 passed",
+    "patch_new_and_control_tests": "7 passed",
+    "affected_native": "45 passed in 36.966s: SDF.* + Context.LevelSet* + CBIND.*",
+    "build": "98/98 passed",
+    "format": "clang-format20.1.8 --dry-run --Werror on all3 changed files passed",
+    "diff_check": "passed",
+    "independent_review": "Read-only; no blocker; no tests run"
+  },
+  "dedup": {
+    "all_author_history_checked": true,
+    "fork_branches_checked": 81,
+    "exact_head_matches": 0,
+    "prior_art": "#1936 handles invalid arguments and oversized grids; #1848 determinism and #1739 context integration are distinct. No equivalent legal coarse-axis correction found."
+  },
+  "limits": "CPU serial only; other native suites, TBB, sanitizer, other compiler/WASM configurations remain for CI. No timing/performance or real-user incidence claim.",
+  "evidence_sha256": {
+    "round2-manifold-levelset-coarse-configure.log": "fe5b09c1890a78f5d1e485f05616f2ca896aaa1af096a7c8f91a2648fd710c69",
+    "round2-manifold-levelset-coarse-build.log": "f8f9bb4d35076b783ed8dbc5aa86b0ceec910cf4db1265613dcc9f64640081d8",
+    "round2-manifold-levelset-coarse-baseline-tests.log": "9b1cc949514eb703e4221a12d3e1035f6ecc0b575289ff73732f4b67fd24107d",
+    "round2-manifold-levelset-coarse-targeted.log": "c5f6abf0ffd791616cf4bcbf87bdf3f5fb3545110a06ae85d49f63be1c1a312d",
+    "round2-manifold-levelset-coarse-native.log": "d28fe2dd59ee2fbb77201470b531fd4bf12a279873ef69e63e363faadf080b60",
+    "round2-manifold-levelset-coarse-format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "round2-manifold-levelset-coarse-before.csv": "eb287a2ddf68bc66dfda907e1d97251a6eac8ad5fa0c8870d075e0b44851662a",
+    "round2-manifold-levelset-coarse-after.csv": "b78113ac9cdefb144c50ba40247be90c97aa3e10067f56865a3c35dd722d0249"
+  }
+}
