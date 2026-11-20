@@ -1,0 +1,124 @@
+[1/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/address_waiter.cpp.o
+[2/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/allocator.cpp.o
+[3/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/arena.cpp.o
+[4/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/arena_slot.cpp.o
+[5/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/concurrent_bounded_queue.cpp.o
+[6/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/dynamic_link.cpp.o
+[7/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/exception.cpp.o
+[8/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/governor.cpp.o
+[9/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/global_control.cpp.o
+[10/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/itt_notify.cpp.o
+[11/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/main.cpp.o
+[12/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/market.cpp.o
+[13/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/tcm_adaptor.cpp.o
+[14/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/misc.cpp.o
+[15/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/misc_ex.cpp.o
+[16/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/observer_proxy.cpp.o
+[17/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/parallel_pipeline.cpp.o
+[18/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/private_server.cpp.o
+[19/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/profiling.cpp.o
+[20/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/rml_tbb.cpp.o
+[21/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/rtm_mutex.cpp.o
+[22/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/rtm_rw_mutex.cpp.o
+[23/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/semaphore.cpp.o
+[24/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/small_object_pool.cpp.o
+[25/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/task.cpp.o
+[26/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/task_dispatcher.cpp.o
+[27/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/task_group_context.cpp.o
+[28/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/thread_dispatcher.cpp.o
+[29/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/thread_request_serializer.cpp.o
+[30/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/threading_control.cpp.o
+[31/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/version.cpp.o
+[32/119] Building CXX object _deps/tbb-build/src/tbb/CMakeFiles/tbb.dir/queuing_rw_mutex.cpp.o
+[33/119] Linking CXX static library gnu_14.2_cxx17_64_release/libtbb.a
+[34/119] Building CXX object src/CMakeFiles/manifold.dir/boolean2.cpp.o
+[35/119] Building CXX object src/CMakeFiles/manifold.dir/boolean2_diagnostics.cpp.o
+[36/119] Building CXX object src/CMakeFiles/manifold.dir/boolean2_offset.cpp.o
+[37/119] Building CXX object src/CMakeFiles/manifold.dir/boolean2_predicates.cpp.o
+[38/119] Building CXX object src/CMakeFiles/manifold.dir/boolean2_sweep.cpp.o
+[39/119] Building CXX object src/CMakeFiles/manifold.dir/boolean3.cpp.o
+[40/119] Building CXX object src/CMakeFiles/manifold.dir/boolean_result.cpp.o
+[41/119] Building CXX object src/CMakeFiles/manifold.dir/constructors.cpp.o
+[42/119] Building CXX object src/CMakeFiles/manifold.dir/cross_section.cpp.o
+[43/119] Building CXX object src/CMakeFiles/manifold.dir/csg_tree.cpp.o
+[44/119] Building CXX object src/CMakeFiles/manifold.dir/edge_op.cpp.o
+[45/119] Building CXX object src/CMakeFiles/manifold.dir/execution_impl.cpp.o
+[46/119] Building CXX object src/CMakeFiles/manifold.dir/face_op.cpp.o
+[47/119] Building CXX object src/CMakeFiles/manifold.dir/impl.cpp.o
+[48/119] Building CXX object src/CMakeFiles/manifold.dir/manifold.cpp.o
+[49/119] Building CXX object src/CMakeFiles/manifold.dir/minkowski.cpp.o
+[50/119] Building CXX object src/CMakeFiles/manifold.dir/polygon.cpp.o
+[51/119] Building CXX object src/CMakeFiles/manifold.dir/properties.cpp.o
+[52/119] Building CXX object src/CMakeFiles/manifold.dir/quickhull.cpp.o
+[53/119] Building CXX object src/CMakeFiles/manifold.dir/sdf.cpp.o
+[54/119] Building CXX object src/CMakeFiles/manifold.dir/smoothing.cpp.o
+[55/119] Building CXX object src/CMakeFiles/manifold.dir/sort.cpp.o
+[56/119] Building CXX object src/CMakeFiles/manifold.dir/subdivision.cpp.o
+[57/119] Building CXX object src/CMakeFiles/manifold.dir/tree2d.cpp.o
+[58/119] Linking CXX shared library src/libmanifold.so.3.5.1
+[59/119] Creating library symlink src/libmanifold.so.3 src/libmanifold.so
+[60/119] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/manifoldc.cpp.o
+[61/119] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/conv.cpp.o
+[62/119] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/box.cpp.o
+[63/119] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/cross.cpp.o
+[64/119] Building CXX object bindings/c/CMakeFiles/manifoldc.dir/rect.cpp.o
+[65/119] Building CXX object bindings/python/CMakeFiles/manifold3d.dir/manifold3d.cpp.o
+[66/119] Building CXX object samples/CMakeFiles/samples.dir/src/menger_sponge.cpp.o
+[67/119] Building CXX object samples/CMakeFiles/samples.dir/src/rounded_frame.cpp.o
+[68/119] Building CXX object samples/CMakeFiles/samples.dir/src/scallop.cpp.o
+[69/119] Building CXX object samples/CMakeFiles/samples.dir/src/tet_puzzle.cpp.o
+[70/119] Building CXX object samples/CMakeFiles/samples.dir/src/gyroid_module.cpp.o
+[71/119] Building CXX object samples/CMakeFiles/samples.dir/src/condensed_matter.cpp.o
+[72/119] Building CXX object samples/CMakeFiles/samples.dir/src/bracelet.cpp.o
+[73/119] Building CXX object samples/CMakeFiles/samples.dir/src/knot.cpp.o
+[74/119] Linking CXX shared library bindings/c/libmanifoldc.so.3.5.1
+[75/119] Linking CXX shared module bindings/python/manifold3d.cpython-312-x86_64-linux-gnu.so
+make: TMPDIR value /tmp: No such file or directory
+make: using default temporary directory '/tmp'
+make: TMPDIR value /tmp: No such file or directory
+make: using default temporary directory '/tmp'
+make: jobserver mkfifo: /tmp/GMfifo311: No such file or directory
+[76/119] Linking CXX shared library samples/libsamples.so.3.5.1
+[77/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/backend.cpp.o
+[78/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/backref.cpp.o
+[79/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/frontend.cpp.o
+[80/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/large_objects.cpp.o
+[81/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/tbbmalloc.cpp.o
+[82/119] Building CXX object _deps/tbb-build/src/tbbmalloc/CMakeFiles/tbbmalloc.dir/workspace/scratch/c05378b96efa/contrib-deps/oneTBB-v2022.3.0/src/tbb/itt_notify.cpp.o
+[83/119] Creating library symlink bindings/c/libmanifoldc.so.3 bindings/c/libmanifoldc.so
+[84/119] Generating manifold3d.pyi
+[85/119] Creating library symlink samples/libsamples.so.3 samples/libsamples.so
+[86/119] Building CXX object test/CMakeFiles/manifold_test.dir/test_main.cpp.o
+[87/119] Building CXX object test/CMakeFiles/manifold_test.dir/utils_test.cpp.o
+[88/119] Building CXX object test/CMakeFiles/manifold_test.dir/polygon_test.cpp.o
+[89/119] Building CXX object test/CMakeFiles/manifold_test.dir/properties_test.cpp.o
+[90/119] Building CXX object test/CMakeFiles/manifold_test.dir/manifold_test.cpp.o
+[91/119] Building CXX object test/CMakeFiles/manifold_test.dir/context_test.cpp.o
+[92/119] Building CXX object test/CMakeFiles/manifold_test.dir/measurement_test.cpp.o
+[93/119] Building CXX object test/CMakeFiles/manifold_test.dir/boolean_test.cpp.o
+[94/119] Building CXX object test/CMakeFiles/manifold_test.dir/sdf_test.cpp.o
+[95/119] Building CXX object test/CMakeFiles/manifold_test.dir/smooth_test.cpp.o
+[96/119] Building CXX object test/CMakeFiles/manifold_test.dir/hull_test.cpp.o
+[97/119] Building CXX object test/CMakeFiles/manifold_test.dir/samples_test.cpp.o
+[98/119] Building CXX object test/CMakeFiles/manifold_test.dir/boolean_complex_test.cpp.o
+[99/119] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_test.cpp.o
+[100/119] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_complex_test.cpp.o
+[101/119] Building CXX object test/CMakeFiles/manifold_test.dir/cross_section_offset_corpus_test.cpp.o
+[102/119] Building CXX object test/CMakeFiles/manifold_test.dir/manifoldc_test.cpp.o
+[103/119] Building CXX object test/CMakeFiles/manifold_test.dir/__/samples/src/bracelet.cpp.o
+[104/119] Building CXX object test/CMakeFiles/manifold_test.dir/__/samples/src/knot.cpp.o
+[105/119] Building CXX object extras/CMakeFiles/perfTest.dir/perf_test.cpp.o
+[106/119] Building CXX object extras/CMakeFiles/perfPhases.dir/perf_phases.cpp.o
+[107/119] Building CXX object extras/CMakeFiles/perfPhases.dir/__/samples/src/bracelet.cpp.o
+[108/119] Building CXX object extras/CMakeFiles/perfPhases.dir/__/samples/src/knot.cpp.o
+[109/119] Building CXX object extras/CMakeFiles/stlTest.dir/stl_test.cpp.o
+[110/119] Building CXX object extras/CMakeFiles/largeSceneTest.dir/large_scene_test.cpp.o
+[111/119] Building CXX object extras/CMakeFiles/minimizeTestcase.dir/minimize_testcase.cpp.o
+[112/119] Linking C static library gnu_14.2_cxx17_64_release/libtbbmalloc.a
+[113/119] Running utility command for manifold3d_stub
+[114/119] Linking CXX executable test/manifold_test
+[115/119] Linking CXX executable extras/perfTest
+[116/119] Linking CXX executable extras/perfPhases
+[117/119] Linking CXX executable extras/stlTest
+[118/119] Linking CXX executable extras/largeSceneTest
+[119/119] Linking CXX executable extras/minimizeTestcase

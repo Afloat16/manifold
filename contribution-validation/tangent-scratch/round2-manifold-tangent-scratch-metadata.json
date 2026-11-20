@@ -1,0 +1,19 @@
+{
+  "base_commit": "6ca62006abf4579f60c40ee7b6c49b66cc4ae8fc",
+  "local_commit": "e12e5c0e1e2246875c8c47ebe85ed7c4b3b6b616",
+  "tree": "50df49b63a726d8a8b78ef6b6c9735e9ab6b1995",
+  "source_sha256": "9e84d3b4b8193124be49a83565145e83c4e356c6a17547f98391869035090c50",
+  "system": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "cmake": "4.4",
+  "build": "Release MANIFOLD_DEBUG=ON MANIFOLD_ASSERT=ON MANIFOLD_STRICT=ON MANIFOLD_CBIND=ON MANIFOLD_PYBIND=ON; --parallel 1",
+  "tbb_tag": "v2022.3.0",
+  "tbb_commit": "f1862f38f83568d96e814e469ab61f88336cc595",
+  "serial_affinity": "0",
+  "parallel_affinity": "0,1",
+  "baseline_serial_lib_sha256": "335f0fbc0bc5e3ba269606cd4c609045119358bc05564f28fa26d18b2ea0c200",
+  "baseline_parallel_lib_sha256": "b03c9631569e8ab658253dfec6ae2f8563c6df0a616dd4521e56e736a3150543",
+  "patch_serial_lib_sha256": "d171a8cadabed64dfd1906dc5be839ffc4a65c1f4f0aa927d0c23c9d01ba12aa",
+  "patch_parallel_lib_sha256": "d57c5d55eea368916ef8a3bc36e6bed98f4c65503c86912d46e5d538dc106d7a",
+  "measurement": "cumulative malloc requested bytes/calls for SmoothByNormals, not peak memory/RSS; glibc interposition; warmup then seven samples; median and IQR; full MeshGL64 arrays compared byte for byte"
+}

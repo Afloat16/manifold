@@ -1,0 +1,70 @@
+CMake Warning at cmake/manifoldDeps.cmake:65 (message):
+  MANIFOLD_USE_BUILTIN_TBB will statically link TBB,which may cause issues
+  when you use manifold with other libraries bundling their own TBB.
+Call Stack (most recent call first):
+  CMakeLists.txt:241 (include)
+
+
+CMake Warning (deprecated) at /workspace/scratch/c05378b96efa/contrib-deps/oneTBB-v2022.3.0/CMakeLists.txt:42 (cmake_policy):
+  The OLD behavior for policy CMP0148 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+This warning is for project developers.  Use -Wno-author or -Wno-deprecated
+to suppress it.
+
+CMake Warning at /workspace/scratch/c05378b96efa/contrib-deps/oneTBB-v2022.3.0/CMakeLists.txt:160 (message):
+  You are building oneTBB as a static library.  This is highly discouraged
+  and such configuration is not supported.  Consider building a dynamic
+  library to avoid unforeseen issues.
+
+
+-- Checking for one of the modules 'hwloc'
+-- Looking for getcontext
+-- Looking for getcontext - found
+-- GNU Assembler version: 2.44  (2044)
+-- TBBBind build targets are disabled due to unsupported environment
+Found nanobind, version 3.1.0
+-- GTest not found, downloading from source
+Python_EXECUTABLE=/workspace/scratch/c05378b96efa/contrib-env/bin/python
+-- ====================================
+-- Manifold Build Configuration Summary
+-- ====================================
+--  
+-- Environment: Linux
+--  
+-- CMAKE_VERSION:                 4.4.5
+-- CMAKE_TOOLCHAIN_FILE:          
+-- CMAKE_GENERATOR:               Ninja
+-- CPACK_CMAKE_GENERATOR:         
+-- CMAKE_BUILD_TYPE:              Release
+-- CMAKE_PREFIX_PATH:             
+-- CMAKE_CXX_COMPILER_ID:         GNU
+-- CMAKE_CXX_COMPILER_VERSION:    14.2.0
+-- BUILD_SHARED_LIBS:             ON
+--  
+-- MANIFOLD_VERSION:              3.5.1
+-- MANIFOLD_PAR:                  ON
+-- MANIFOLD_TEST:                 ON
+-- MANIFOLD_DEBUG:                ON
+-- MANIFOLD_ASSERT:               ON
+-- MANIFOLD_CBIND:                ON
+-- MANIFOLD_PYBIND:               ON
+-- MANIFOLD_JSBIND:               OFF
+-- MANIFOLD_FLAGS:                -Wall;-Wno-unknown-warning-option;-Wno-unused;-Wno-shorten-64-to-32;-Wno-sign-compare;-Wno-alloc-size-larger-than;-Werror;-O3;-ffp-contract=off;-fexcess-precision=standard
+-- MANIFOLD_COMPILE_OPTIONS:      -Wall;-Wno-unknown-warning-option;-Wno-unused;-Wno-shorten-64-to-32;-Wno-sign-compare;-Wno-alloc-size-larger-than;-Werror;-O3;-ffp-contract=off;-fexcess-precision=standard
+-- MANIFOLD_LINK_OPTIONS:         
+-- MANIFOLD_DOWNLOADS:            ON
+-- MANIFOLD_USE_BUILTIN_TBB:      ON
+-- MANIFOLD_USE_BUILTIN_NANOBIND: OFF
+-- MANIFOLD_FUZZ:                 OFF
+-- TRACY_ENABLE:                  OFF
+-- TRACY_MEMORY_USAGE:            OFF
+-- ASSIMP_ENABLE:                 OFF
+--  
+-- Configuring done (0.3s)
+-- Generating done (0.2s)
+-- Build files have been written to: /workspace/scratch/c05378b96efa/manifold-tangent-scratch-round2/build-tangent-scratch

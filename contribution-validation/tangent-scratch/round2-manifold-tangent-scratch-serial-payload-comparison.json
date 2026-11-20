@@ -1,0 +1,112 @@
+[
+  {
+    "file": "creased_cylinder-input.bin",
+    "equal": true,
+    "sha256": "6f396b945a02176abc772414efc42a52f64e73393cc7db3be95ad0ec0b776c03"
+  },
+  {
+    "file": "creased_cylinder.bin",
+    "equal": true,
+    "sha256": "33f0113fd44f4139bfc90000fcdc22fe53d2f9398469fe1614bb18f02f8cfc2e"
+  },
+  {
+    "file": "empty-input.bin",
+    "equal": true,
+    "sha256": "1d41b0a814a19a975d5007ad2efa94a929b89c718257dbeef49475e97647b062"
+  },
+  {
+    "file": "empty.bin",
+    "equal": true,
+    "sha256": "1d41b0a814a19a975d5007ad2efa94a929b89c718257dbeef49475e97647b062"
+  },
+  {
+    "file": "existing_tangents-input.bin",
+    "equal": true,
+    "sha256": "67f31136b05ae81fe479c2972062ad1ff118af9fd128e144e40ad7e797832807"
+  },
+  {
+    "file": "existing_tangents.bin",
+    "equal": true,
+    "sha256": "67f31136b05ae81fe479c2972062ad1ff118af9fd128e144e40ad7e797832807"
+  },
+  {
+    "file": "faceted_cube-input.bin",
+    "equal": true,
+    "sha256": "f7281e3970079fd07ed6310c8eda75a688dfad92bb69b83351ad4c2b55325a09"
+  },
+  {
+    "file": "faceted_cube.bin",
+    "equal": true,
+    "sha256": "bbb1c4e227b9ebacd5d87e02d2f1d299384191f8873f32d2a71f5bb6273a3e60"
+  },
+  {
+    "file": "high_then_low-input.bin",
+    "equal": true,
+    "sha256": "e2901cbbcce4696594d74e75852e5ac72aafa911235447250566a6717ac784e0"
+  },
+  {
+    "file": "high_then_low.bin",
+    "equal": true,
+    "sha256": "63f37dc775e9a857ae4d26dc37f0c4c3dbdb31258c8465eb74429893eccd5de3"
+  },
+  {
+    "file": "high_valence_cone-input.bin",
+    "equal": true,
+    "sha256": "484edbafe831f3a57d658311aedce961d2edb38d5727fe17bbbe07d821da1256"
+  },
+  {
+    "file": "high_valence_cone.bin",
+    "equal": true,
+    "sha256": "2ab9db1d12a9f4eb716d7ffe02f691adce1b60995ad4b8ff31a91768fd5cfb2c"
+  },
+  {
+    "file": "missing_normals-input.bin",
+    "equal": true,
+    "sha256": "130202308d2343852d9086b7a3dad20427118b5524d3c99b27d1855be0578471"
+  },
+  {
+    "file": "missing_normals.bin",
+    "equal": true,
+    "sha256": "233936a1ba7ea3d0c9d1de266b053caabca352340bf7390cba4fd0291db450a2"
+  },
+  {
+    "file": "partial_normals-input.bin",
+    "equal": true,
+    "sha256": "337ed3abfc30d69057e5fcba4d77d64005b52c4693b40f60bea252f3783c399d"
+  },
+  {
+    "file": "partial_normals.bin",
+    "equal": true,
+    "sha256": "e2f407c10b70671ca723e272bb5554d537b64d556faa3be8cb534b012409860b"
+  },
+  {
+    "file": "sphere_16-input.bin",
+    "equal": true,
+    "sha256": "3d7ab887ab605443a3f9584d40141281bbda0cb4b4b94c6211b4593d479880af"
+  },
+  {
+    "file": "sphere_16.bin",
+    "equal": true,
+    "sha256": "d7698fe075c98369e28549a087b97bb02919f9e6db7ae80d43b910e875853b01"
+  },
+  {
+    "file": "sphere_256-input.bin",
+    "equal": true,
+    "sha256": "49c829be348e4a82c13d4c5c4e27b01db439dae4ad4a017b3944680620808638"
+  },
+  {
+    "file": "sphere_256.bin",
+    "equal": true,
+    "sha256": "9389d8aa2932c48ef756435a6c87f503ccaea5d51affc4b91a651f6e9aa86a1f"
+  },
+  {
+    "file": "sphere_64-input.bin",
+    "equal": true,
+    "sha256": "ad3c108702c1cca26a12ce898b86e78677e10f7c91f69fcfcc5ebe7bf5c89710"
+  },
+  {
+    "file": "sphere_64.bin",
+    "equal": true,
+    "sha256": "67f31136b05ae81fe479c2972062ad1ff118af9fd128e144e40ad7e797832807"
+  }
+]

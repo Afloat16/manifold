@@ -1,0 +1,337 @@
+Note: Google Test filter = Smooth.*:Manifold.*:Properties.*
+[==========] Running 161 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 16 tests from Properties
+[ RUN      ] Properties.Measurements
+[       OK ] Properties.Measurements (0 ms)
+[ RUN      ] Properties.BooleanBarycentricWeightsRemainFinite
+[       OK ] Properties.BooleanBarycentricWeightsRemainFinite (0 ms)
+[ RUN      ] Properties.Epsilon
+[       OK ] Properties.Epsilon (0 ms)
+[ RUN      ] Properties.Epsilon2
+[       OK ] Properties.Epsilon2 (0 ms)
+[ RUN      ] Properties.Tolerance
+[       OK ] Properties.Tolerance (0 ms)
+[ RUN      ] Properties.ToleranceSphere
+[       OK ] Properties.ToleranceSphere (10211 ms)
+[ RUN      ] Properties.ToleranceCylinder
+[       OK ] Properties.ToleranceCylinder (1 ms)
+[ RUN      ] Properties.ToleranceCube
+[       OK ] Properties.ToleranceCube (0 ms)
+[ RUN      ] Properties.CalculateCurvature
+[       OK ] Properties.CalculateCurvature (9 ms)
+[ RUN      ] Properties.CurvatureChannels
+[       OK ] Properties.CurvatureChannels (1 ms)
+[ RUN      ] Properties.CalculateNormals
+[       OK ] Properties.CalculateNormals (2 ms)
+[ RUN      ] Properties.CalculateNormalsWithPropertySeams
+[       OK ] Properties.CalculateNormalsWithPropertySeams (0 ms)
+[ RUN      ] Properties.PropertyIndexTooLarge
+[       OK ] Properties.PropertyIndexTooLarge (0 ms)
+[ RUN      ] Properties.SetPropertiesNegative
+[       OK ] Properties.SetPropertiesNegative (0 ms)
+[ RUN      ] Properties.Coplanar
+[       OK ] Properties.Coplanar (0 ms)
+[ RUN      ] Properties.CalculateCurvatureDeterministic
+[       OK ] Properties.CalculateCurvatureDeterministic (27 ms)
+[----------] 16 tests from Properties (10258 ms total)
+
+[----------] 117 tests from Manifold
+[ RUN      ] Manifold.GetMeshGL
+[       OK ] Manifold.GetMeshGL (0 ms)
+[ RUN      ] Manifold.SharedTopologyCopyIsolation
+[       OK ] Manifold.SharedTopologyCopyIsolation (2 ms)
+[ RUN      ] Manifold.SharedTopologyThrowingCallbacks
+[       OK ] Manifold.SharedTopologyThrowingCallbacks (0 ms)
+[ RUN      ] Manifold.SharedTopologyConcurrentCopies
+[       OK ] Manifold.SharedTopologyConcurrentCopies (12 ms)
+[ RUN      ] Manifold.WarpNonFiniteResults
+[       OK ] Manifold.WarpNonFiniteResults (0 ms)
+[ RUN      ] Manifold.MeshDeterminism
+[       OK ] Manifold.MeshDeterminism (0 ms)
+[ RUN      ] Manifold.Empty
+[       OK ] Manifold.Empty (0 ms)
+[ RUN      ] Manifold.ValidInput
+[       OK ] Manifold.ValidInput (0 ms)
+[ RUN      ] Manifold.ValidInputOneRunIndex
+[       OK ] Manifold.ValidInputOneRunIndex (0 ms)
+[ RUN      ] Manifold.InvalidInput1
+[       OK ] Manifold.InvalidInput1 (0 ms)
+[ RUN      ] Manifold.InvalidInput2
+[       OK ] Manifold.InvalidInput2 (0 ms)
+[ RUN      ] Manifold.InvalidInput3
+[       OK ] Manifold.InvalidInput3 (0 ms)
+[ RUN      ] Manifold.InvalidInput4
+[       OK ] Manifold.InvalidInput4 (0 ms)
+[ RUN      ] Manifold.InvalidInput5
+[       OK ] Manifold.InvalidInput5 (0 ms)
+[ RUN      ] Manifold.InvalidInputOddHalfedgeCount
+[       OK ] Manifold.InvalidInputOddHalfedgeCount (0 ms)
+[ RUN      ] Manifold.InvalidInput6
+[       OK ] Manifold.InvalidInput6 (0 ms)
+[ RUN      ] Manifold.InvalidInput64BitIndex
+[       OK ] Manifold.InvalidInput64BitIndex (0 ms)
+[ RUN      ] Manifold.InvalidInput7
+[       OK ] Manifold.InvalidInput7 (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexPastEnd
+[       OK ] Manifold.InvalidInputRunIndexPastEnd (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexDecreasing
+[       OK ] Manifold.InvalidInputRunIndexDecreasing (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIndexStart
+[       OK ] Manifold.InvalidInputRunIndexStart (0 ms)
+[ RUN      ] Manifold.InvalidInputRunIDsWithoutIndex
+[       OK ] Manifold.InvalidInputRunIDsWithoutIndex (0 ms)
+[ RUN      ] Manifold.InvalidInputShortTangents
+[       OK ] Manifold.InvalidInputShortTangents (0 ms)
+[ RUN      ] Manifold.LongTangents
+[       OK ] Manifold.LongTangents (0 ms)
+[ RUN      ] Manifold.InvalidInputNoProperties
+[       OK ] Manifold.InvalidInputNoProperties (0 ms)
+[ RUN      ] Manifold.ErrorPropagationDecompose
+[       OK ] Manifold.ErrorPropagationDecompose (0 ms)
+[ RUN      ] Manifold.ErrorPropagationHull
+[       OK ] Manifold.ErrorPropagationHull (0 ms)
+[ RUN      ] Manifold.ErrorPropagationHullMulti
+[       OK ] Manifold.ErrorPropagationHullMulti (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSetProperties
+[       OK ] Manifold.ErrorPropagationSetProperties (0 ms)
+[ RUN      ] Manifold.ErrorPropagationCalculateCurvature
+[       OK ] Manifold.ErrorPropagationCalculateCurvature (0 ms)
+[ RUN      ] Manifold.ErrorPropagationCalculateNormals
+[       OK ] Manifold.ErrorPropagationCalculateNormals (0 ms)
+[ RUN      ] Manifold.NormalsCavity
+[       OK ] Manifold.NormalsCavity (2 ms)
+[ RUN      ] Manifold.NormalsRotateBeforeCalc
+[       OK ] Manifold.NormalsRotateBeforeCalc (0 ms)
+[ RUN      ] Manifold.LargeRotationsPreserveVolume
+[       OK ] Manifold.LargeRotationsPreserveVolume (0 ms)
+[ RUN      ] Manifold.NormalsRotateAfterCalc
+[       OK ] Manifold.NormalsRotateAfterCalc (0 ms)
+[ RUN      ] Manifold.NormalsAutoSubstitute
+[       OK ] Manifold.NormalsAutoSubstitute (0 ms)
+[ RUN      ] Manifold.NormalsRoundTrip
+[       OK ] Manifold.NormalsRoundTrip (2 ms)
+[ RUN      ] Manifold.NormalsRefinePreserved
+[       OK ] Manifold.NormalsRefinePreserved (1 ms)
+[ RUN      ] Manifold.NormalsSmoothByNormalsNoArg
+[       OK ] Manifold.NormalsSmoothByNormalsNoArg (0 ms)
+[ RUN      ] Manifold.NormalsNonStandardSlotNotRecorded
+[       OK ] Manifold.NormalsNonStandardSlotNotRecorded (0 ms)
+[ RUN      ] Manifold.NormalsDroppedWithChannels
+[       OK ] Manifold.NormalsDroppedWithChannels (0 ms)
+[ RUN      ] Manifold.NormalsSharedPropVertMixedFlagsUndefined
+[       OK ] Manifold.NormalsSharedPropVertMixedFlagsUndefined (0 ms)
+[ RUN      ] Manifold.GetNormalLegacyContract
+[       OK ] Manifold.GetNormalLegacyContract (0 ms)
+[ RUN      ] Manifold.TransformMixedNormalsPerMeshID
+[       OK ] Manifold.TransformMixedNormalsPerMeshID (0 ms)
+[ RUN      ] Manifold.ComposeMixedNormalsPerMeshID
+[       OK ] Manifold.ComposeMixedNormalsPerMeshID (0 ms)
+[ RUN      ] Manifold.BooleanSubtractMixedQPerMeshIDNegation
+[       OK ] Manifold.BooleanSubtractMixedQPerMeshIDNegation (1 ms)
+[ RUN      ] Manifold.CalculateNormalsNonZeroIdxSurvivesTransform
+[       OK ] Manifold.CalculateNormalsNonZeroIdxSurvivesTransform (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSmoothByNormals
+[       OK ] Manifold.ErrorPropagationSmoothByNormals (0 ms)
+[ RUN      ] Manifold.ErrorPropagationRefine
+[       OK ] Manifold.ErrorPropagationRefine (0 ms)
+[ RUN      ] Manifold.ErrorPropagationAsOriginal
+[       OK ] Manifold.ErrorPropagationAsOriginal (0 ms)
+[ RUN      ] Manifold.ErrorPropagationWarp
+[       OK ] Manifold.ErrorPropagationWarp (0 ms)
+[ RUN      ] Manifold.ErrorPropagationMinkowski
+[       OK ] Manifold.ErrorPropagationMinkowski (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSplitByPlane
+[       OK ] Manifold.ErrorPropagationSplitByPlane (0 ms)
+[ RUN      ] Manifold.ErrorPropagationMirror
+[       OK ] Manifold.ErrorPropagationMirror (0 ms)
+[ RUN      ] Manifold.ErrorPropagationSimplify
+[       OK ] Manifold.ErrorPropagationSimplify (0 ms)
+[ RUN      ] Manifold.ObjRoundTrip
+[       OK ] Manifold.ObjRoundTrip (1 ms)
+[ RUN      ] Manifold.ObjNoTrailingNewline
+[       OK ] Manifold.ObjNoTrailingNewline (0 ms)
+[ RUN      ] Manifold.ObjHugeFaceIndex
+[       OK ] Manifold.ObjHugeFaceIndex (0 ms)
+[ RUN      ] Manifold.OppositeFace
+[       OK ] Manifold.OppositeFace (0 ms)
+[ RUN      ] Manifold.Decompose
+[       OK ] Manifold.Decompose (0 ms)
+[ RUN      ] Manifold.DecomposeGroupsEnclosedNegativeVolume
+[       OK ] Manifold.DecomposeGroupsEnclosedNegativeVolume (0 ms)
+[ RUN      ] Manifold.DecomposeDeeplyNestedVugsAndSeparateSolid
+[       OK ] Manifold.DecomposeDeeplyNestedVugsAndSeparateSolid (0 ms)
+[ RUN      ] Manifold.DecomposeProps
+[       OK ] Manifold.DecomposeProps (0 ms)
+[ RUN      ] Manifold.Sphere
+[       OK ] Manifold.Sphere (2 ms)
+[ RUN      ] Manifold.CircularSegmentsWhileReset
+[       OK ] Manifold.CircularSegmentsWhileReset (110 ms)
+[ RUN      ] Manifold.CircularSegmentsTinyAngle
+[       OK ] Manifold.CircularSegmentsTinyAngle (0 ms)
+[ RUN      ] Manifold.AssignToMovedFrom
+[       OK ] Manifold.AssignToMovedFrom (0 ms)
+[ RUN      ] Manifold.Cylinder
+[       OK ] Manifold.Cylinder (17 ms)
+[ RUN      ] Manifold.CylinderZeroRadiusLow
+[       OK ] Manifold.CylinderZeroRadiusLow (4 ms)
+[ RUN      ] Manifold.CylinderCenter
+[       OK ] Manifold.CylinderCenter (6 ms)
+[ RUN      ] Manifold.ConstructorsOriginalID
+[       OK ] Manifold.ConstructorsOriginalID (0 ms)
+[ RUN      ] Manifold.Extrude
+[       OK ] Manifold.Extrude (0 ms)
+[ RUN      ] Manifold.ExtrudeInvalid
+[       OK ] Manifold.ExtrudeInvalid (0 ms)
+[ RUN      ] Manifold.ShortContours
+[       OK ] Manifold.ShortContours (0 ms)
+[ RUN      ] Manifold.ExtrudeNegativeDivisions
+[       OK ] Manifold.ExtrudeNegativeDivisions (0 ms)
+[ RUN      ] Manifold.ExtrudeSquare
+[       OK ] Manifold.ExtrudeSquare (0 ms)
+[ RUN      ] Manifold.ExtrudeCone
+[       OK ] Manifold.ExtrudeCone (0 ms)
+[ RUN      ] Manifold.Revolve
+[       OK ] Manifold.Revolve (0 ms)
+[ RUN      ] Manifold.Revolve2
+[       OK ] Manifold.Revolve2 (0 ms)
+[ RUN      ] Manifold.Revolve3
+[       OK ] Manifold.Revolve3 (0 ms)
+[ RUN      ] Manifold.RevolveClip
+[       OK ] Manifold.RevolveClip (0 ms)
+[ RUN      ] Manifold.PartialRevolveOnYAxis
+[       OK ] Manifold.PartialRevolveOnYAxis (1 ms)
+[ RUN      ] Manifold.PartialRevolveOffset
+[       OK ] Manifold.PartialRevolveOffset (1 ms)
+[ RUN      ] Manifold.PartialRevolveSmallAngle
+[       OK ] Manifold.PartialRevolveSmallAngle (0 ms)
+[ RUN      ] Manifold.RevolveInvalidAngle
+[       OK ] Manifold.RevolveInvalidAngle (0 ms)
+[ RUN      ] Manifold.RevolveSliceCountOverflow
+[       OK ] Manifold.RevolveSliceCountOverflow (0 ms)
+[ RUN      ] Manifold.RevolveNegativeAngle
+[       OK ] Manifold.RevolveNegativeAngle (1 ms)
+[ RUN      ] Manifold.Warp
+[       OK ] Manifold.Warp (0 ms)
+[ RUN      ] Manifold.Warp2
+[       OK ] Manifold.Warp2 (0 ms)
+[ RUN      ] Manifold.WarpBatch
+[       OK ] Manifold.WarpBatch (0 ms)
+[ RUN      ] Manifold.Project
+[       OK ] Manifold.Project (0 ms)
+[ RUN      ] Manifold.ProjectRefinedSphereContours
+[       OK ] Manifold.ProjectRefinedSphereContours (39 ms)
+[ RUN      ] Manifold.ProjectGrowingContoursAndHoles
+[       OK ] Manifold.ProjectGrowingContoursAndHoles (22 ms)
+[ RUN      ] Manifold.Transform
+[       OK ] Manifold.Transform (0 ms)
+[ RUN      ] Manifold.Slice
+[       OK ] Manifold.Slice (0 ms)
+[ RUN      ] Manifold.SliceEmptyObject
+[       OK ] Manifold.SliceEmptyObject (0 ms)
+[ RUN      ] Manifold.Simplify
+[       OK ] Manifold.Simplify (12 ms)
+[ RUN      ] Manifold.MeshID
+[       OK ] Manifold.MeshID (0 ms)
+[ RUN      ] Manifold.MeshRelation
+[       OK ] Manifold.MeshRelation (8 ms)
+[ RUN      ] Manifold.MeshRelationTransform
+[       OK ] Manifold.MeshRelationTransform (0 ms)
+[ RUN      ] Manifold.MeshRelationRefine
+[       OK ] Manifold.MeshRelationRefine (11 ms)
+[ RUN      ] Manifold.MeshRelationRefinePrecision
+[       OK ] Manifold.MeshRelationRefinePrecision (4 ms)
+[ RUN      ] Manifold.MeshGLRoundTrip
+[       OK ] Manifold.MeshGLRoundTrip (0 ms)
+[ RUN      ] Manifold.Merge
+[       OK ] Manifold.Merge (0 ms)
+[ RUN      ] Manifold.MergeTolerance
+[       OK ] Manifold.MergeTolerance (0 ms)
+[ RUN      ] Manifold.MergeCollapsedEdgeParity
+[       OK ] Manifold.MergeCollapsedEdgeParity (0 ms)
+[ RUN      ] Manifold.MergeEmpty
+[       OK ] Manifold.MergeEmpty (0 ms)
+[ RUN      ] Manifold.PinchedVert
+[       OK ] Manifold.PinchedVert (0 ms)
+[ RUN      ] Manifold.FaceIDRoundTrip
+[       OK ] Manifold.FaceIDRoundTrip (0 ms)
+[ RUN      ] Manifold.MirrorUnion
+[       OK ] Manifold.MirrorUnion (0 ms)
+[ RUN      ] Manifold.MirrorUnion2
+[       OK ] Manifold.MirrorUnion2 (0 ms)
+[ RUN      ] Manifold.MirroredNormals
+[       OK ] Manifold.MirroredNormals (0 ms)
+[ RUN      ] Manifold.Invalid
+[       OK ] Manifold.Invalid (0 ms)
+[ RUN      ] Manifold.MergeDegenerates
+[       OK ] Manifold.MergeDegenerates (0 ms)
+[ RUN      ] Manifold.MergeRefine
+[       OK ] Manifold.MergeRefine (1 ms)
+[ RUN      ] Manifold.DeepChainDoesNotOverflowNumLeaves
+[       OK ] Manifold.DeepChainDoesNotOverflowNumLeaves (4197 ms)
+[ RUN      ] Manifold.DedupeEdgesNeverMovesACorner
+[       OK ] Manifold.DedupeEdgesNeverMovesACorner (4 ms)
+[----------] 117 tests from Manifold (4488 ms total)
+
+[----------] 28 tests from Smooth
+[ RUN      ] Smooth.Tetrahedron
+[       OK ] Smooth.Tetrahedron (34 ms)
+[ RUN      ] Smooth.RefineQuads
+[       OK ] Smooth.RefineQuads (28 ms)
+[ RUN      ] Smooth.TruncatedCone
+[       OK ] Smooth.TruncatedCone (8 ms)
+[ RUN      ] Smooth.ToLength
+[       OK ] Smooth.ToLength (178 ms)
+[ RUN      ] Smooth.Sphere
+[       OK ] Smooth.Sphere (104 ms)
+[ RUN      ] Smooth.Precision
+[       OK ] Smooth.Precision (49 ms)
+[ RUN      ] Smooth.Normals
+[       OK ] Smooth.Normals (159 ms)
+[ RUN      ] Smooth.FacetedNormals
+[       OK ] Smooth.FacetedNormals (388 ms)
+[ RUN      ] Smooth.NormalTransform
+[       OK ] Smooth.NormalTransform (4 ms)
+[ RUN      ] Smooth.MissingNormals
+[       OK ] Smooth.MissingNormals (0 ms)
+[ RUN      ] Smooth.MissingNormalsCone
+[       OK ] Smooth.MissingNormalsCone (1 ms)
+[ RUN      ] Smooth.OperandOrder
+[       OK ] Smooth.OperandOrder (34 ms)
+[ RUN      ] Smooth.Fillet
+[       OK ] Smooth.Fillet (6 ms)
+[ RUN      ] Smooth.Fillet2
+[       OK ] Smooth.Fillet2 (6 ms)
+[ RUN      ] Smooth.Manual
+[       OK ] Smooth.Manual (60 ms)
+[ RUN      ] Smooth.ExportTangentsFollowTriangleRuns
+[       OK ] Smooth.ExportTangentsFollowTriangleRuns (315 ms)
+[ RUN      ] Smooth.InvalidTangents
+[       OK ] Smooth.InvalidTangents (0 ms)
+[ RUN      ] Smooth.NormalIdxOutOfRange
+[       OK ] Smooth.NormalIdxOutOfRange (0 ms)
+[ RUN      ] Smooth.Mirrored
+[       OK ] Smooth.Mirrored (0 ms)
+[ RUN      ] Smooth.Csaszar
+[       OK ] Smooth.Csaszar (134 ms)
+[ RUN      ] Smooth.Torus
+[       OK ] Smooth.Torus (13 ms)
+[ RUN      ] Smooth.SDF
+[       OK ] Smooth.SDF (1947 ms)
+[ RUN      ] Smooth.RefineInvalid
+[       OK ] Smooth.RefineInvalid (0 ms)
+[ RUN      ] Smooth.RefineTooLarge
+[       OK ] Smooth.RefineTooLarge (0 ms)
+[ RUN      ] Smooth.RefinePropertiesTooLarge
+[       OK ] Smooth.RefinePropertiesTooLarge (0 ms)
+[ RUN      ] Smooth.SphereTooLarge
+[       OK ] Smooth.SphereTooLarge (0 ms)
+[ RUN      ] Smooth.RefineFlatTriangles
+[       OK ] Smooth.RefineFlatTriangles (797 ms)
+[ RUN      ] Smooth.RefineLongEdges
+[       OK ] Smooth.RefineLongEdges (327 ms)
+[----------] 28 tests from Smooth (4608 ms total)
+
+[----------] Global test environment tear-down
+[==========] 161 tests from 3 test suites ran. (19355 ms total)
+[  PASSED  ] 161 tests.
